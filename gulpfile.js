@@ -14,7 +14,7 @@ const SLIDES = [
   },
   {
     slug: "swerve",
-    files: ["index.md", "swerve.md", "paths.md"],
+    files: ["index.md", "swerve.md", "swerve-math.md", "paths.md"],
   },
 ];
 
