@@ -5,7 +5,7 @@ author: Stryke Force
 
 A short introdution to formatting slides for our classroom presentations. For more in-depth information, see the [Pandoc User's Guide](https://pandoc.org/MANUAL.html).
 
-The source code for this presentation is available at <https://github.com/strykeforce/classroom/src/slides>
+The source code for this presentation is available at <https://github.com/strykeforce/classroom>
 
 ## Structuring the Slide Show
 
