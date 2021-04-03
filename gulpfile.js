@@ -9,8 +9,8 @@ const LEVEL = 2;
 
 const SLIDES = [
   {
-    slug: "markdown",
-    files: ["index.md", "colophone.md"],
+    slug: "slides",
+    files: ["index.md", "appendix.md"],
   },
   {
     slug: "swerve",
@@ -55,6 +55,7 @@ const buildSlides = async (slug, files) => {
   log(`building slides in ${srcDir}`);
 
   const args = [
+    "--from=markdown",
     "--to=revealjs",
     "--standalone",
     "--variable=revealjs-url:../static/reveal.js",
@@ -75,7 +76,7 @@ const copyImages = (slug) => {
 
   log(`copying images to ${destDir}`);
 
-  return src(`${srcDir}/img/*`).pipe(dest(`${destDir}/img`));
+  return src(`${srcDir}/img/**/*`).pipe(dest(`${destDir}/img`));
 };
 
 const revealJS = parallel(copyRevealJSDist, copyRevealJSPlugins);

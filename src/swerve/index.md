@@ -1,5 +1,5 @@
 ---
-title: Autonomous Pathfinding
+title: Swerve Drive
 author: Stryke Force
 ---
 
@@ -9,7 +9,7 @@ author: Stryke Force
 
 - Motors & Controllers
 - Drive
-- Azimuth
+- Azimuth - turnz
 
 Put a picture here.
 
