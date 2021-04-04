@@ -114,4 +114,16 @@ Produces this:
 
 ## Images
 
-![Placeholder Image](img/placeholder.svg)
+## Swerve Directions Full{data-background-image=="img/swerve-directions/full-screen.svg"}
+
+## Swerve Directions Full
+
+![swerve directions](../swerve/img/swerve-directions/full-screen.svg)\
+
+## Swerve Directions 75%
+
+![swerve directions](../swerve/img/swerve-directions/0.75-screen.svg)\
+
+## Swerve Directions 50%
+
+![swerve directions](../swerve/img/swerve-directions/0.50-screen.svg)\

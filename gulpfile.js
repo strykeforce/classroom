@@ -3,9 +3,11 @@ const { src, dest, parallel, series, lastRun, watch } = require("gulp");
 const execa = require("execa");
 const log = require("fancy-log");
 
-const THEME = "moon";
+const THEME = "white";
 const HIGHLIGHT = "zenburn";
 const LEVEL = 2;
+const WIDTH = 3072 * 0.75;
+const HEIGHT = 1920 * 0.75;
 
 const SLIDES = [
   {
@@ -62,6 +64,8 @@ const buildSlides = async (slug, files) => {
     `--slide-level=${LEVEL}`,
     `--variable=theme:${THEME}`,
     `--highlight-style=${HIGHLIGHT}`,
+    `--variable=width:${WIDTH}`,
+    `--variable=height:${HEIGHT}`,
     `--output=build/${slug}/index.html`,
   ];
 
