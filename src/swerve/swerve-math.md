@@ -6,18 +6,32 @@ There are three components to swerve drive motion.
 
 ![swerve directions](img/swerve-math/directions.svg)\
 
+The red arrows indicate the **speed** and **direction** each wheel is pushing.
+
+We call this the **velocity vector** of the wheel.
+
 ## Swerve Motion
 
-These components can be combined together.
-
-In this example, equal amounts of foward and strafe input drive the robot at 45° across the field.
+These separate components can be combined together.
 
 ![forward+strafe](img/swerve-math/forward+strafe.svg)\
 
+In this example, equal amounts of **forward** and **strafe** input drive the robot at 45° across the field.
+
 ## Swerve Motion
 
-All three can be combined together to produce complex motion.
-
-In this example, equal amounts of foward, strafe and yaw input drive the robot at 45° across the field while yawing.
+All three components can be combined together to produce complex motion.
 
 ![forward+strafe](img/swerve-math/forward+strafe+yaw.svg)\
+
+In this example, equal amounts of **forward**, **strafe** and **yaw** input drive the robot across the field while yawing.
+
+## Swerve Yaw Component
+
+When the robot yaws, the wheels are positioned perpendicular to the center of the robot.
+
+Note that this is not 45° if the robot isn't square.
+
+![frame aspect ration](img/swerve-math/frame-aspect.svg)\
+
+We call the ratio between the width and height of a rectangle its **aspect ratio**.

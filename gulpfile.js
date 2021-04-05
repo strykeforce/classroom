@@ -6,8 +6,8 @@ const log = require("fancy-log");
 const THEME = "white";
 const HIGHLIGHT = "zenburn";
 const LEVEL = 2;
-const WIDTH = 3072 * 0.75;
-const HEIGHT = 1920 * 0.75;
+const WIDTH = 3072 * 0.6;
+const HEIGHT = 1920 * 0.6;
 
 const SLIDES = [
   {
