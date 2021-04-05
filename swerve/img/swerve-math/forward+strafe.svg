@@ -1,0 +1,356 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xl="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" xmlns:dc="http://purl.org/dc/elements/1.1/" version="1.1" viewBox="-136 897 3072 960" width="3072" height="960">
+  <defs>
+    <clipPath id="artboard_clip_path">
+      <path d="M -136 897 L 2936 897 L 2936 1857 L -136 1857 Z"/>
+    </clipPath>
+    <font-face font-family="Helvetica Neue" font-size="36" panose-1="2 0 5 3 0 0 0 2 0 4" units-per-em="1000" underline-position="-100" underline-thickness="50" slope="0" x-height="517" cap-height="714" ascent="951.9958" descent="-212.99744" font-weight="400">
+      <font-face-src>
+        <font-face-name name="HelveticaNeue"/>
+      </font-face-src>
+    </font-face>
+    <marker orient="auto" overflow="visible" markerUnits="strokeWidth" id="HalfStickArrow_Marker" stroke-linejoin="miter" stroke-miterlimit="10" viewBox="-1 -1 10 5" markerWidth="10" markerHeight="5" color="#7f8080">
+      <g>
+        <path d="M 8 0 L 0 0 M 0 3 L 8 0" fill="none" stroke="currentColor" stroke-width="1"/>
+      </g>
+    </marker>
+    <marker orient="auto" overflow="visible" markerUnits="strokeWidth" id="FilledArrow_Marker" stroke-linejoin="miter" stroke-miterlimit="10" viewBox="-1 -3 6 6" markerWidth="6" markerHeight="6" color="#ff2600">
+      <g>
+        <path d="M 3.2 0 L 0 -1.2 L 0 1.2 Z" fill="currentColor" stroke="currentColor" stroke-width="1"/>
+      </g>
+    </marker>
+    <marker orient="auto" overflow="visible" markerUnits="strokeWidth" id="FilledBall_Marker" stroke-linejoin="miter" stroke-miterlimit="10" viewBox="-4 -3 5 6" markerWidth="5" markerHeight="6" color="#ff2600">
+      <g>
+        <circle cx="-1.1999995" cy="0" r="1.19999893947333" fill="currentColor" stroke="currentColor" stroke-width="1"/>
+      </g>
+    </marker>
+    <marker orient="auto" overflow="visible" markerUnits="strokeWidth" id="FilledArrow_Marker_2" stroke-linejoin="miter" stroke-miterlimit="10" viewBox="-1 -2 5 4" markerWidth="5" markerHeight="4" color="#310067">
+      <g>
+        <path d="M 2.4 0 L 0 -.9 L 0 .9 Z" fill="currentColor" stroke="currentColor" stroke-width="1"/>
+      </g>
+    </marker>
+    <marker orient="auto" overflow="visible" markerUnits="strokeWidth" id="FilledBall_Marker_2" stroke-linejoin="miter" stroke-miterlimit="10" viewBox="-3 -2 4 4" markerWidth="4" markerHeight="4" color="#310067">
+      <g>
+        <circle cx="-.8999996" cy="0" r="0.899999204604996" fill="currentColor" stroke="currentColor" stroke-width="1"/>
+      </g>
+    </marker>
+    <font-face font-family="Helvetica Neue" font-size="256" panose-1="2 0 5 3 0 0 0 2 0 4" units-per-em="1000" underline-position="-100" underline-thickness="50" slope="0" x-height="517" cap-height="714" ascent="951.9958" descent="-212.99744" font-weight="400">
+      <font-face-src>
+        <font-face-name name="HelveticaNeue"/>
+      </font-face-src>
+    </font-face>
+  </defs>
+  <metadata> Produced by OmniGraffle 7.18.4\n2021-04-05 10:46:15 +0000</metadata>
+  <g id="forward+strafe" stroke="none" fill-opacity="1" stroke-dasharray="none" fill="none" stroke-opacity="1">
+    <title>forward+strafe</title>
+    <rect fill="white" x="-136" y="897" width="3072" height="960"/>
+    <g id="forward+strafe_Layer_1" clip-path="url(#artboard_clip_path)">
+      <title>Layer 1</title>
+      <g id="Group_109">
+        <g id="Graphic_6">
+          <text transform="translate(2241.066 1558.6192)" fill="black">
+            <tspan font-family="Helvetica Neue" font-size="36" font-weight="400" fill="black" x="22737368e-20" y="34">Forward + Strafe</tspan>
+          </text>
+        </g>
+        <g id="Group_108">
+          <g id="Group_107">
+            <g id="Graphic_33">
+              <title>Outer Frame</title>
+              <rect x="2178.8194" y="1180.6192" width="357" height="357" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+            </g>
+            <g id="Graphic_32">
+              <title>Inner Frame</title>
+              <path d="M 2225.9495 1227.7493 L 2488.6892 1227.7493 L 2488.6892 1490.489 L 2225.9495 1490.489 Z" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="1.0,3.0" stroke-width="1"/>
+            </g>
+          </g>
+          <g id="Group_29">
+            <title>Axes</title>
+            <g id="Line_31">
+              <title>Strafe</title>
+              <line x1="2383.8234" y1="1359.1192" x2="2330.8154" y2="1359.1192" stroke="#7f8080" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+            </g>
+            <g id="Line_30">
+              <title>Forward</title>
+              <line x1="2357.3194" y1="1385.6232" x2="2357.3194" y2="1342.5152" marker-end="url(#HalfStickArrow_Marker)" stroke="#7f8080" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+            </g>
+          </g>
+          <g id="Group_25">
+            <title>Wheel</title>
+            <g id="Line_27">
+              <title>Axle</title>
+              <path d="M 2201.418 1203.4679 L 2243.787 1245.8583 L 2249.8977 1251.9475" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+            </g>
+            <g id="Graphic_26">
+              <title>Wheel</title>
+              <path d="M 2243.3356 1191.3624 L 2262.0032 1210.03 C 2263.1748 1211.2016 2263.1748 1213.1011 2262.0032 1214.2727 L 2212.223 1264.053 C 2211.0513 1265.2245 2209.1518 1265.2245 2207.9803 1264.053 C 2207.9803 1264.053 2207.9803 1264.053 2207.9803 1264.053 L 2189.3126 1245.3853 C 2188.141 1244.2138 2188.141 1242.3143 2189.3126 1241.1427 L 2239.093 1191.3624 C 2240.2645 1190.1908 2242.164 1190.1908 2243.3356 1191.3624 C 2243.3356 1191.3624 2243.3356 1191.3624 2243.3356 1191.3624 Z" fill="#ccc"/>
+              <path d="M 2243.3356 1191.3624 L 2262.0032 1210.03 C 2263.1748 1211.2016 2263.1748 1213.1011 2262.0032 1214.2727 L 2212.223 1264.053 C 2211.0513 1265.2245 2209.1518 1265.2245 2207.9803 1264.053 C 2207.9803 1264.053 2207.9803 1264.053 2207.9803 1264.053 L 2189.3126 1245.3853 C 2188.141 1244.2138 2188.141 1242.3143 2189.3126 1241.1427 L 2239.093 1191.3624 C 2240.2645 1190.1908 2242.164 1190.1908 2243.3356 1191.3624 C 2243.3356 1191.3624 2243.3356 1191.3624 2243.3356 1191.3624 Z" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+            </g>
+          </g>
+          <g id="Line_24">
+            <title>Velocity Vector</title>
+            <line x1="2229.547" y1="1224.5257" x2="2278.691" y2="1175.3818" marker-end="url(#FilledArrow_Marker)" marker-start="url(#FilledBall_Marker)" stroke="#ff2600" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"/>
+          </g>
+          <g id="Group_20">
+            <title>Wheel</title>
+            <g id="Line_22">
+              <title>Axle</title>
+              <path d="M 2463.418 1203.4679 L 2505.787 1245.8583 L 2511.8977 1251.9475" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+            </g>
+            <g id="Graphic_21">
+              <title>Wheel</title>
+              <path d="M 2505.3356 1191.3624 L 2524.0032 1210.03 C 2525.1748 1211.2016 2525.1748 1213.1011 2524.0032 1214.2727 L 2474.223 1264.053 C 2473.0513 1265.2245 2471.1518 1265.2245 2469.9803 1264.053 C 2469.9803 1264.053 2469.9803 1264.053 2469.9803 1264.053 L 2451.3126 1245.3853 C 2450.141 1244.2138 2450.141 1242.3143 2451.3126 1241.1427 L 2501.093 1191.3624 C 2502.2645 1190.1908 2504.164 1190.1908 2505.3356 1191.3624 C 2505.3356 1191.3624 2505.3356 1191.3624 2505.3356 1191.3624 Z" fill="#ccc"/>
+              <path d="M 2505.3356 1191.3624 L 2524.0032 1210.03 C 2525.1748 1211.2016 2525.1748 1213.1011 2524.0032 1214.2727 L 2474.223 1264.053 C 2473.0513 1265.2245 2471.1518 1265.2245 2469.9803 1264.053 C 2469.9803 1264.053 2469.9803 1264.053 2469.9803 1264.053 L 2451.3126 1245.3853 C 2450.141 1244.2138 2450.141 1242.3143 2451.3126 1241.1427 L 2501.093 1191.3624 C 2502.2645 1190.1908 2504.164 1190.1908 2505.3356 1191.3624 C 2505.3356 1191.3624 2505.3356 1191.3624 2505.3356 1191.3624 Z" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+            </g>
+          </g>
+          <g id="Line_19">
+            <title>Velocity Vector</title>
+            <line x1="2491.547" y1="1224.5257" x2="2540.691" y2="1175.3818" marker-end="url(#FilledArrow_Marker)" marker-start="url(#FilledBall_Marker)" stroke="#ff2600" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"/>
+          </g>
+          <g id="Group_15">
+            <title>Wheel</title>
+            <g id="Line_17">
+              <title>Axle</title>
+              <path d="M 2463.418 1465.4923 L 2505.787 1507.8827 L 2511.8977 1513.9719" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+            </g>
+            <g id="Graphic_16">
+              <title>Wheel</title>
+              <path d="M 2505.3356 1453.3868 L 2524.0032 1472.0544 C 2525.1748 1473.226 2525.1748 1475.1255 2524.0032 1476.297 L 2474.223 1526.0774 C 2473.0513 1527.249 2471.1518 1527.249 2469.9803 1526.0774 C 2469.9803 1526.0774 2469.9803 1526.0774 2469.9803 1526.0774 L 2451.3126 1507.4097 C 2450.141 1506.2382 2450.141 1504.3387 2451.3126 1503.1671 L 2501.093 1453.3868 C 2502.2645 1452.2152 2504.164 1452.2152 2505.3356 1453.3868 C 2505.3356 1453.3868 2505.3356 1453.3868 2505.3356 1453.3868 Z" fill="#ccc"/>
+              <path d="M 2505.3356 1453.3868 L 2524.0032 1472.0544 C 2525.1748 1473.226 2525.1748 1475.1255 2524.0032 1476.297 L 2474.223 1526.0774 C 2473.0513 1527.249 2471.1518 1527.249 2469.9803 1526.0774 C 2469.9803 1526.0774 2469.9803 1526.0774 2469.9803 1526.0774 L 2451.3126 1507.4097 C 2450.141 1506.2382 2450.141 1504.3387 2451.3126 1503.1671 L 2501.093 1453.3868 C 2502.2645 1452.2152 2504.164 1452.2152 2505.3356 1453.3868 C 2505.3356 1453.3868 2505.3356 1453.3868 2505.3356 1453.3868 Z" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+            </g>
+          </g>
+          <g id="Line_14">
+            <title>Velocity Vector</title>
+            <line x1="2491.547" y1="1486.55" x2="2540.691" y2="1437.4062" marker-end="url(#FilledArrow_Marker)" marker-start="url(#FilledBall_Marker)" stroke="#ff2600" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"/>
+          </g>
+          <g id="Group_10">
+            <title>Wheel</title>
+            <g id="Line_12">
+              <title>Axle</title>
+              <path d="M 2201.418 1466.4679 L 2243.787 1508.8583 L 2249.8977 1514.9475" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+            </g>
+            <g id="Graphic_11">
+              <title>Wheel</title>
+              <path d="M 2243.3356 1454.3624 L 2262.0032 1473.03 C 2263.1748 1474.2016 2263.1748 1476.101 2262.0032 1477.2727 L 2212.223 1527.053 C 2211.0513 1528.2245 2209.1518 1528.2245 2207.9803 1527.053 C 2207.9803 1527.053 2207.9803 1527.053 2207.9803 1527.053 L 2189.3126 1508.3853 C 2188.141 1507.2138 2188.141 1505.3143 2189.3126 1504.1427 L 2239.093 1454.3624 C 2240.2645 1453.1908 2242.164 1453.1908 2243.3356 1454.3624 C 2243.3356 1454.3624 2243.3356 1454.3624 2243.3356 1454.3624 Z" fill="#ccc"/>
+              <path d="M 2243.3356 1454.3624 L 2262.0032 1473.03 C 2263.1748 1474.2016 2263.1748 1476.101 2262.0032 1477.2727 L 2212.223 1527.053 C 2211.0513 1528.2245 2209.1518 1528.2245 2207.9803 1527.053 C 2207.9803 1527.053 2207.9803 1527.053 2207.9803 1527.053 L 2189.3126 1508.3853 C 2188.141 1507.2138 2188.141 1505.3143 2189.3126 1504.1427 L 2239.093 1454.3624 C 2240.2645 1453.1908 2242.164 1453.1908 2243.3356 1454.3624 C 2243.3356 1454.3624 2243.3356 1454.3624 2243.3356 1454.3624 Z" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+            </g>
+          </g>
+          <g id="Line_9">
+            <title>Velocity Vector</title>
+            <line x1="2229.547" y1="1487.5257" x2="2278.691" y2="1438.3818" marker-end="url(#FilledArrow_Marker)" marker-start="url(#FilledBall_Marker)" stroke="#ff2600" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"/>
+          </g>
+          <g id="Line_5">
+            <title>Velocity Vector</title>
+            <line x1="2361.44" y1="1353.6745" x2="2432.6458" y2="1282.4688" marker-end="url(#FilledArrow_Marker_2)" marker-start="url(#FilledBall_Marker_2)" stroke="#310067" stroke-linecap="round" stroke-linejoin="round" stroke-width="8"/>
+          </g>
+        </g>
+      </g>
+      <g id="Group_103">
+        <g id="Graphic_69">
+          <text transform="translate(372.30345 1563.2098)" fill="black">
+            <tspan font-family="Helvetica Neue" font-size="36" font-weight="400" fill="black" x="0" y="34">Forward</tspan>
+          </text>
+        </g>
+        <g id="Group_102">
+          <g id="Group_101">
+            <g id="Graphic_96">
+              <title>Outer Frame</title>
+              <rect x="254" y="1188.7822" width="357" height="357" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+            </g>
+            <g id="Graphic_95">
+              <title>Inner Frame</title>
+              <path d="M 301.13014 1235.9123 L 563.86986 1235.9123 L 563.86986 1498.652 L 301.13014 1498.652 Z" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="1.0,3.0" stroke-width="1"/>
+            </g>
+          </g>
+          <g id="Group_92">
+            <title>Axes</title>
+            <g id="Line_94">
+              <title>Strafe</title>
+              <line x1="459.004" y1="1367.2822" x2="405.996" y2="1367.2822" stroke="#7f8080" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+            </g>
+            <g id="Line_93">
+              <title>Forward</title>
+              <line x1="432.5" y1="1393.7862" x2="432.5" y2="1350.6782" marker-end="url(#HalfStickArrow_Marker)" stroke="#7f8080" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+            </g>
+          </g>
+          <g id="Group_88">
+            <title>Wheel</title>
+            <g id="Line_90">
+              <title>Axle</title>
+              <path d="M 265 1236.1822 L 324.9339 1236.1975 L 333.56055 1236.1822" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+            </g>
+            <g id="Graphic_89">
+              <title>Wheel</title>
+              <path d="M 286.08027 1197.9822 L 312.48028 1197.9822 C 314.13713 1197.9822 315.48028 1199.3253 315.48028 1200.9822 L 315.48028 1271.3822 C 315.48028 1273.039 314.13713 1274.3822 312.48028 1274.3822 L 286.08027 1274.3822 C 284.42342 1274.3822 283.08027 1273.039 283.08027 1271.3822 L 283.08027 1200.9822 C 283.08027 1199.3253 284.42342 1197.9822 286.08027 1197.9822 Z" fill="#ccc"/>
+              <path d="M 286.08027 1197.9822 L 312.48028 1197.9822 C 314.13713 1197.9822 315.48028 1199.3253 315.48028 1200.9822 L 315.48028 1271.3822 C 315.48028 1273.039 314.13713 1274.3822 312.48028 1274.3822 L 286.08027 1274.3822 C 284.42342 1274.3822 283.08027 1273.039 283.08027 1271.3822 L 283.08027 1200.9822 C 283.08027 1199.3253 284.42342 1197.9822 286.08027 1197.9822 Z" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+            </g>
+          </g>
+          <g id="Line_87">
+            <title>Velocity Vector</title>
+            <line x1="299.78028" y1="1231.1822" x2="299.78028" y2="1161.6822" marker-end="url(#FilledArrow_Marker)" marker-start="url(#FilledBall_Marker)" stroke="#ff2600" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"/>
+          </g>
+          <g id="Group_83">
+            <title>Wheel</title>
+            <g id="Line_85">
+              <title>Axle</title>
+              <path d="M 527 1236.1822 L 586.9339 1236.1975 L 595.56055 1236.1822" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+            </g>
+            <g id="Graphic_84">
+              <title>Wheel</title>
+              <path d="M 548.0803 1197.9822 L 574.4803 1197.9822 C 576.1371 1197.9822 577.4803 1199.3253 577.4803 1200.9822 L 577.4803 1271.3822 C 577.4803 1273.039 576.1371 1274.3822 574.4803 1274.3822 L 548.0803 1274.3822 C 546.4234 1274.3822 545.0803 1273.039 545.0803 1271.3822 L 545.0803 1200.9822 C 545.0803 1199.3253 546.4234 1197.9822 548.0803 1197.9822 Z" fill="#ccc"/>
+              <path d="M 548.0803 1197.9822 L 574.4803 1197.9822 C 576.1371 1197.9822 577.4803 1199.3253 577.4803 1200.9822 L 577.4803 1271.3822 C 577.4803 1273.039 576.1371 1274.3822 574.4803 1274.3822 L 548.0803 1274.3822 C 546.4234 1274.3822 545.0803 1273.039 545.0803 1271.3822 L 545.0803 1200.9822 C 545.0803 1199.3253 546.4234 1197.9822 548.0803 1197.9822 Z" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+            </g>
+          </g>
+          <g id="Line_82">
+            <title>Velocity Vector</title>
+            <line x1="561.7803" y1="1231.1822" x2="561.7803" y2="1161.6822" marker-end="url(#FilledArrow_Marker)" marker-start="url(#FilledBall_Marker)" stroke="#ff2600" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"/>
+          </g>
+          <g id="Group_78">
+            <title>Wheel</title>
+            <g id="Line_80">
+              <title>Axle</title>
+              <path d="M 527 1499.1822 L 586.9339 1499.1975 L 595.56055 1499.1822" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+            </g>
+            <g id="Graphic_79">
+              <title>Wheel</title>
+              <path d="M 548.0803 1460.9822 L 574.4803 1460.9822 C 576.1371 1460.9822 577.4803 1462.3253 577.4803 1463.9822 L 577.4803 1534.3822 C 577.4803 1536.039 576.1371 1537.3822 574.4803 1537.3822 L 548.0803 1537.3822 C 546.4234 1537.3822 545.0803 1536.039 545.0803 1534.3822 L 545.0803 1463.9822 C 545.0803 1462.3253 546.4234 1460.9822 548.0803 1460.9822 Z" fill="#ccc"/>
+              <path d="M 548.0803 1460.9822 L 574.4803 1460.9822 C 576.1371 1460.9822 577.4803 1462.3253 577.4803 1463.9822 L 577.4803 1534.3822 C 577.4803 1536.039 576.1371 1537.3822 574.4803 1537.3822 L 548.0803 1537.3822 C 546.4234 1537.3822 545.0803 1536.039 545.0803 1534.3822 L 545.0803 1463.9822 C 545.0803 1462.3253 546.4234 1460.9822 548.0803 1460.9822 Z" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+            </g>
+          </g>
+          <g id="Line_77">
+            <title>Velocity Vector</title>
+            <line x1="561.7803" y1="1494.1822" x2="561.7803" y2="1424.6822" marker-end="url(#FilledArrow_Marker)" marker-start="url(#FilledBall_Marker)" stroke="#ff2600" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"/>
+          </g>
+          <g id="Group_73">
+            <title>Wheel</title>
+            <g id="Line_75">
+              <title>Axle</title>
+              <path d="M 265 1499.1822 L 324.9339 1499.1975 L 333.56055 1499.1822" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+            </g>
+            <g id="Graphic_74">
+              <title>Wheel</title>
+              <path d="M 286.08027 1460.9822 L 312.48028 1460.9822 C 314.13713 1460.9822 315.48028 1462.3253 315.48028 1463.9822 L 315.48028 1534.3822 C 315.48028 1536.039 314.13713 1537.3822 312.48028 1537.3822 L 286.08027 1537.3822 C 284.42342 1537.3822 283.08027 1536.039 283.08027 1534.3822 L 283.08027 1463.9822 C 283.08027 1462.3253 284.42342 1460.9822 286.08027 1460.9822 Z" fill="#ccc"/>
+              <path d="M 286.08027 1460.9822 L 312.48028 1460.9822 C 314.13713 1460.9822 315.48028 1462.3253 315.48028 1463.9822 L 315.48028 1534.3822 C 315.48028 1536.039 314.13713 1537.3822 312.48028 1537.3822 L 286.08027 1537.3822 C 284.42342 1537.3822 283.08027 1536.039 283.08027 1534.3822 L 283.08027 1463.9822 C 283.08027 1462.3253 284.42342 1460.9822 286.08027 1460.9822 Z" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+            </g>
+          </g>
+          <g id="Line_72">
+            <title>Velocity Vector</title>
+            <line x1="299.78028" y1="1494.1822" x2="299.78028" y2="1424.6822" marker-end="url(#FilledArrow_Marker)" marker-start="url(#FilledBall_Marker)" stroke="#ff2600" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"/>
+          </g>
+          <g id="Line_68">
+            <title>Velocity Vector</title>
+            <line x1="432" y1="1359.6735" x2="432" y2="1258.9735" marker-end="url(#FilledArrow_Marker_2)" marker-start="url(#FilledBall_Marker_2)" stroke="#310067" stroke-linecap="round" stroke-linejoin="round" stroke-width="8"/>
+          </g>
+        </g>
+      </g>
+      <g id="Group_106">
+        <g id="Graphic_39">
+          <text transform="translate(1201.6113 1550.8197)" fill="black">
+            <tspan font-family="Helvetica Neue" font-size="36" font-weight="400" fill="black" x="0" y="34">Strafe</tspan>
+          </text>
+        </g>
+        <g id="Group_105">
+          <g id="Group_104">
+            <g id="Graphic_66">
+              <title>Outer Frame</title>
+              <rect x="1079.0044" y="1159.392" width="357" height="357" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+            </g>
+            <g id="Graphic_65">
+              <title>Inner Frame</title>
+              <path d="M 1388.8743 1206.5222 L 1388.8743 1469.2619 L 1126.1345 1469.2619 L 1126.1345 1206.5222 Z" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="1.0,3.0" stroke-width="1"/>
+            </g>
+          </g>
+          <g id="Group_62">
+            <title>Axes</title>
+            <g id="Line_64">
+              <title>Strafe</title>
+              <line x1="1257.5044" y1="1364.396" x2="1257.5044" y2="1311.388" stroke="#7f8080" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+            </g>
+            <g id="Line_63">
+              <title>Forward</title>
+              <line x1="1231.0004" y1="1337.892" x2="1274.1084" y2="1337.892" marker-end="url(#HalfStickArrow_Marker)" stroke="#7f8080" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+            </g>
+          </g>
+          <g id="Group_58">
+            <title>Wheel</title>
+            <g id="Line_60">
+              <title>Axle</title>
+              <path d="M 1388.6044 1170.392 L 1388.5891 1230.3259 L 1388.6044 1238.9526" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+            </g>
+            <g id="Graphic_59">
+              <title>Wheel</title>
+              <path d="M 1426.8044 1191.4723 L 1426.8044 1217.8723 C 1426.8044 1219.5292 1425.4613 1220.8723 1423.8044 1220.8723 L 1353.4044 1220.8723 C 1351.7475 1220.8723 1350.4044 1219.5292 1350.4044 1217.8723 L 1350.4044 1191.4723 C 1350.4044 1189.8154 1351.7475 1188.4723 1353.4044 1188.4723 L 1423.8044 1188.4723 C 1425.4613 1188.4723 1426.8044 1189.8154 1426.8044 1191.4723 Z" fill="#ccc"/>
+              <path d="M 1426.8044 1191.4723 L 1426.8044 1217.8723 C 1426.8044 1219.5292 1425.4613 1220.8723 1423.8044 1220.8723 L 1353.4044 1220.8723 C 1351.7475 1220.8723 1350.4044 1219.5292 1350.4044 1217.8723 L 1350.4044 1191.4723 C 1350.4044 1189.8154 1351.7475 1188.4723 1353.4044 1188.4723 L 1423.8044 1188.4723 C 1425.4613 1188.4723 1426.8044 1189.8154 1426.8044 1191.4723 Z" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+            </g>
+          </g>
+          <g id="Line_57">
+            <title>Velocity Vector</title>
+            <line x1="1393.6044" y1="1205.1723" x2="1463.1044" y2="1205.1723" marker-end="url(#FilledArrow_Marker)" marker-start="url(#FilledBall_Marker)" stroke="#ff2600" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"/>
+          </g>
+          <g id="Group_53">
+            <title>Wheel</title>
+            <g id="Line_55">
+              <title>Axle</title>
+              <path d="M 1388.6044 1432.392 L 1388.5891 1492.326 L 1388.6044 1500.9526" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+            </g>
+            <g id="Graphic_54">
+              <title>Wheel</title>
+              <path d="M 1426.8044 1453.4723 L 1426.8044 1479.8723 C 1426.8044 1481.5292 1425.4613 1482.8723 1423.8044 1482.8723 L 1353.4044 1482.8723 C 1351.7475 1482.8723 1350.4044 1481.5292 1350.4044 1479.8723 L 1350.4044 1453.4723 C 1350.4044 1451.8154 1351.7475 1450.4723 1353.4044 1450.4723 L 1423.8044 1450.4723 C 1425.4613 1450.4723 1426.8044 1451.8154 1426.8044 1453.4723 Z" fill="#ccc"/>
+              <path d="M 1426.8044 1453.4723 L 1426.8044 1479.8723 C 1426.8044 1481.5292 1425.4613 1482.8723 1423.8044 1482.8723 L 1353.4044 1482.8723 C 1351.7475 1482.8723 1350.4044 1481.5292 1350.4044 1479.8723 L 1350.4044 1453.4723 C 1350.4044 1451.8154 1351.7475 1450.4723 1353.4044 1450.4723 L 1423.8044 1450.4723 C 1425.4613 1450.4723 1426.8044 1451.8154 1426.8044 1453.4723 Z" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+            </g>
+          </g>
+          <g id="Line_52">
+            <title>Velocity Vector</title>
+            <line x1="1393.6044" y1="1467.1723" x2="1463.1044" y2="1467.1723" marker-end="url(#FilledArrow_Marker)" marker-start="url(#FilledBall_Marker)" stroke="#ff2600" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"/>
+          </g>
+          <g id="Group_48">
+            <title>Wheel</title>
+            <g id="Line_50">
+              <title>Axle</title>
+              <path d="M 1125.6044 1432.392 L 1125.5891 1492.326 L 1125.6044 1500.9526" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+            </g>
+            <g id="Graphic_49">
+              <title>Wheel</title>
+              <path d="M 1163.8044 1453.4723 L 1163.8044 1479.8723 C 1163.8044 1481.5292 1162.4613 1482.8723 1160.8044 1482.8723 L 1090.4044 1482.8723 C 1088.7475 1482.8723 1087.4044 1481.5292 1087.4044 1479.8723 L 1087.4044 1453.4723 C 1087.4044 1451.8154 1088.7475 1450.4723 1090.4044 1450.4723 L 1160.8044 1450.4723 C 1162.4613 1450.4723 1163.8044 1451.8154 1163.8044 1453.4723 Z" fill="#ccc"/>
+              <path d="M 1163.8044 1453.4723 L 1163.8044 1479.8723 C 1163.8044 1481.5292 1162.4613 1482.8723 1160.8044 1482.8723 L 1090.4044 1482.8723 C 1088.7475 1482.8723 1087.4044 1481.5292 1087.4044 1479.8723 L 1087.4044 1453.4723 C 1087.4044 1451.8154 1088.7475 1450.4723 1090.4044 1450.4723 L 1160.8044 1450.4723 C 1162.4613 1450.4723 1163.8044 1451.8154 1163.8044 1453.4723 Z" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+            </g>
+          </g>
+          <g id="Line_47">
+            <title>Velocity Vector</title>
+            <line x1="1130.6044" y1="1467.1723" x2="1200.1044" y2="1467.1723" marker-end="url(#FilledArrow_Marker)" marker-start="url(#FilledBall_Marker)" stroke="#ff2600" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"/>
+          </g>
+          <g id="Group_43">
+            <title>Wheel</title>
+            <g id="Line_45">
+              <title>Axle</title>
+              <path d="M 1125.6044 1170.392 L 1125.5891 1230.3259 L 1125.6044 1238.9526" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+            </g>
+            <g id="Graphic_44">
+              <title>Wheel</title>
+              <path d="M 1163.8044 1191.4723 L 1163.8044 1217.8723 C 1163.8044 1219.5292 1162.4613 1220.8723 1160.8044 1220.8723 L 1090.4044 1220.8723 C 1088.7475 1220.8723 1087.4044 1219.5292 1087.4044 1217.8723 L 1087.4044 1191.4723 C 1087.4044 1189.8154 1088.7475 1188.4723 1090.4044 1188.4723 L 1160.8044 1188.4723 C 1162.4613 1188.4723 1163.8044 1189.8154 1163.8044 1191.4723 Z" fill="#ccc"/>
+              <path d="M 1163.8044 1191.4723 L 1163.8044 1217.8723 C 1163.8044 1219.5292 1162.4613 1220.8723 1160.8044 1220.8723 L 1090.4044 1220.8723 C 1088.7475 1220.8723 1087.4044 1219.5292 1087.4044 1217.8723 L 1087.4044 1191.4723 C 1087.4044 1189.8154 1088.7475 1188.4723 1090.4044 1188.4723 L 1160.8044 1188.4723 C 1162.4613 1188.4723 1163.8044 1189.8154 1163.8044 1191.4723 Z" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+            </g>
+          </g>
+          <g id="Line_42">
+            <title>Velocity Vector</title>
+            <line x1="1130.6044" y1="1205.1723" x2="1200.1044" y2="1205.1723" marker-end="url(#FilledArrow_Marker)" marker-start="url(#FilledBall_Marker)" stroke="#ff2600" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"/>
+          </g>
+          <g id="Line_38">
+            <title>Velocity Vector</title>
+            <line x1="1264.284" y1="1337.392" x2="1364.984" y2="1337.392" marker-end="url(#FilledArrow_Marker_2)" marker-start="url(#FilledBall_Marker_2)" stroke="#310067" stroke-linecap="round" stroke-linejoin="round" stroke-width="8"/>
+          </g>
+        </g>
+      </g>
+      <g id="Graphic_99">
+        <text transform="translate(786 1223.916)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="256" font-weight="400" fill="black" x="0" y="244">+</tspan>
+        </text>
+      </g>
+      <g id="Graphic_100">
+        <text transform="translate(1776 1223.916)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="256" font-weight="400" fill="black" x="0" y="244">=</tspan>
+        </text>
+      </g>
+    </g>
+  </g>
+</svg>
