@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xl="http://www.w3.org/1999/xlink" xmlns:dc="http://purl.org/dc/elements/1.1/" viewBox="-136 417 3072 1440" width="3072" height="1440">
+  <defs>
+    <clipPath id="artboard_clip_path">
+      <path d="M -136 417 L 2936 417 L 2936 1857 L -136 1857 Z"/>
+    </clipPath>
+    <marker orient="auto" overflow="visible" markerUnits="strokeWidth" id="FilledArrow_Marker" stroke-linejoin="miter" stroke-miterlimit="10" viewBox="-5 -3 6 6" markerWidth="6" markerHeight="6" color="black">
+      <g>
+        <path d="M -3.2 0 L 0 1.2 L 0 -1.2 Z" fill="currentColor" stroke="currentColor" stroke-width="1"/>
+      </g>
+    </marker>
+    <font-face font-family="Helvetica Neue" font-size="64" panose-1="2 0 5 3 0 0 0 2 0 4" units-per-em="1000" underline-position="-100" underline-thickness="50" slope="0" x-height="517" cap-height="714" ascent="951.9958" descent="-212.99744" font-weight="400">
+      <font-face-src>
+        <font-face-name name="HelveticaNeue"/>
+      </font-face-src>
+    </font-face>
+    <font-face font-family="Helvetica Neue" font-size="48" panose-1="2 0 5 3 0 0 0 2 0 4" units-per-em="1000" underline-position="-100" underline-thickness="50" slope="0" x-height="517" cap-height="714" ascent="951.9958" descent="-212.99744" font-weight="400">
+      <font-face-src>
+        <font-face-name name="HelveticaNeue"/>
+      </font-face-src>
+    </font-face>
+    <marker orient="auto" overflow="visible" markerUnits="strokeWidth" id="HalfStickArrow_Marker" stroke-linejoin="miter" stroke-miterlimit="10" viewBox="-1 -1 10 5" markerWidth="10" markerHeight="5" color="#7f8080">
+      <g>
+        <path d="M 8 0 L 0 0 M 0 3 L 8 0" fill="none" stroke="currentColor" stroke-width="1"/>
+      </g>
+    </marker>
+    <marker orient="auto" overflow="visible" markerUnits="strokeWidth" id="FilledArrow_Marker_2" stroke-linejoin="miter" stroke-miterlimit="10" viewBox="-1 -3 6 6" markerWidth="6" markerHeight="6" color="#ff2600">
+      <g>
+        <path d="M 3.2 0 L 0 -1.2 L 0 1.2 Z" fill="currentColor" stroke="currentColor" stroke-width="1"/>
+      </g>
+    </marker>
+    <marker orient="auto" overflow="visible" markerUnits="strokeWidth" id="FilledBall_Marker" stroke-linejoin="miter" stroke-miterlimit="10" viewBox="-4 -3 5 6" markerWidth="5" markerHeight="6" color="#ff2600">
+      <g>
+        <circle cx="-1.1999995" cy="0" r="1.19999893947333" fill="currentColor" stroke="currentColor" stroke-width="1"/>
+      </g>
+    </marker>
+    <font-face font-family="Helvetica Neue" font-size="48" panose-1="2 0 8 3 0 0 0 9 0 4" units-per-em="1000" underline-position="-100" underline-thickness="50" slope="0" x-height="517" cap-height="714" ascent="975.0061" descent="-216.99524" font-weight="700">
+      <font-face-src>
+        <font-face-name name="HelveticaNeue-Bold"/>
+      </font-face-src>
+    </font-face>
+    <font-face font-family="Helvetica Neue" font-size="128" panose-1="2 0 5 3 0 0 0 2 0 4" units-per-em="1000" underline-position="-100" underline-thickness="50" slope="0" x-height="517" cap-height="714" ascent="951.9958" descent="-212.99744" font-weight="400">
+      <font-face-src>
+        <font-face-name name="HelveticaNeue"/>
+      </font-face-src>
+    </font-face>
+  </defs>
+  <metadata> Produced by OmniGraffle 7.18.5\n2021-04-05 21:32:53 +0000</metadata>
+  <g id="coordinate-frames" stroke-dasharray="none" stroke-opacity="1" fill-opacity="1" stroke="none" fill="none">
+    <title>coordinate-frames</title>
+    <rect fill="white" x="-136" y="417" width="3072" height="1440"/>
+    <g id="coordinate-frames_Field" clip-path="url(#artboard_clip_path)">
+      <title>Field</title>
+      <g id="Graphic_11">
+        <rect x="128.5" y="501.25" width="2543" height="1271.5" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="14"/>
+      </g>
+    </g>
+    <g id="coordinate-frames_Field_Axes" clip-path="url(#artboard_clip_path)">
+      <title>Field Axes</title>
+      <g id="Group_21">
+        <title>Field Axes</title>
+        <g id="Line_15">
+          <line x1="484" y1="699.1857" x2="484" y2="1705.3933" marker-start="url(#FilledArrow_Marker)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"/>
+        </g>
+        <g id="Line_16">
+          <line x1="1491.4174" y1="1705.0926" x2="485.2098" y2="1705.0926" marker-start="url(#FilledArrow_Marker)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"/>
+        </g>
+        <g id="Graphic_19">
+          <text transform="translate(462 594)" fill="black">
+            <tspan font-family="Helvetica Neue" font-size="64" font-weight="400" fill="black" x="5400125e-19" y="61">Y</tspan>
+            <tspan font-family="Helvetica Neue" font-size="64" font-weight="400" fill="black" y="91">f</tspan>
+          </text>
+        </g>
+        <g id="Graphic_20">
+          <text transform="translate(1541 1660.958)" fill="black">
+            <tspan font-family="Helvetica Neue" font-size="64" font-weight="400" fill="black" x="0" y="61">X</tspan>
+            <tspan font-family="Helvetica Neue" font-size="64" font-weight="400" fill="black" y="91">f</tspan>
+          </text>
+        </g>
+      </g>
+    </g>
+    <g id="coordinate-frames_Robot" clip-path="url(#artboard_clip_path)">
+      <title>Robot</title>
+      <g id="Graphic_52">
+        <text transform="translate(1274 920)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="48" font-weight="400" fill="black" x="8597567e-19" y="46">X</tspan>
+          <tspan font-family="Helvetica Neue" font-size="48" font-weight="400" fill="black" y="68">r</tspan>
+        </text>
+      </g>
+      <g id="Graphic_53">
+        <text transform="translate(723 799)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="48" font-weight="400" fill="black" x="0" y="46">Y</tspan>
+          <tspan font-family="Helvetica Neue" font-size="48" font-weight="400" fill="black" y="68">r</tspan>
+        </text>
+      </g>
+      <g id="Group_57">
+        <g id="Group_44">
+          <g id="Graphic_46">
+            <title>Outer Frame</title>
+            <path d="M 1018.2244 906.0663 L 1222.9912 1198.5036 L 930.5539 1403.2704 L 725.7871 1110.8331 Z" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+          </g>
+          <g id="Graphic_45">
+            <title>Inner Frame</title>
+            <path d="M 1006.6504 971.7058 L 1157.3517 1186.9296 L 942.1279 1337.631 L 791.4266 1122.4071 Z" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="1.0,3.0" stroke-width="1"/>
+          </g>
+        </g>
+        <g id="Group_41">
+          <title>Axes</title>
+          <g id="Line_43">
+            <title>Strafe</title>
+            <line x1="989.5912" y1="1176.3792" x2="959.1871" y2="1132.9576" stroke="#7f8080" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+          </g>
+          <g id="Line_42">
+            <title>Forward</title>
+            <line x1="952.6784" y1="1169.8704" x2="987.9904" y2="1145.1447" marker-end="url(#HalfStickArrow_Marker)" stroke="#7f8080" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+          </g>
+        </g>
+        <g id="Group_38">
+          <title>Wheel</title>
+          <g id="Line_40">
+            <title>Axle</title>
+            <path d="M 985.706 942.2645 L 1020.0701 991.3683 L 1025.0307 998.426" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+          </g>
+          <g id="Graphic_39">
+            <title>Wheel</title>
+            <path d="M 1029.0887 937.6219 L 1044.2311 959.2475 C 1045.1815 960.6047 1044.8516 962.4753 1043.4944 963.4257 L 985.8261 1003.8054 C 984.4689 1004.7558 982.5982 1004.4259 981.6479 1003.0687 C 981.6479 1003.0687 981.6479 1003.0687 981.6479 1003.0687 L 966.5055 981.4431 C 965.5551 980.0859 965.885 978.2153 967.2422 977.2649 L 1024.9105 936.8851 C 1026.2677 935.9348 1028.1384 936.2646 1029.0887 937.6219 C 1029.0887 937.6219 1029.0887 937.6219 1029.0887 937.6219 Z" fill="#ccc"/>
+            <path d="M 1029.0887 937.6219 L 1044.2311 959.2475 C 1045.1815 960.6047 1044.8516 962.4753 1043.4944 963.4257 L 985.8261 1003.8054 C 984.4689 1004.7558 982.5982 1004.4259 981.6479 1003.0687 C 981.6479 1003.0687 981.6479 1003.0687 981.6479 1003.0687 L 966.5055 981.4431 C 965.5551 980.0859 965.885 978.2153 967.2422 977.2649 L 1024.9105 936.8851 C 1026.2677 935.9348 1028.1384 936.2646 1029.0887 937.6219 C 1029.0887 937.6219 1029.0887 937.6219 1029.0887 937.6219 Z" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+          </g>
+        </g>
+        <g id="Line_37">
+          <title>Velocity Vector</title>
+          <line x1="1009.7509" y1="967.887" x2="1066.6819" y2="928.0234" marker-end="url(#FilledArrow_Marker_2)" marker-start="url(#FilledBall_Marker)" stroke="#ff2600" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"/>
+        </g>
+        <g id="Group_34">
+          <title>Wheel</title>
+          <g id="Line_36">
+            <title>Axle</title>
+            <path d="M 1135.983 1156.8824 L 1170.3471 1205.9861 L 1175.3077 1213.0439" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+          </g>
+          <g id="Graphic_35">
+            <title>Wheel</title>
+            <path d="M 1179.3657 1152.2397 L 1194.5081 1173.8653 C 1195.4585 1175.2225 1195.1286 1177.0932 1193.7714 1178.0435 C 1193.7714 1178.0435 1193.7714 1178.0435 1193.7714 1178.0435 L 1136.1031 1218.4233 C 1134.7459 1219.3736 1132.8753 1219.0438 1131.9249 1217.6866 L 1116.7825 1196.061 C 1115.8322 1194.7037 1116.162 1192.8331 1117.5192 1191.8828 C 1117.5192 1191.8828 1117.5192 1191.8828 1117.5192 1191.8828 L 1175.1875 1151.503 C 1176.5448 1150.5526 1178.4154 1150.8825 1179.3657 1152.2397 Z" fill="#ccc"/>
+            <path d="M 1179.3657 1152.2397 L 1194.5081 1173.8653 C 1195.4585 1175.2225 1195.1286 1177.0932 1193.7714 1178.0435 C 1193.7714 1178.0435 1193.7714 1178.0435 1193.7714 1178.0435 L 1136.1031 1218.4233 C 1134.7459 1219.3736 1132.8753 1219.0438 1131.9249 1217.6866 L 1116.7825 1196.061 C 1115.8322 1194.7037 1116.162 1192.8331 1117.5192 1191.8828 C 1117.5192 1191.8828 1117.5192 1191.8828 1117.5192 1191.8828 L 1175.1875 1151.503 C 1176.5448 1150.5526 1178.4154 1150.8825 1179.3657 1152.2397 Z" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+          </g>
+        </g>
+        <g id="Line_33">
+          <title>Velocity Vector</title>
+          <line x1="1160.0279" y1="1182.5048" x2="1216.959" y2="1142.6413" marker-end="url(#FilledArrow_Marker_2)" marker-start="url(#FilledBall_Marker)" stroke="#ff2600" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"/>
+        </g>
+        <g id="Group_30">
+          <title>Wheel</title>
+          <g id="Line_32">
+            <title>Axle</title>
+            <path d="M 920.546 1307.733 L 954.9101 1356.8367 L 959.8707 1363.8945" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+          </g>
+          <g id="Graphic_31">
+            <title>Wheel</title>
+            <path d="M 963.9287 1303.0903 L 979.0712 1324.7159 C 980.0215 1326.0731 979.6916 1327.9438 978.3344 1328.8941 C 978.3344 1328.8941 978.3344 1328.8941 978.3344 1328.8941 L 920.6661 1369.2739 C 919.3089 1370.2242 917.4383 1369.8944 916.4879 1368.5372 L 901.3455 1346.9115 C 900.3952 1345.5543 900.725 1343.6837 902.0822 1342.7334 C 902.0822 1342.7334 902.0822 1342.7334 902.0822 1342.7334 L 959.7506 1302.3536 C 961.1078 1301.4032 962.9784 1301.7331 963.9287 1303.0903 Z" fill="#ccc"/>
+            <path d="M 963.9287 1303.0903 L 979.0712 1324.7159 C 980.0215 1326.0731 979.6916 1327.9438 978.3344 1328.8941 C 978.3344 1328.8941 978.3344 1328.8941 978.3344 1328.8941 L 920.6661 1369.2739 C 919.3089 1370.2242 917.4383 1369.8944 916.4879 1368.5372 L 901.3455 1346.9115 C 900.3952 1345.5543 900.725 1343.6837 902.0822 1342.7334 C 902.0822 1342.7334 902.0822 1342.7334 902.0822 1342.7334 L 959.7506 1302.3536 C 961.1078 1301.4032 962.9784 1301.7331 963.9287 1303.0903 Z" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+          </g>
+        </g>
+        <g id="Line_29">
+          <title>Velocity Vector</title>
+          <line x1="944.5909" y1="1333.3554" x2="1001.522" y2="1293.4919" marker-end="url(#FilledArrow_Marker_2)" marker-start="url(#FilledBall_Marker)" stroke="#ff2600" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"/>
+        </g>
+        <g id="Group_26">
+          <title>Wheel</title>
+          <g id="Line_28">
+            <title>Axle</title>
+            <path d="M 770.269 1093.1151 L 804.6331 1142.2189 L 809.5937 1149.2767" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+          </g>
+          <g id="Graphic_27">
+            <title>Wheel</title>
+            <path d="M 813.6517 1088.4725 L 828.7941 1110.0981 C 829.7445 1111.4553 829.4146 1113.326 828.0574 1114.2763 C 828.0574 1114.2763 828.0574 1114.2763 828.0574 1114.2763 L 770.3891 1154.656 C 769.0319 1155.6064 767.16125 1155.2765 766.2109 1153.9193 L 751.0685 1132.2937 C 750.1182 1130.9365 750.448 1129.0659 751.8052 1128.1155 C 751.8052 1128.1155 751.8052 1128.1155 751.8052 1128.1155 L 809.4735 1087.7357 C 810.8307 1086.7854 812.7014 1087.1152 813.6517 1088.4725 Z" fill="#ccc"/>
+            <path d="M 813.6517 1088.4725 L 828.7941 1110.0981 C 829.7445 1111.4553 829.4146 1113.326 828.0574 1114.2763 C 828.0574 1114.2763 828.0574 1114.2763 828.0574 1114.2763 L 770.3891 1154.656 C 769.0319 1155.6064 767.16125 1155.2765 766.2109 1153.9193 L 751.0685 1132.2937 C 750.1182 1130.9365 750.448 1129.0659 751.8052 1128.1155 C 751.8052 1128.1155 751.8052 1128.1155 751.8052 1128.1155 L 809.4735 1087.7357 C 810.8307 1086.7854 812.7014 1087.1152 813.6517 1088.4725 Z" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+          </g>
+        </g>
+        <g id="Line_25">
+          <title>Velocity Vector</title>
+          <line x1="794.3139" y1="1118.7376" x2="851.2449" y2="1078.874" marker-end="url(#FilledArrow_Marker_2)" marker-start="url(#FilledBall_Marker)" stroke="#ff2600" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"/>
+        </g>
+        <g id="Graphic_55">
+          <path d="M 1246.5111 961.685 L 972.8324 1153.3169 L 974.9215 1153.6852 L 783.2896 880.0065 C 782.8145 879.3279 781.8792 879.163 781.20055 879.6382 C 780.5219 880.1133 780.357 881.0486 780.8322 881.7273 L 972.4641 1155.406 C 972.9392 1156.0846 973.8746 1156.2495 974.5532 1155.7743 L 1248.2319 964.1424 C 1248.9105 963.6673 1249.0754 962.7319 1248.6002 962.0533 C 1248.125 961.3747 1247.1897 961.2098 1246.5111 961.685 Z M 774.4081 872.5527 L 780.8322 881.7273 L 783.2896 880.0065 L 776.8656 870.832 Z M 786.34975 877.2208 L 776.4853 870.4554 L 774.7885 872.9294 L 784.65295 879.6949 Z M 1255.6856 955.2609 L 1246.5111 961.685 L 1248.2319 964.1424 L 1257.4064 957.7184 Z M 1251.0175 967.2025 L 1257.783 957.338 L 1255.309 955.6412 L 1248.5435 965.5057 Z" fill="black"/>
+        </g>
+      </g>
+    </g>
+    <g id="coordinate-frames_Layer_5" clip-path="url(#artboard_clip_path)">
+      <title>Layer 5</title>
+      <g id="Line_58">
+        <line x1="487.23404" y1="1155" x2="1111.5385" y2="1155" stroke="#666" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="16.0,16.0" stroke-width="4"/>
+      </g>
+      <g id="Graphic_59">
+        <text transform="translate(1059 1098)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="48" font-weight="400" fill="black" x="7123191e-19" y="46">θ</tspan>
+        </text>
+      </g>
+      <g id="Graphic_61">
+        <text transform="translate(1742.728 985)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="48" font-weight="400" fill="black" x="2842171e-19" y="47">Forward = </tspan>
+          <tspan font-family="Helvetica Neue" font-size="48" font-weight="700" fill="black" y="47">v</tspan>
+          <tspan font-family="Helvetica Neue" font-size="48" font-weight="700" fill="black" y="69">x</tspan>
+          <tspan font-family="Helvetica Neue" font-size="48" font-weight="400" fill="black" y="69"> </tspan>
+          <tspan font-family="Helvetica Neue" font-size="48" font-weight="400" fill="black" y="47">(forward is +)</tspan>
+        </text>
+      </g>
+      <g id="Graphic_62">
+        <text transform="translate(1789.509 1120)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="48" font-weight="400" fill="black" x="0" y="47">Strafe = </tspan>
+          <tspan font-family="Helvetica Neue" font-size="48" font-weight="700" fill="black" y="47">v</tspan>
+          <tspan font-family="Helvetica Neue" font-size="48" font-weight="700" fill="black" y="69">y</tspan>
+          <tspan font-family="Helvetica Neue" font-size="48" font-weight="400" fill="black" y="69">  </tspan>
+          <tspan font-family="Helvetica Neue" font-size="48" font-weight="400" fill="black" y="47">(left is +)</tspan>
+        </text>
+      </g>
+      <g id="Graphic_63">
+        <text transform="translate(1826.5377 1255)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="48" font-weight="400" fill="black" x="0" y="47">Yaw = </tspan>
+          <tspan font-family="Helvetica Neue" font-size="48" font-weight="700" fill="black" y="47">ω</tspan>
+          <tspan font-family="Helvetica Neue" font-size="48" font-weight="400" fill="black" y="47"> (CCW is +)</tspan>
+        </text>
+      </g>
+      <g id="Graphic_64">
+        <text transform="translate(1828.8567 872)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="48" font-weight="400" fill="black" x="7673862e-19" y="46">Chassis Speeds</tspan>
+        </text>
+      </g>
+      <g id="Line_65">
+        <line x1="976" y1="1156" x2="976" y2="1706.383" stroke="#666" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="16.0,16.0" stroke-width="4"/>
+      </g>
+      <g id="Graphic_66">
+        <text transform="translate(1262.528 524)" fill="#666">
+          <tspan font-family="Helvetica Neue" font-size="128" font-weight="400" fill="#666" x="0" y="122">Field</tspan>
+        </text>
+      </g>
+    </g>
+  </g>
+</svg>
