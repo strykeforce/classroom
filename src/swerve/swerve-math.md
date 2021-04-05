@@ -28,7 +28,7 @@ In this example, equal amounts of **forward**, **strafe** and **yaw** input driv
 
 ## Swerve Yaw Component
 
-When the robot yaws, the wheels are positioned perpendicular to the center of the robot.
+When the robot yaws, the wheels are positioned perpendicular to the center of rotation.
 
 Note that this is not 45° if the robot isn't square.
 
