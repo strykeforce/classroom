@@ -10,8 +10,10 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
-      - run: sudo apt-get update
-      - run: sudo apt-get --yes install pandoc
+      - uses: wei/curl@v1
+        with:
+          args: https://github.com/jgm/pandoc/releases/download/2.13/pandoc-2.13-1-amd64.deb
+      - run: sudo dpkg -i pandoc-2.13-1-amd64.deb
       - uses: actions/setup-node@v2
         with:
           node-version: "14"
