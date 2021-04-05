@@ -12,7 +12,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: wei/curl@v1
         with:
-          args: -L https://github.com/jgm/pandoc/releases/download/2.13/pandoc-2.13-1-amd64.deb
+          args: -L https://github.com/jgm/pandoc/releases/download/2.13/pandoc-2.13-1-amd64.deb > pandoc-2.13-1-amd64.deb
       - run: sudo dpkg -i pandoc-2.13-1-amd64.deb
       - uses: actions/setup-node@v2
         with:
