@@ -8,25 +8,18 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="../static/reveal.js/css/reveal.css">
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  <link rel="stylesheet" href="../static/reveal.js/dist/reset.css">
+  <link rel="stylesheet" href="../static/reveal.js/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
-  <link rel="stylesheet" href="../static/reveal.js/css/theme/white.css" id="theme">
-  <!-- Printing and PDF exports -->
-  <script>
-    var link = document.createElement( 'link' );
-    link.rel = 'stylesheet';
-    link.type = 'text/css';
-    link.href = window.location.search.match( /print-pdf/gi ) ? '../static/reveal.js/css/print/pdf.css' : '../static/reveal.js/css/print/paper.css';
-    document.getElementsByTagName( 'head' )[0].appendChild( link );
-  </script>
-  <!--[if lt IE 9]>
-  <script src="../static/reveal.js/lib/js/html5shiv.js"></script>
-  <![endif]-->
+  <link rel="stylesheet" href="../static/reveal.js/dist/theme/white.css" id="theme">
 </head>
 <body>
   <div class="reveal">
@@ -37,7 +30,12 @@
   <p class="author">Stryke Force</p>
 </section>
 
-<section><section id="swerve-drive-introduction" class="title-slide slide level1"><h1>Swerve Drive Introduction</h1></section><section id="mechanical-design" class="slide level2">
+<section>
+<section id="swerve-drive-introduction" class="title-slide slide level1">
+<h1>Swerve Drive Introduction</h1>
+
+</section>
+<section id="mechanical-design" class="slide level2">
 <h2>Mechanical Design</h2>
 <ul>
 <li>Motors &amp; Controllers</li>
@@ -45,13 +43,15 @@
 <li>Azimuth - turns</li>
 </ul>
 <p>Put a picture here.</p>
-</section><section id="swerve-operation" class="slide level2">
+</section>
+<section id="swerve-operation" class="slide level2">
 <h2>Swerve Operation</h2>
 <ul>
 <li>Forward / Back</li>
 <li>Strafe Left / Right</li>
 </ul>
-</section><section id="swerve-control-systems" class="slide level2">
+</section>
+<section id="swerve-control-systems" class="slide level2">
 <h2>Swerve Control Systems</h2>
 <ul>
 <li>Azimuth closed-loop</li>
@@ -59,26 +59,34 @@
 <li>Drive closed-loop</li>
 </ul>
 </section></section>
-<section><section id="swerve-math" class="title-slide slide level1"><h1>Swerve Math</h1></section><section id="swerve-motion" class="slide level2">
+<section>
+<section id="swerve-math" class="title-slide slide level1">
+<h1>Swerve Math</h1>
+
+</section>
+<section id="swerve-motion" class="slide level2">
 <h2>Swerve Motion</h2>
 <p>There are three components to swerve drive motion.</p>
 <p><img data-src="img/swerve-math/directions.svg" alt="swerve directions" /><br />
 </p>
 <p>The red arrows indicate the <strong>speed</strong> and <strong>direction</strong> each wheel is pushing.</p>
 <p>We call this the <strong>velocity vector</strong> of the wheel.</p>
-</section><section id="swerve-motion-1" class="slide level2">
+</section>
+<section id="swerve-motion-1" class="slide level2">
 <h2>Swerve Motion</h2>
 <p>These separate components can be combined together.</p>
 <p><img data-src="img/swerve-math/forward+strafe.svg" alt="forward+strafe" /><br />
 </p>
 <p>In this example, equal amounts of <strong>forward</strong> and <strong>strafe</strong> input drive the robot at 45° across the field.</p>
-</section><section id="swerve-motion-2" class="slide level2">
+</section>
+<section id="swerve-motion-2" class="slide level2">
 <h2>Swerve Motion</h2>
 <p>All three components can be combined together to produce complex motion.</p>
 <p><img data-src="img/swerve-math/forward+strafe+yaw.svg" alt="forward+strafe" /><br />
 </p>
 <p>In this example, equal amounts of <strong>forward</strong>, <strong>strafe</strong> and <strong>yaw</strong> input drive the robot across the field while yawing.</p>
-</section><section id="swerve-yaw-component" class="slide level2">
+</section>
+<section id="swerve-yaw-component" class="slide level2">
 <h2>Swerve Yaw Component</h2>
 <p>When the robot yaws, the wheels are positioned perpendicular to the center of rotation.</p>
 <p>Note that this is not 45° if the robot isn’t square.</p>
@@ -86,22 +94,33 @@
 </p>
 <p>We call the ratio between the width and height of a rectangle its <strong>aspect ratio</strong>.</p>
 </section></section>
-<section><section id="pathfinding-tools" class="title-slide slide level1"><h1>Pathfinding Tools</h1></section><section id="pathweaver" class="slide level2">
+<section>
+<section id="pathfinding-tools" class="title-slide slide level1">
+<h1>Pathfinding Tools</h1>
+
+</section>
+<section id="pathweaver" class="slide level2">
 <h2>Pathweaver</h2>
-</section><section id="wpilib" class="slide level2">
+</section>
+<section id="wpilib" class="slide level2">
 <h2>WPILIB</h2>
 </section></section>
     </div>
   </div>
 
-  <script src="../static/reveal.js/lib/js/head.min.js"></script>
-  <script src="../static/reveal.js/js/reveal.js"></script>
+  <script src="../static/reveal.js/dist/reveal.js"></script>
+
+  <!-- reveal.js plugins -->
+  <script src="../static/reveal.js/plugin/notes/notes.js"></script>
+  <script src="../static/reveal.js/plugin/search/search.js"></script>
+  <script src="../static/reveal.js/plugin/zoom/zoom.js"></script>
 
   <script>
 
       // Full list of configuration options available at:
-      // https://github.com/hakimel/reveal.js#configuration
+      // https://revealjs.com/config/
       Reveal.initialize({
+      
         // Push each slide change to the browser history
         history: true,
         // The "normal" size of the presentation, aspect ratio will be preserved
@@ -110,11 +129,11 @@
         width: 1843.1999999999998,
         height: 1152,
 
-        // Optional reveal.js plugins
-        dependencies: [
-          { src: '../static/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
-          { src: '../static/reveal.js/plugin/zoom-js/zoom.js', async: true },
-          { src: '../static/reveal.js/plugin/notes/notes.js', async: true }
+        // reveal.js plugins
+        plugins: [
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
         ]
       });
     </script>
