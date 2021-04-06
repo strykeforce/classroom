@@ -61,3 +61,17 @@ Going forward, we'll also refer to swerve drive motion components (forward, stra
 We add together the desired velocity inputs to get a velocity vector for each wheel.
 
 ![coordinate frames](img/swerve-math/wheel-vectors.svg)\
+
+## Wheel Speed and Azimuth
+
+Each wheel's **speed** and **azimuth** can be calculated from its velocity vector.
+
+![wheel position + speed](img/swerve-math/wheel-position+speed.svg)\
+
+**Azimuth** (θ) is the term we use for the wheels angle relative to the robot frame of reference.
+
+## Normalize Wheel Speeds
+
+## Optimize Wheel Position
+
+## Field Oriented Driving
