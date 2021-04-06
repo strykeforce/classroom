@@ -60,13 +60,19 @@
 </ul>
 </section></section>
 <section>
-<section id="swerve-math" class="title-slide slide level1">
-<h1>Swerve Math</h1>
-
+<section id="swerve-drive-motion" class="title-slide slide level1" data-background-color="rgb(241, 186, 27)">
+<h1 data-background-color="rgb(241, 186, 27)">Swerve Drive Motion</h1>
+<p>To move the swerve drive, we need to convert the desired motion of the robot<br />
+into positions and speeds of each of the four swerve wheels.</p>
 </section>
 <section id="swerve-motion" class="slide level2">
 <h2>Swerve Motion</h2>
 <p>There are three components to swerve drive motion.</p>
+<ul>
+<li><strong>Forward</strong> and backwards</li>
+<li><strong>Strafe</strong> left and right</li>
+<li><strong>Yaw</strong> counter-clockwise and clockwise</li>
+</ul>
 <p><img data-src="img/swerve-math/directions.svg" alt="swerve directions" /><br />
 </p>
 <p>The red arrows indicate the <strong>speed</strong> and <strong>direction</strong> each wheel is pushing.</p>
@@ -74,7 +80,7 @@
 </section>
 <section id="swerve-motion-1" class="slide level2">
 <h2>Swerve Motion</h2>
-<p>These separate components can be combined together.</p>
+<p>These separate components can be combined together to move the robot in any direction.</p>
 <p><img data-src="img/swerve-math/forward+strafe.svg" alt="forward+strafe" /><br />
 </p>
 <p>In this example, equal amounts of <strong>forward</strong> and <strong>strafe</strong> input drive the robot at 45° across the field.</p>
@@ -92,13 +98,25 @@
 <p>Note that this is not 45° if the robot isn’t square.</p>
 <p><img data-src="img/swerve-math/frame-aspect.svg" alt="frame aspect ration" /><br />
 </p>
-<p>We call the ratio between the width and height of a rectangle its <strong>aspect ratio</strong>.</p>
+<p>We can also yaw around an arbitrary off-center point relative to the robot.</p>
+</section></section>
+<section>
+<section id="swerve-math" class="title-slide slide level1" data-background-color="rgb(241, 186, 27)">
+<h1 data-background-color="rgb(241, 186, 27)">Swerve Math</h1>
+<p>In our swerve drive software, we calculate the<br />
+desired position and speed of each wheel.</p>
 </section>
 <section id="coordinate-frames" class="slide level2">
 <h2>Coordinate Frames</h2>
 <p>We work in two coordinate frames, one local to the robot and one global for the field.</p>
 <p>Going forward, we’ll also refer to swerve drive motion components (forward, strafe, yaw) as chassis speed (<strong>v<sub>x</sub></strong>, <strong>v<sub>y</sub></strong>, and <strong>ω</strong>), with respect to the robot frame of reference.</p>
 <p><img data-src="img/swerve-math/coordinate-frames.svg" alt="coordinate frames" /><br />
+</p>
+</section>
+<section id="wheel-position-and-speed" class="slide level2">
+<h2>Wheel Position and Speed</h2>
+<p>We add together the desired velocity inputs to get a velocity vector for each wheel.</p>
+<p><img data-src="img/swerve-math/wheel-vectors.svg" alt="coordinate frames" /><br />
 </p>
 </section></section>
 <section>
