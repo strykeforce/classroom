@@ -44,6 +44,8 @@ const copyRevealJSPlugins = () =>
     { since: lastRun(copyRevealJSDist) }
   ).pipe(dest(`${REVEALJS_DEST}/plugin`));
 
+const copyClassroomIndex = () => src("src/index.html").pipe(dest("build/"));
+
 const createDestDir = async (slug) => {
   const destDir = `build/${slug}`;
   log(`creating ${destDir} directory`);
@@ -87,6 +89,7 @@ const revealJS = parallel(copyRevealJSDist, copyRevealJSPlugins);
 
 exports.buildAll = parallel(
   revealJS,
+  copyClassroomIndex,
   SLIDES.map(({ slug, files }) =>
     series(
       () => createDestDir(slug),
