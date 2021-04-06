@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xl="http://www.w3.org/1999/xlink" viewBox="90.5 1046 766 766" width="766" height="766">
+  <defs>
+    <clipPath id="artboard_clip_path">
+      <path d="M 90.5 1046 L 856.5 1046 L 856.5 1812 L 90.5 1812 Z"/>
+    </clipPath>
+    <font-face font-family="Helvetica Neue" font-size="48" panose-1="2 0 5 3 0 0 0 2 0 4" units-per-em="1000" underline-position="-100" underline-thickness="50" slope="0" x-height="517" cap-height="714" ascent="951.9958" descent="-212.99744" font-weight="400">
+      <font-face-src>
+        <font-face-name name="HelveticaNeue"/>
+      </font-face-src>
+    </font-face>
+    <marker orient="auto" overflow="visible" markerUnits="strokeWidth" id="FilledArrow_Marker" stroke-linejoin="miter" stroke-miterlimit="10" viewBox="-1 -3 6 6" markerWidth="6" markerHeight="6" color="black">
+      <g>
+        <path d="M 3.2 0 L 0 -1.2 L 0 1.2 Z" fill="currentColor" stroke="currentColor" stroke-width="1"/>
+      </g>
+    </marker>
+    <marker orient="auto" overflow="visible" markerUnits="strokeWidth" id="FilledArrow_Marker_2" stroke-linejoin="miter" stroke-miterlimit="10" viewBox="-1 -2 5 4" markerWidth="5" markerHeight="4" color="#203dd7">
+      <g>
+        <path d="M 2.4 0 L 0 -.9 L 0 .9 Z" fill="currentColor" stroke="currentColor" stroke-width="1"/>
+      </g>
+    </marker>
+    <marker orient="auto" overflow="visible" markerUnits="strokeWidth" id="FilledArrow_Marker_3" stroke-linejoin="miter" stroke-miterlimit="10" viewBox="-1 -2 5 4" markerWidth="5" markerHeight="4" color="#38992a">
+      <g>
+        <path d="M 2.4 0 L 0 -.9 L 0 .9 Z" fill="currentColor" stroke="currentColor" stroke-width="1"/>
+      </g>
+    </marker>
+  </defs>
+  <metadata> Produced by OmniGraffle 7.18.5\n2021-04-06 15:47:19 +0000</metadata>
+  <g id="optimize-azimuth" stroke-dasharray="none" stroke="none" fill-opacity="1" fill="none" stroke-opacity="1">
+    <title>optimize-azimuth</title>
+    <rect fill="white" x="90.5" y="1046" width="766" height="766"/>
+    <g id="optimize-azimuth_circle" clip-path="url(#artboard_clip_path)">
+      <title>circle</title>
+      <g id="Graphic_3">
+        <path d="M 617.2375 1267.2625 C 730.5877 1380.612 730.5877 1564.388 617.2375 1677.7375 C 503.8879 1791.0877 320.11207 1791.0877 206.76248 1677.7375 C 93.41231 1564.388 93.41231 1380.612 206.76248 1267.2625 C 320.11207 1153.9123 503.8879 1153.9123 617.2375 1267.2625" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="5"/>
+      </g>
+      <g id="Graphic_16">
+        <text transform="translate(320.872 1062.562)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="48" font-weight="400" fill="black" x="15.552" y="46">current</tspan>
+          <tspan font-family="Helvetica Neue" font-size="48" font-weight="400" fill="black" x="6.672" y="103.344">azimuth </tspan>
+        </text>
+      </g>
+      <g id="Graphic_17">
+        <text transform="translate(657 1623)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="48" font-weight="400" fill="black" x="12" y="46">desired</tspan>
+          <tspan font-family="Helvetica Neue" font-size="48" font-weight="400" fill="black" x="6.672" y="103.344">azimuth </tspan>
+        </text>
+      </g>
+    </g>
+    <g id="optimize-azimuth_vectors" clip-path="url(#artboard_clip_path)">
+      <title>vectors</title>
+      <g id="Line_13">
+        <path d="M 413 1287.5 C 341.8254 1290.9551 301.1824 1322.4866 282.86144 1341.6422" marker-end="url(#FilledArrow_Marker)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"/>
+      </g>
+      <g id="Line_8">
+        <line x1="413.5" y1="1472" x2="618.5352" y2="1632.559" marker-end="url(#FilledArrow_Marker_2)" stroke="#203dd7" stroke-linecap="round" stroke-linejoin="round" stroke-width="8"/>
+      </g>
+      <g id="Line_9">
+        <line x1="411" y1="1470" x2="189.75269" y2="1290.3899" stroke="#203dd7" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8.0,32.0" stroke-width="8"/>
+      </g>
+      <g id="Line_10">
+        <line x1="413" y1="1472" x2="413" y2="1213.15" marker-end="url(#FilledArrow_Marker_3)" stroke="#38992a" stroke-linecap="round" stroke-linejoin="round" stroke-width="8"/>
+      </g>
+      <g id="Line_11">
+        <line x1="413" y1="1472" x2="413" y2="1762.75" stroke="#38992a" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8.0,32.0" stroke-width="8"/>
+      </g>
+    </g>
+  </g>
+</svg>

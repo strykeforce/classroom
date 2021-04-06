@@ -64,7 +64,7 @@ We add together the desired velocity inputs to get a velocity vector for each wh
 
 ## Wheel Speed and Azimuth
 
-Each wheel's **speed** and **azimuth** can be calculated from its velocity vector.
+Each wheel's **speed** and **azimuth** can be calculated from its velocity vector (**v**~w~).
 
 ![wheel position + speed](img/swerve-math/wheel-position+speed.svg)\
 
@@ -72,6 +72,35 @@ Each wheel's **speed** and **azimuth** can be calculated from its velocity vecto
 
 ## Normalize Wheel Speeds
 
+Sometimes after calculating wheel velocity vectors, the requested speed may be above the maximum attainable speed for the drive motor on that swerve module.
+
+To fix this issue, we "normalize" all the wheel speeds to make sure that all requested module speeds are below the absolute threshold, while maintaining the ratio of speeds between modules.
+
+\
+
+| Wheel | Calculated Speed | Normalized Speed |
+| ----- | ---------------: | ---------------: |
+| LF    |            2.414 |              1.0 |
+| RF    |            1.732 |            0.717 |
+| LR    |            1.732 |            0.717 |
+| RR    |            0.414 |            0.172 |
+
 ## Optimize Wheel Position
+
+We minimize the change in heading the desired swerve wheel direction would require \
+by potentially reversing the direction the wheel spins.
+
+When optimized, the furthest a wheel will ever rotate is 90 degrees.
+
+::: {.columns}
+::: {.column width="50%" style="display:inline-flex; flex-direction: column; justify-content: center; height: 766px"}
+
+If the difference between your desired and current azimuth is greater than 90°, rotate the desired azimuth by 180° and reverse the drive motor.
+
+:::
+::: {.column width="50%"}
+![optimize azimuth](img/swerve-math/optimized-azimuth.svg)\
+:::
+:::
 
 ## Field Oriented Driving
