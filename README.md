@@ -1,5 +1,7 @@
 # classroom
 
+Published [presentations](https://strykeforce.github.io/classroom/) are hosted on GitHub pages.
+
 ## Installation
 
 1. Install LTS version of [Node.js](https://nodejs.org/)
