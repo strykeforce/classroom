@@ -104,3 +104,14 @@ If the difference between your desired and current azimuth is greater than 90°,
 :::
 
 ## Field Oriented Driving
+
+In Teleoperation, we normally provide driver joystick (velocity) inputs \
+relative to the field frame of reference.
+
+We rotate the requested field-oriented robot velocity vector by an amount equal \
+to the gyro angle, θ, to get the desired robot-oriented velocity vector.
+
+![optimize azimuth](img/swerve-math/field-oriented.svg)\
+
+In this example, pushing the **v**~x~ (F/R) joystick in the postive x direction \
+will move the robot directly down the field, no matter the direction the robot is facing (θ).
