@@ -68,7 +68,7 @@ Each wheel's **speed** and **azimuth** can be calculated from its velocity vecto
 
 ![wheel position + speed](img/swerve-math/wheel-position+speed.svg)\
 
-**Azimuth** (θ) is the term we use for the wheels angle relative to the robot frame of reference.
+**Azimuth** (θ) is the term we use for the wheel's angle relative to the robot frame of reference.
 
 ## Normalize Wheel Speeds
 
