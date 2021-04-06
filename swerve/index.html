@@ -121,16 +121,62 @@ desired position and speed of each wheel.</p>
 </section>
 <section id="wheel-speed-and-azimuth" class="slide level2">
 <h2>Wheel Speed and Azimuth</h2>
-<p>Each wheel’s <strong>speed</strong> and <strong>azimuth</strong> can be calculated from its velocity vector.</p>
+<p>Each wheel’s <strong>speed</strong> and <strong>azimuth</strong> can be calculated from its velocity vector (<strong>v</strong><sub>w</sub>).</p>
 <p><img data-src="img/swerve-math/wheel-position+speed.svg" alt="wheel position + speed" /><br />
 </p>
 <p><strong>Azimuth</strong> (θ) is the term we use for the wheels angle relative to the robot frame of reference.</p>
 </section>
 <section id="normalize-wheel-speeds" class="slide level2">
 <h2>Normalize Wheel Speeds</h2>
+<p>Sometimes after calculating wheel velocity vectors, the requested speed may be above the maximum attainable speed for the drive motor on that swerve module.</p>
+<p>To fix this issue, we “normalize” all the wheel speeds to make sure that all requested module speeds are below the absolute threshold, while maintaining the ratio of speeds between modules.</p>
+<p><br />
+</p>
+<table>
+<thead>
+<tr class="header">
+<th>Wheel</th>
+<th style="text-align: right;">Calculated Speed</th>
+<th style="text-align: right;">Normalized Speed</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>LF</td>
+<td style="text-align: right;">2.414</td>
+<td style="text-align: right;">1.0</td>
+</tr>
+<tr class="even">
+<td>RF</td>
+<td style="text-align: right;">1.732</td>
+<td style="text-align: right;">0.717</td>
+</tr>
+<tr class="odd">
+<td>LR</td>
+<td style="text-align: right;">1.732</td>
+<td style="text-align: right;">0.717</td>
+</tr>
+<tr class="even">
+<td>RR</td>
+<td style="text-align: right;">0.414</td>
+<td style="text-align: right;">0.172</td>
+</tr>
+</tbody>
+</table>
 </section>
 <section id="optimize-wheel-position" class="slide level2">
 <h2>Optimize Wheel Position</h2>
+<p>We minimize the change in heading the desired swerve wheel direction would require<br />
+by potentially reversing the direction the wheel spins.</p>
+<p>When optimized, the furthest a wheel will ever rotate is 90 degrees.</p>
+<div class="columns">
+<div class="column" style="display:inline-flex; flex-direction: column; justify-content: center; height: 766px">
+<p>If the difference between your desired and current azimuth is greater than 90°, rotate the desired azimuth by 180° and reverse the drive motor.</p>
+</div><div class="column" style="width:50%;">
+<p><img data-src="img/swerve-math/optimized-azimuth.svg" alt="optimize azimuth" /><br />
+</p>
+</div>
+</div>
 </section>
 <section id="field-oriented-driving" class="slide level2">
 <h2>Field Oriented Driving</h2>
