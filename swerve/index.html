@@ -124,7 +124,7 @@ desired position and speed of each wheel.</p>
 <p>Each wheel’s <strong>speed</strong> and <strong>azimuth</strong> can be calculated from its velocity vector (<strong>v</strong><sub>w</sub>).</p>
 <p><img data-src="img/swerve-math/wheel-position+speed.svg" alt="wheel position + speed" /><br />
 </p>
-<p><strong>Azimuth</strong> (θ) is the term we use for the wheels angle relative to the robot frame of reference.</p>
+<p><strong>Azimuth</strong> (θ) is the term we use for the wheel’s angle relative to the robot frame of reference.</p>
 </section>
 <section id="normalize-wheel-speeds" class="slide level2">
 <h2>Normalize Wheel Speeds</h2>
@@ -180,6 +180,14 @@ by potentially reversing the direction the wheel spins.</p>
 </section>
 <section id="field-oriented-driving" class="slide level2">
 <h2>Field Oriented Driving</h2>
+<p>In Teleoperation, we normally provide driver joystick (velocity) inputs<br />
+relative to the field frame of reference.</p>
+<p>We rotate the requested field-oriented robot velocity vector by an amount equal<br />
+to the gyro angle, θ, to get the desired robot-oriented velocity vector.</p>
+<p><img data-src="img/swerve-math/field-oriented.svg" alt="optimize azimuth" /><br />
+</p>
+<p>In this example, pushing the <strong>v</strong><sub>x</sub> (F/R) joystick in the postive x direction<br />
+will move the robot directly down the field, no matter the direction the robot is facing (θ).</p>
 </section></section>
 <section>
 <section id="pathfinding-tools" class="title-slide slide level1">
