@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xl="http://www.w3.org/1999/xlink" viewBox="90.5 1046 766 766" width="766" height="766">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xl="http://www.w3.org/1999/xlink" xmlns:dc="http://purl.org/dc/elements/1.1/" viewBox="90.5 1046 766 766" width="766" height="766">
   <defs>
     <clipPath id="artboard_clip_path">
       <path d="M 90.5 1046 L 856.5 1046 L 856.5 1812 L 90.5 1812 Z"/>
@@ -15,19 +15,19 @@
         <path d="M 3.2 0 L 0 -1.2 L 0 1.2 Z" fill="currentColor" stroke="currentColor" stroke-width="1"/>
       </g>
     </marker>
-    <marker orient="auto" overflow="visible" markerUnits="strokeWidth" id="FilledArrow_Marker_2" stroke-linejoin="miter" stroke-miterlimit="10" viewBox="-1 -2 5 4" markerWidth="5" markerHeight="4" color="#203dd7">
+    <marker orient="auto" overflow="visible" markerUnits="strokeWidth" id="FilledArrow_Marker_2" stroke-linejoin="miter" stroke-miterlimit="10" viewBox="-1 -2 4 4" markerWidth="4" markerHeight="4" color="#fe2700">
       <g>
-        <path d="M 2.4 0 L 0 -.9 L 0 .9 Z" fill="currentColor" stroke="currentColor" stroke-width="1"/>
+        <path d="M 2 0 L 0 -.75 L 0 .75 Z" fill="currentColor" stroke="currentColor" stroke-width="1"/>
       </g>
     </marker>
-    <marker orient="auto" overflow="visible" markerUnits="strokeWidth" id="FilledArrow_Marker_3" stroke-linejoin="miter" stroke-miterlimit="10" viewBox="-1 -2 5 4" markerWidth="5" markerHeight="4" color="#38992a">
+    <marker orient="auto" overflow="visible" markerUnits="strokeWidth" id="FilledArrow_Marker_3" stroke-linejoin="miter" stroke-miterlimit="10" viewBox="-1 -2 4 4" markerWidth="4" markerHeight="4" color="#65448e">
       <g>
-        <path d="M 2.4 0 L 0 -.9 L 0 .9 Z" fill="currentColor" stroke="currentColor" stroke-width="1"/>
+        <path d="M 2 0 L 0 -.75 L 0 .75 Z" fill="currentColor" stroke="currentColor" stroke-width="1"/>
       </g>
     </marker>
   </defs>
-  <metadata> Produced by OmniGraffle 7.18.5\n2021-04-06 16:32:14 +0000</metadata>
-  <g id="optimize-azimuth" stroke-dasharray="none" stroke="none" fill-opacity="1" fill="none" stroke-opacity="1">
+  <metadata> Produced by OmniGraffle 7.18.5\n2021-04-07 11:48:49 +0000</metadata>
+  <g id="optimize-azimuth" stroke-dasharray="none" stroke="none" stroke-opacity="1" fill="none" fill-opacity="1">
     <title>optimize-azimuth</title>
     <rect fill="white" x="90.5" y="1046" width="766" height="766"/>
     <g id="optimize-azimuth_circle" clip-path="url(#artboard_clip_path)">
@@ -53,14 +53,14 @@
       <g id="Line_13">
         <path d="M 413 1287.5 C 341.8254 1290.9551 301.1824 1322.4866 282.86144 1341.6422" marker-end="url(#FilledArrow_Marker)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"/>
       </g>
-      <g id="Line_8">
-        <line x1="413.5" y1="1472" x2="618.5352" y2="1632.559" marker-end="url(#FilledArrow_Marker_2)" stroke="#203dd7" stroke-linecap="round" stroke-linejoin="round" stroke-width="8"/>
-      </g>
       <g id="Line_9">
-        <line x1="411" y1="1470" x2="189.75269" y2="1290.3899" stroke="#203dd7" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8.0,32.0" stroke-width="8"/>
+        <line x1="411" y1="1470" x2="189.75269" y2="1290.3899" stroke="#65448e" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8.0,32.0" stroke-width="8"/>
       </g>
       <g id="Line_10">
-        <line x1="413" y1="1472" x2="413" y2="1213.15" marker-end="url(#FilledArrow_Marker_3)" stroke="#38992a" stroke-linecap="round" stroke-linejoin="round" stroke-width="8"/>
+        <line x1="413" y1="1472" x2="413" y2="1237.15" marker-end="url(#FilledArrow_Marker_2)" stroke="#fe2700" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/>
+      </g>
+      <g id="Line_8">
+        <line x1="413.5" y1="1472" x2="599.6394" y2="1617.7621" marker-end="url(#FilledArrow_Marker_3)" stroke="#65448e" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/>
       </g>
     </g>
   </g>

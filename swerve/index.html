@@ -103,8 +103,14 @@ into positions and speeds of each of the four swerve wheels.</p>
 <section>
 <section id="swerve-math" class="title-slide slide level1" data-background-color="rgb(241, 186, 27)">
 <h1 data-background-color="rgb(241, 186, 27)">Swerve Math</h1>
-<p>In our swerve drive software, we calculate the<br />
-desired position and speed of each wheel.</p>
+<p>We can calculate desired position and speed of each wheel using vectors.</p>
+</section>
+<section id="vectors" class="slide level2">
+<h2>Vectors</h2>
+<p>We use <strong>vectors</strong> to represent velocity, which is speed and direction.</p>
+<p><img data-src="img/swerve-math/vectors.svg" alt="vectors" /><br />
+</p>
+<p>Here we show how to add two vectors together, later we will show rotating a vector by a given angle.</p>
 </section>
 <section id="coordinate-frames" class="slide level2">
 <h2>Coordinate Frames</h2>
@@ -115,7 +121,7 @@ desired position and speed of each wheel.</p>
 </section>
 <section id="wheel-position-and-speed" class="slide level2">
 <h2>Wheel Position and Speed</h2>
-<p>We add together the desired velocity inputs to get a velocity vector for each wheel.</p>
+<p>We add together the desired robot-oriented velocity inputs to get a velocity vector for each wheel.</p>
 <p><img data-src="img/swerve-math/wheel-vectors.svg" alt="coordinate frames" /><br />
 </p>
 </section>
