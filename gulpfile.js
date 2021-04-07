@@ -8,6 +8,7 @@ const HIGHLIGHT = "zenburn";
 const LEVEL = 2;
 const WIDTH = 3072 * 0.6;
 const HEIGHT = 1920 * 0.6;
+const MARGIN = 0.08;
 
 const SLIDES = [
   {
@@ -16,7 +17,13 @@ const SLIDES = [
   },
   {
     slug: "swerve",
-    files: ["index.md", "swerve.md", "swerve-math.md", "paths.md"],
+    files: [
+      "index.md",
+      "swerve.md",
+      "swerve-math.md",
+      "swerve-software.md",
+      "paths.md",
+    ],
   },
 ];
 
@@ -68,6 +75,7 @@ const buildSlides = async (slug, files) => {
     `--highlight-style=${HIGHLIGHT}`,
     `--variable=width:${WIDTH}`,
     `--variable=height:${HEIGHT}`,
+    `--variable=margin:${MARGIN}`,
     `--output=build/${slug}/index.html`,
   ];
 
