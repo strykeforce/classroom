@@ -17,6 +17,68 @@
     div.column{display: inline-block; vertical-align: top; width: 50%;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+      }
+    pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+    div.sourceCode
+      { color: #cccccc; background-color: #303030; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ffcfaf; } /* Alert */
+    code span.an { color: #7f9f7f; font-weight: bold; } /* Annotation */
+    code span.at { } /* Attribute */
+    code span.bn { color: #dca3a3; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #f0dfaf; } /* ControlFlow */
+    code span.ch { color: #dca3a3; } /* Char */
+    code span.cn { color: #dca3a3; font-weight: bold; } /* Constant */
+    code span.co { color: #7f9f7f; } /* Comment */
+    code span.cv { color: #7f9f7f; font-weight: bold; } /* CommentVar */
+    code span.do { color: #7f9f7f; } /* Documentation */
+    code span.dt { color: #dfdfbf; } /* DataType */
+    code span.dv { color: #dcdccc; } /* DecVal */
+    code span.er { color: #c3bf9f; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #c0bed1; } /* Float */
+    code span.fu { color: #efef8f; } /* Function */
+    code span.im { } /* Import */
+    code span.in { color: #7f9f7f; font-weight: bold; } /* Information */
+    code span.kw { color: #f0dfaf; } /* Keyword */
+    code span.op { color: #f0efd0; } /* Operator */
+    code span.ot { color: #efef8f; } /* Other */
+    code span.pp { color: #ffcfaf; font-weight: bold; } /* Preprocessor */
+    code span.sc { color: #dca3a3; } /* SpecialChar */
+    code span.ss { color: #cc9393; } /* SpecialString */
+    code span.st { color: #cc9393; } /* String */
+    code span.va { } /* Variable */
+    code span.vs { color: #cc9393; } /* VerbatimString */
+    code span.wa { color: #7f9f7f; font-weight: bold; } /* Warning */
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="../static/reveal.js/dist/theme/white.css" id="theme">
@@ -196,6 +258,101 @@ to the gyro angle, θ, to get the desired robot-oriented velocity vector.</p>
 will move the robot directly down the field, no matter the direction the robot is facing (θ).</p>
 </section></section>
 <section>
+<section id="swerve-software" class="title-slide slide level1" data-background-color="rgb(241, 186, 27)">
+<h1 data-background-color="rgb(241, 186, 27)">Swerve Software</h1>
+<p>In our robot, we use the WPILIB kinematics suite to convert<br />
+desired velocities to swerve module speed and angle.</p>
+</section>
+<section id="terminology" class="slide level2">
+<h2>Terminology</h2>
+<dl>
+<dt>Kinematics</dt>
+<dd><p>The kinematics classes help convert between a universal <code>ChassisSpeeds</code> object, containing linear and angular velocities for a robot to usable speeds for each individual module states (speed and angle) for a swerve drive.</p>
+</dd>
+<dt>Odometry</dt>
+<dd><p>Odometry uses sensors on the robot to create an estimate of the position of the robot on the field. In our robots, these sensors are typically drive and azimuth encoders and a gyroscope to measure robot angle.</p>
+</dd>
+<dd><p>The odometry classes utilize the kinematics classes along with periodic inputs about speeds and angles to create an estimate of the robot’s location on the field.</p>
+</dd>
+</dl>
+</section>
+<section id="the-chassisspeeds-class" class="slide level2">
+<h2>the <code>ChassisSpeeds</code> Class</h2>
+<p>The <code>ChassisSpeeds</code> object represents the speeds of a robot chassis.</p>
+<p>Speeds are given in meters per second.</p>
+<dl>
+<dt><code>vx</code></dt>
+<dd>The velocity of the robot in the <strong>x</strong> (forward) direction.
+</dd>
+<dt><code>vy</code></dt>
+<dd>The velocity of the robot in the <strong>y</strong> (strafe) direction.<br />
+Positive values mean the robot is moving to the left.
+</dd>
+<dt><code>omega</code></dt>
+<dd>The angular velocity of the robot in radians per second.<br />
+Positive is CCW rotation (yaw) of the robot.
+</dd>
+</dl>
+<div class="sourceCode" id="cb1"><pre class="sourceCode java"><code class="sourceCode java"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>var xSpeed <span class="op">=</span> leftJoystick<span class="op">.</span><span class="fu">x</span> <span class="op">*</span> kMaxMetersPerSec<span class="op">;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>var ySpeed <span class="op">=</span> leftJoystick<span class="op">.</span><span class="fu">y</span> <span class="op">*</span> kMaxMetersPerSec<span class="op">;</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>var rotSpeed <span class="op">=</span> rightJoystick<span class="op">.</span><span class="fu">x</span> <span class="op">*</span> kMaxRadiansPerSec<span class="op">;</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>var speeds <span class="op">=</span> <span class="kw">new</span> <span class="fu">ChassisSpeeds</span><span class="op">(</span>xSpeed<span class="op">,</span> ySpeed<span class="op">,</span> rotSpeed<span class="op">);</span></span></code></pre></div>
+</section>
+<section id="the-swervedrivekinematics-class" class="slide level2">
+<h2>The <code>SwerveDriveKinematics</code> Class</h2>
+</section>
+<section id="the-swervemodulestate-class" class="slide level2">
+<h2>The <code>SwerveModuleState</code> Class</h2>
+</section>
+<section id="swerve-kinematics-examples" class="slide level2">
+<h2>Swerve Kinematics Examples</h2>
+<p>We can use the Python version of WPILIB kinematics classes in a Jupyter notebook to easily convert desired robot speed and rotation into swerve wheel speeds and angles.</p>
+<p>The classes and concepts are identical to the Java version we use on the robot.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># define some useful constants</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>MAX_SPEED <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>MAX_ROTATION <span class="op">=</span> <span class="fl">0.5</span> <span class="op">*</span> math.pi</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># set up the swerve drive kinematics class by specifying where the wheels are</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co"># relative to the center of the robot</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>fl_loc <span class="op">=</span> Translation2d(<span class="fl">0.3</span>, <span class="fl">0.3</span>)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>fr_loc <span class="op">=</span> Translation2d(<span class="fl">0.3</span>, <span class="op">-</span><span class="fl">0.3</span>)</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>rl_loc <span class="op">=</span> Translation2d(<span class="op">-</span><span class="fl">0.3</span>, <span class="fl">0.3</span>)</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>rr_loc <span class="op">=</span> Translation2d(<span class="op">-</span><span class="fl">0.3</span>, <span class="op">-</span><span class="fl">0.3</span>)</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>kinematics <span class="op">=</span> SwerveDrive4Kinematics(fl_loc, fr_loc, rl_loc, rr_loc)</span></code></pre></div>
+</section>
+<section class="slide level2">
+
+<h3 id="drive-in-forward-direction">Drive in forward direction</h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>speeds <span class="op">=</span> ChassisSpeeds(MAX_SPEED, <span class="dv">0</span>, <span class="dv">0</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>module_states <span class="op">=</span> kinematics.toSwerveModuleStates(speeds)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>module_states <span class="op">=</span> kinematics.normalizeWheelSpeeds(module_states, MAX_SPEED)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>plot_swerve(wheel_locs, module_states)</span></code></pre></div>
+<p><img data-src="img/swerve-software/swerve-01.svg" style="width:60.0%" alt="swerve 01" /><br />
+</p>
+</section>
+<section class="slide level2">
+
+<h3 id="drive-in-forward-right-directions">Drive in forward, right directions</h3>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>speeds <span class="op">=</span> ChassisSpeeds(MAX_SPEED, <span class="op">-</span>MAX_SPEED, <span class="dv">0</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>module_states <span class="op">=</span> kinematics.toSwerveModuleStates(speeds)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>module_states <span class="op">=</span> kinematics.normalizeWheelSpeeds(module_states, MAX_SPEED)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>plot_swerve(wheel_locs, module_states)</span></code></pre></div>
+<p><img data-src="img/swerve-software/swerve-02.svg" style="width:60.0%" alt="swerve 02" /><br />
+</p>
+</section>
+<section class="slide level2">
+
+<h3 id="drive-in-forward-right-and-clockwise-directions">Drive in forward, right and clockwise directions</h3>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>speeds <span class="op">=</span> ChassisSpeeds(MAX_SPEED, <span class="op">-</span>MAX_SPEED, <span class="op">-</span>MAX_ROTATION)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>module_states <span class="op">=</span> kinematics.toSwerveModuleStates(speeds)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>module_states <span class="op">=</span> kinematics.normalizeWheelSpeeds(module_states, MAX_SPEED)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>plot_swerve(wheel_locs, module_states)</span></code></pre></div>
+<p><img data-src="img/swerve-software/swerve-03.svg" style="width:60.0%" alt="swerve 03" /><br />
+</p>
+</section></section>
+<section>
 <section id="pathfinding-tools" class="title-slide slide level1">
 <h1>Pathfinding Tools</h1>
 
@@ -229,6 +386,8 @@ will move the robot directly down the field, no matter the direction the robot i
         // specified using percentage units.
         width: 1843.1999999999998,
         height: 1152,
+        // Factor of the display size that should remain empty around the content
+        margin: 0.08,
 
         // reveal.js plugins
         plugins: [

@@ -41,7 +41,7 @@
       </g>
     </marker>
   </defs>
-  <metadata> Produced by OmniGraffle 7.18.5\n2021-04-07 11:40:06 +0000</metadata>
+  <metadata> Produced by OmniGraffle 7.18.5\n2021-04-07 11:54:24 +0000</metadata>
   <g id="vectors" stroke-dasharray="none" stroke="none" stroke-opacity="1" fill="none" fill-opacity="1">
     <title>vectors</title>
     <rect fill="white" x="-136" y="897" width="3072" height="960"/>
@@ -158,7 +158,7 @@
           <line x1="1322.2383" y1="1538.172" x2="1632.5904" y2="1538.172" marker-end="url(#FilledArrow_Marker_4)" stroke="#fe2700" stroke-linecap="butt" stroke-linejoin="round" stroke-width="16"/>
         </g>
       </g>
-      <g id="Group_70">
+      <g id="Group_79">
         <g id="Line_67">
           <line x1="2120.767" y1="1539.6997" x2="2216.0024" y2="1539.6997" marker-start="url(#FilledArrow_Marker)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"/>
         </g>
@@ -188,9 +188,6 @@
           <text transform="translate(2592.367 1249)" fill="black">
             <tspan font-family="Helvetica Neue" font-size="64" font-weight="700" fill="black" x="0" y="62">v</tspan>
           </text>
-        </g>
-        <g id="Line_59">
-          <line x1="2216.8713" y1="1315.0621" x2="2575.8797" y2="1315.0621" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="16.0,16.0" stroke-width="4"/>
         </g>
         <g id="Line_58">
           <line x1="2581.1234" y1="1315.0621" x2="2581.1234" y2="1540.6997" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="16.0,16.0" stroke-width="4"/>
