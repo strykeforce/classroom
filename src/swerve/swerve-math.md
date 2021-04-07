@@ -1,6 +1,6 @@
 # Swerve Drive Motion{data-background-color="rgb(241, 186, 27)"}
 
-To move the swerve drive, we need to convert the desired motion of the robot \
+To move the swerve drive, we need to convert the desired motion of the robot\
 into positions and speeds of each of the four swerve wheels.
 
 ## Swerve Motion
@@ -45,8 +45,15 @@ We can also yaw around an arbitrary off-center point relative to the robot.
 
 # Swerve Math{data-background-color="rgb(241, 186, 27)"}
 
-In our swerve drive software, we calculate the \
-desired position and speed of each wheel.
+We can calculate desired position and speed of each wheel using vectors.
+
+## Vectors
+
+We use **vectors** to represent velocity, which is speed and direction.
+
+![vectors](img/swerve-math/vectors.svg)\
+
+Here we show how to add two vectors together, later we will show rotating a vector by a given angle.
 
 ## Coordinate Frames
 
@@ -58,7 +65,7 @@ Going forward, we'll also refer to swerve drive motion components (forward, stra
 
 ## Wheel Position and Speed
 
-We add together the desired velocity inputs to get a velocity vector for each wheel.
+We add together the desired robot-oriented velocity inputs to get a velocity vector for each wheel.
 
 ![coordinate frames](img/swerve-math/wheel-vectors.svg)\
 
@@ -87,7 +94,7 @@ To fix this issue, we "normalize" all the wheel speeds to make sure that all req
 
 ## Optimize Wheel Position
 
-We minimize the change in heading the desired swerve wheel direction would require \
+We minimize the change in heading the desired swerve wheel direction would require\
 by potentially reversing the direction the wheel spins.
 
 When optimized, the furthest a wheel will ever rotate is 90 degrees.
@@ -105,13 +112,13 @@ If the difference between your desired and current azimuth is greater than 90°,
 
 ## Field Oriented Driving
 
-In Teleoperation, we normally provide driver joystick (velocity) inputs \
+In Teleoperation, we normally provide driver joystick (velocity) inputs\
 relative to the field frame of reference.
 
-We rotate the requested field-oriented robot velocity vector by an amount equal \
+We rotate the requested field-oriented robot velocity vector by an amount equal\
 to the gyro angle, θ, to get the desired robot-oriented velocity vector.
 
 ![optimize azimuth](img/swerve-math/field-oriented.svg)\
 
-In this example, pushing the **v**~x~ (F/R) joystick in the postive x direction \
+In this example, pushing the **v**~x~ (F/R) joystick in the postive x direction\
 will move the robot directly down the field, no matter the direction the robot is facing (θ).
