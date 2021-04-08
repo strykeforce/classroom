@@ -19,8 +19,6 @@ Odometry
 
 The `ChassisSpeeds` class represents the speeds of a robot chassis.
 
-Speeds are given in meters per second.
-
 `vx`
 : The velocity of the robot in the **x** (forward) direction.
 
@@ -40,19 +38,21 @@ double rotSpeed = rightJoystick.x * kMaxRadiansPerSec;
 ChassisSpeeds speeds = new ChassisSpeeds(xSpeed, ySpeed, rotSpeed);
 ```
 
+Speeds are aligned to a [coordinate system](#coordinate-frames) and are given in meters per second.
+
 ---
 
-We also use the `ChassisSpeeds` to convert field-relative speeds into robot-relative speeds.
-
-The angle of the robot is measured by a gyroscope. The robot's angle is considered to be zero when it is facing directly away from our alliance station wall.
+We also use the `ChassisSpeeds` to [convert field-relative](#field-oriented-driving) speeds into robot-relative speeds.
 
 ```java
 double xSpeed = leftJoystick.x * kMaxMetersPerSec;
 double ySpeed = leftJoystick.y * kMaxMetersPerSec;
 double rotSpeed = rightJoystick.x * kMaxRadiansPerSec;
 
-ChassisSpeeds speeds = ChassisSpeeds.fromFieldRelativeSpeeds(xSpeed, ySpeed, rotSpeed, gyro.getRotation2d())
+ChassisSpeeds speeds = ChassisSpeeds.fromFieldRelativeSpeeds(xSpeed, ySpeed, rotSpeed, gyro.getRotation2d());
 ```
+
+The angle of the robot is measured by a gyroscope. The robot's angle is considered to be zero when it is facing directly away from our alliance station wall.
 
 ## The `SwerveDriveKinematics` Class
 
@@ -94,7 +94,7 @@ The returned module states are an array of four `SwerveModuleState` objects, eac
 
 \
 
-If you want to specify a variable center of rotation for the robot, you can pass in a optional `Translation2d` object that is the desired center.
+If you want to specify a [variable center of rotation](#swerve-yaw-component) for the robot, you can pass in a optional `Translation2d` object that is the desired center.
 
 For example, you want to yaw the robot underneath the shooter that is 10 cm left of the centerline of the robot.
 
@@ -106,7 +106,7 @@ SwerveModuleState[] states = kinematics.toSwerveModuleStates(speeds, center);
 
 ---
 
-Sometimes after calculating wheel velocity vectors, the requested speed may be above the maximum attainable speed for the swerve module drive motor.
+Sometimes after calculating wheel velocity vectors, the requested speed may be above the maximum attainable speed for the swerve module drive motor and need to be [normalized](#normalize-wheel-speeds).
 
 To fix this issue, `SwerveDriveKinematics` has a `normalizeWheelSpeeds​` static method.
 
@@ -147,7 +147,7 @@ frontLeftModule.setDesiredState(states[0]);
 // rest of modules...
 ```
 
-It also performs the optimization of wheel positioning by minimizing the change in heading the desired swerve wheel direction would require by potentially reversing the direction the wheel spins. For example, our `SwerveModule` class could use it in its `setDesiredState` method.
+It also performs the [optimization of wheel positioning](#optimize-wheel-position) by minimizing the change in heading the desired swerve wheel direction would require by potentially reversing the direction the wheel spins. For example, our `SwerveModule` class could use it in its `setDesiredState` method.
 
 ```java
 public void setDesiredState(SwerveModuleState desiredState) {
