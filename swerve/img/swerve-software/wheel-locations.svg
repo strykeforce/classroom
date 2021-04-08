@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns:xl="http://www.w3.org/1999/xlink" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns="http://www.w3.org/2000/svg" viewBox="217 278 632 632" width="632" height="632">
+  <defs>
+    <font-face font-family="Helvetica Neue" font-size="48" panose-1="2 0 5 3 0 0 0 2 0 4" units-per-em="1000" underline-position="-100" underline-thickness="50" slope="0" x-height="517" cap-height="714" ascent="951.9958" descent="-212.99744" font-weight="400">
+      <font-face-src>
+        <font-face-name name="HelveticaNeue"/>
+      </font-face-src>
+    </font-face>
+    <marker orient="auto" overflow="visible" markerUnits="strokeWidth" id="FilledArrow_Marker" stroke-linejoin="miter" stroke-miterlimit="10" viewBox="-5 -3 6 6" markerWidth="6" markerHeight="6" color="black">
+      <g>
+        <path d="M -3.2 0 L 0 1.2 L 0 -1.2 Z" fill="currentColor" stroke="currentColor" stroke-width="1"/>
+      </g>
+    </marker>
+  </defs>
+  <metadata> Produced by OmniGraffle 7.18.5\n2021-04-08 14:31:40 +0000</metadata>
+  <g id="Canvas_1" stroke-opacity="1" stroke="none" stroke-dasharray="none" fill="none" fill-opacity="1">
+    <title>Canvas 1</title>
+    <g id="Canvas_1_Layer_1">
+      <title>Layer 1</title>
+      <g id="Graphic_11">
+        <text transform="translate(589.51605 423.6322)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="48" font-weight="400" fill="black" x="0" y="46">front</tspan>
+          <tspan font-family="Helvetica Neue" font-size="48" font-weight="400" fill="black" x="16.464" y="103.344">left</tspan>
+        </text>
+      </g>
+      <g id="Group_14">
+        <g id="Line_13">
+          <line x1="238.436" y1="626.9989" x2="333.67144" y2="626.9989" marker-start="url(#FilledArrow_Marker)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"/>
+        </g>
+        <g id="Line_10">
+          <line x1="760.866" y1="626.9989" x2="332.54644" y2="626.9989" marker-start="url(#FilledArrow_Marker)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"/>
+        </g>
+      </g>
+      <g id="Group_15">
+        <g id="Line_12">
+          <line x1="499.5823" y1="365.6743" x2="499.5823" y2="793.9938" marker-start="url(#FilledArrow_Marker)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"/>
+        </g>
+        <g id="Line_9">
+          <line x1="499.7197" y1="888.3235" x2="499.7197" y2="795.0494" marker-start="url(#FilledArrow_Marker)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"/>
+        </g>
+      </g>
+      <g id="Graphic_8">
+        <text transform="translate(469.699 284.13405)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="48" font-weight="400" fill="black" x="0" y="46">+Y</tspan>
+        </text>
+      </g>
+      <g id="Graphic_16">
+        <text transform="translate(790.6048 598.3269)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="48" font-weight="400" fill="black" x="30553338e-20" y="46">+X</tspan>
+        </text>
+      </g>
+      <g id="Graphic_17">
+        <text transform="translate(589.51605 680.6322)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="48" font-weight="400" fill="black" x="0" y="46">front</tspan>
+          <tspan font-family="Helvetica Neue" font-size="48" font-weight="400" fill="black" x="1.344" y="103.344">right</tspan>
+        </text>
+      </g>
+      <g id="Graphic_18">
+        <text transform="translate(317.36005 680.6322)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="48" font-weight="400" fill="black" x="6.672" y="46">rear</tspan>
+          <tspan font-family="Helvetica Neue" font-size="48" font-weight="400" fill="black" x="0" y="103.344">right</tspan>
+        </text>
+      </g>
+      <g id="Graphic_19">
+        <text transform="translate(324.03205 423.6322)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="48" font-weight="400" fill="black" x="0" y="46">rear</tspan>
+          <tspan font-family="Helvetica Neue" font-size="48" font-weight="400" fill="black" x="8.448" y="103.344">left</tspan>
+        </text>
+      </g>
+    </g>
+  </g>
+</svg>

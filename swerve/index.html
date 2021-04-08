@@ -274,7 +274,7 @@ desired velocities to swerve module speed and angle.</p>
 </section>
 <section id="the-chassisspeeds-class" class="slide level2">
 <h2>the <code>ChassisSpeeds</code> Class</h2>
-<p>The <code>ChassisSpeeds</code> object represents the speeds of a robot chassis.</p>
+<p>The <code>ChassisSpeeds</code> class represents the speeds of a robot chassis.</p>
 <p>Speeds are given in meters per second.</p>
 <dl>
 <dt><code>vx</code></dt>
@@ -295,56 +295,121 @@ Positive is CCW rotation (yaw) of the robot.
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>var speeds <span class="op">=</span> <span class="kw">new</span> <span class="fu">ChassisSpeeds</span><span class="op">(</span>xSpeed<span class="op">,</span> ySpeed<span class="op">,</span> rotSpeed<span class="op">);</span></span></code></pre></div>
 </section>
+<section class="slide level2">
+
+<p>We also use the <code>ChassisSpeeds</code> to convert field-relative speeds into robot-relative speeds.</p>
+<p>The angle of the robot is measured by a gyroscope. The robot’s angle is considered to be zero when it is facing directly away from our alliance station wall.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode java"><code class="sourceCode java"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>var xSpeed <span class="op">=</span> leftJoystick<span class="op">.</span><span class="fu">x</span> <span class="op">*</span> kMaxMetersPerSec<span class="op">;</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>var ySpeed <span class="op">=</span> leftJoystick<span class="op">.</span><span class="fu">y</span> <span class="op">*</span> kMaxMetersPerSec<span class="op">;</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>var rotSpeed <span class="op">=</span> rightJoystick<span class="op">.</span><span class="fu">x</span> <span class="op">*</span> kMaxRadiansPerSec<span class="op">;</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>var speeds <span class="op">=</span> ChassisSpeeds<span class="op">.</span><span class="fu">fromFieldRelativeSpeeds</span><span class="op">(</span>xSpeed<span class="op">,</span> ySpeed<span class="op">,</span> rotSpeed<span class="op">,</span> gyro<span class="op">.</span><span class="fu">getRotation2d</span><span class="op">())</span></span></code></pre></div>
+</section>
 <section id="the-swervedrivekinematics-class" class="slide level2">
 <h2>The <code>SwerveDriveKinematics</code> Class</h2>
+<p>The <code>SwerveDriveKinematics</code> class is a helper class that converts a chassis velocity (<strong>v</strong><sub>x</sub>, <strong>v</strong><sub>y</sub>, and <strong>ω</strong> components) into individual module states (speed and angle).</p>
+<p>We initialize an instance of this class by passing in four wheel locations, in meters, relative to the center of the robot.</p>
+<div class="columns">
+<div class="column" style="width:75%;">
+<div class="sourceCode" id="cb3"><pre class="sourceCode java"><code class="sourceCode java"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>var frontLeft <span class="op">=</span> <span class="kw">new</span> <span class="fu">Translation2d</span><span class="op">(</span><span class="fl">0.3</span><span class="op">,</span> <span class="fl">0.3</span><span class="op">);</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>var frontRight <span class="op">=</span> <span class="kw">new</span> <span class="fu">Translation2d</span><span class="op">(</span><span class="fl">0.3</span><span class="op">,</span> <span class="op">-</span><span class="fl">0.3</span><span class="op">);</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>var rearLeft <span class="op">=</span> <span class="kw">new</span> <span class="fu">Translation2d</span><span class="op">(-</span><span class="fl">0.3</span><span class="op">,</span> <span class="fl">0.3</span><span class="op">);</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>var rearRight <span class="op">=</span> <span class="kw">new</span> <span class="fu">Translation2d</span><span class="op">(-</span><span class="fl">0.3</span><span class="op">,</span> <span class="op">-</span><span class="fl">0.3</span><span class="op">);</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>var kinematics <span class="op">=</span> <span class="kw">new</span> <span class="fu">SwerveDriveKinematics</span><span class="op">(</span>frontLeft<span class="op">,</span> frontRight<span class="op">,</span> rearLeft<span class="op">,</span> rearRight<span class="op">);</span></span></code></pre></div>
+</div><div class="column" style="width:25%;">
+<p><img data-src="img/swerve-software/wheel-locations.svg" style="width:65.0%" alt="wheel locations" /><br />
+</p>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<p>We then use this <code>kinematics</code> instance to perform <em>inverse kinematics</em> to return the module states from a desired chassis velocity.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode java"><code class="sourceCode java"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>var speeds <span class="op">=</span> <span class="kw">new</span> <span class="fu">ChassisSpeeds</span><span class="op">(</span>xSpeed<span class="op">,</span> ySpeed<span class="op">,</span> rotSpeed<span class="op">);</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>SwerveModuleState<span class="op">[]</span> states <span class="op">=</span> kinematics<span class="op">.</span><span class="fu">toSwerveModuleStates</span><span class="op">(</span>speeds<span class="op">);</span></span></code></pre></div>
+<p>The returned module states are an array of four <code>SwerveModuleState</code> objects, each containing the speed and angle of one of the wheels. They are passed back in the same wheel order that we initialized the <code>SwerveDriveKinematics</code> in.</p>
+<p><br />
+</p>
+<p>If you want to specify a variable center of rotation for the robot, you can pass in a optional <code>Translation2d</code> object that is the desired center.</p>
+<p>For example, you want to yaw the robot underneath the shooter that is 10 cm left of the centerline of the robot.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode java"><code class="sourceCode java"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>var speeds <span class="op">=</span> <span class="kw">new</span> <span class="fu">ChassisSpeeds</span><span class="op">(</span><span class="dv">0</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> rotSpeed<span class="op">);</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>var center <span class="op">=</span> <span class="kw">new</span> <span class="fu">Translation2d</span><span class="op">(</span><span class="dv">0</span><span class="op">,</span> <span class="fl">0.1</span><span class="op">);</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>SwerveModuleState<span class="op">[]</span> states <span class="op">=</span> kinematics<span class="op">.</span><span class="fu">toSwerveModuleStates</span><span class="op">(</span>speeds<span class="op">,</span> center<span class="op">);</span></span></code></pre></div>
+</section>
+<section class="slide level2">
+
+<p>We can also use this <code>kinematics</code> instance to perform <em>foward kinematics</em> to return the instantaneous chassis velocity from module states.</p>
+<p>Typically we would query the hardware encoders to get actual module states, as in this example.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode java"><code class="sourceCode java"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">// driveSubsystem has code to read swerve module hardware encoders and converts to module states</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>SwerveModuleState<span class="op">[]</span> states <span class="op">=</span> driveSubsystem<span class="op">.</span><span class="fu">getModuleStates</span><span class="op">();</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>ChassisSpeeds speeds <span class="op">=</span> kinematics<span class="op">.</span><span class="fu">toChassisSpeeds</span><span class="op">(</span>states<span class="op">);</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">printf</span><span class="op">(</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;robot vxMetersPerSecond = </span><span class="sc">%f</span><span class="st">, vyMetersPerSecond = </span><span class="sc">%f</span><span class="st">, omegaRadiansPerSecond = </span><span class="sc">%f</span><span class="st"> </span><span class="sc">%n</span><span class="st">&quot;</span><span class="op">,</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    speeds<span class="op">.</span><span class="fu">vxMetersPerSecond</span><span class="op">,</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    speeds<span class="op">.</span><span class="fu">vyMetersPerSecond</span><span class="op">,</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>    speeds<span class="op">.</span><span class="fu">omegaRadiansPerSecond</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="op">);</span></span></code></pre></div>
 </section>
 <section id="the-swervemodulestate-class" class="slide level2">
 <h2>The <code>SwerveModuleState</code> Class</h2>
+<p>The <code>SwerveModuleState</code> is a simple data class that represents the speed and direction of a swerve module.</p>
+<p>We would typically pass it to our own <code>SwerveModule</code> class that knows about our specific hardware.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode java"><code class="sourceCode java"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>SwerveModuleState<span class="op">[]</span> states <span class="op">=</span> kinematics<span class="op">.</span><span class="fu">toSwerveModuleStates</span><span class="op">(</span>speeds<span class="op">,</span> center<span class="op">);</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>frontLeftModule<span class="op">.</span><span class="fu">setDesiredState</span><span class="op">(</span>states<span class="op">[</span><span class="dv">0</span><span class="op">]);</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co">// rest of modules...</span></span></code></pre></div>
+<p>It also performs the optimization of wheel positioning by minimizing the change in heading the desired swerve wheel direction would require by potentially reversing the direction the wheel spins. For example, our <code>SwerveModule</code> class could use it in its <code>setDesiredState</code> method.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode java"><code class="sourceCode java"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="dt">void</span> <span class="fu">setDesiredState</span><span class="op">(</span>SwerveModuleState desiredState<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    SwerveModuleState state <span class="op">=</span> SwerveModuleState<span class="op">.</span><span class="fu">optimize</span><span class="op">(</span>desiredState<span class="op">,</span> <span class="kw">new</span> <span class="fu">Rotation2d</span><span class="op">(</span>azimuth<span class="op">.</span><span class="fu">getEncoderValue</span><span class="op">()));</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">// use optimized state to set module speed and angle...</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 </section>
 <section id="swerve-kinematics-examples" class="slide level2">
 <h2>Swerve Kinematics Examples</h2>
 <p>We can use the Python version of WPILIB kinematics classes in a Jupyter notebook to easily convert desired robot speed and rotation into swerve wheel speeds and angles.</p>
 <p>The classes and concepts are identical to the Java version we use on the robot.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># define some useful constants</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>MAX_SPEED <span class="op">=</span> <span class="dv">1</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>MAX_ROTATION <span class="op">=</span> <span class="fl">0.5</span> <span class="op">*</span> math.pi</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># set up the swerve drive kinematics class by specifying where the wheels are</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co"># relative to the center of the robot</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>fl_loc <span class="op">=</span> Translation2d(<span class="fl">0.3</span>, <span class="fl">0.3</span>)</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>fr_loc <span class="op">=</span> Translation2d(<span class="fl">0.3</span>, <span class="op">-</span><span class="fl">0.3</span>)</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>rl_loc <span class="op">=</span> Translation2d(<span class="op">-</span><span class="fl">0.3</span>, <span class="fl">0.3</span>)</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>rr_loc <span class="op">=</span> Translation2d(<span class="op">-</span><span class="fl">0.3</span>, <span class="op">-</span><span class="fl">0.3</span>)</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>kinematics <span class="op">=</span> SwerveDrive4Kinematics(fl_loc, fr_loc, rl_loc, rr_loc)</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># define some useful constants</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>MAX_SPEED <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>MAX_ROTATION <span class="op">=</span> <span class="fl">0.5</span> <span class="op">*</span> math.pi</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="co"># set up the swerve drive kinematics class by specifying where the wheels are</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="co"># relative to the center of the robot</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>fl_loc <span class="op">=</span> Translation2d(<span class="fl">0.3</span>, <span class="fl">0.3</span>)</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>fr_loc <span class="op">=</span> Translation2d(<span class="fl">0.3</span>, <span class="op">-</span><span class="fl">0.3</span>)</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>rl_loc <span class="op">=</span> Translation2d(<span class="op">-</span><span class="fl">0.3</span>, <span class="fl">0.3</span>)</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>rr_loc <span class="op">=</span> Translation2d(<span class="op">-</span><span class="fl">0.3</span>, <span class="op">-</span><span class="fl">0.3</span>)</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>kinematics <span class="op">=</span> SwerveDrive4Kinematics(fl_loc, fr_loc, rl_loc, rr_loc)</span></code></pre></div>
 </section>
 <section class="slide level2">
 
 <h3 id="drive-in-forward-direction">Drive in forward direction</h3>
-<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>speeds <span class="op">=</span> ChassisSpeeds(MAX_SPEED, <span class="dv">0</span>, <span class="dv">0</span>)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>module_states <span class="op">=</span> kinematics.toSwerveModuleStates(speeds)</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>module_states <span class="op">=</span> kinematics.normalizeWheelSpeeds(module_states, MAX_SPEED)</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>plot_swerve(wheel_locs, module_states)</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>speeds <span class="op">=</span> ChassisSpeeds(MAX_SPEED, <span class="dv">0</span>, <span class="dv">0</span>)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>module_states <span class="op">=</span> kinematics.toSwerveModuleStates(speeds)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>module_states <span class="op">=</span> kinematics.normalizeWheelSpeeds(module_states, MAX_SPEED)</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>plot_swerve(wheel_locs, module_states)</span></code></pre></div>
 <p><img data-src="img/swerve-software/swerve-01.svg" style="width:60.0%" alt="swerve 01" /><br />
 </p>
 </section>
 <section class="slide level2">
 
 <h3 id="drive-in-forward-right-directions">Drive in forward, right directions</h3>
-<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>speeds <span class="op">=</span> ChassisSpeeds(MAX_SPEED, <span class="op">-</span>MAX_SPEED, <span class="dv">0</span>)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>module_states <span class="op">=</span> kinematics.toSwerveModuleStates(speeds)</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>module_states <span class="op">=</span> kinematics.normalizeWheelSpeeds(module_states, MAX_SPEED)</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>plot_swerve(wheel_locs, module_states)</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>speeds <span class="op">=</span> ChassisSpeeds(MAX_SPEED, <span class="op">-</span>MAX_SPEED, <span class="dv">0</span>)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>module_states <span class="op">=</span> kinematics.toSwerveModuleStates(speeds)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>module_states <span class="op">=</span> kinematics.normalizeWheelSpeeds(module_states, MAX_SPEED)</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>plot_swerve(wheel_locs, module_states)</span></code></pre></div>
 <p><img data-src="img/swerve-software/swerve-02.svg" style="width:60.0%" alt="swerve 02" /><br />
 </p>
 </section>
 <section class="slide level2">
 
 <h3 id="drive-in-forward-right-and-clockwise-directions">Drive in forward, right and clockwise directions</h3>
-<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>speeds <span class="op">=</span> ChassisSpeeds(MAX_SPEED, <span class="op">-</span>MAX_SPEED, <span class="op">-</span>MAX_ROTATION)</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>module_states <span class="op">=</span> kinematics.toSwerveModuleStates(speeds)</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>module_states <span class="op">=</span> kinematics.normalizeWheelSpeeds(module_states, MAX_SPEED)</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>plot_swerve(wheel_locs, module_states)</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>speeds <span class="op">=</span> ChassisSpeeds(MAX_SPEED, <span class="op">-</span>MAX_SPEED, <span class="op">-</span>MAX_ROTATION)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>module_states <span class="op">=</span> kinematics.toSwerveModuleStates(speeds)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>module_states <span class="op">=</span> kinematics.normalizeWheelSpeeds(module_states, MAX_SPEED)</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>plot_swerve(wheel_locs, module_states)</span></code></pre></div>
 <p><img data-src="img/swerve-software/swerve-03.svg" style="width:60.0%" alt="swerve 03" /><br />
 </p>
 </section></section>
