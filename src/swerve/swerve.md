@@ -1,4 +1,4 @@
-# Swerve Drive Introduction
+# Swerve Drive Introduction{data-background-color="rgb(241, 186, 27)"}
 
 ## Mechanical Design
 

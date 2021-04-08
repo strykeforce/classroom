@@ -1,7 +1,6 @@
 # Swerve Drive Motion{data-background-color="rgb(241, 186, 27)"}
 
-To move the swerve drive, we need to convert the desired motion of the robot\
-into positions and speeds of each of the four swerve wheels.
+To move the swerve drive, we need to convert the desired motion of the robot into positions and speeds of each of the four swerve wheels.
 
 ## Swerve Motion
 
@@ -94,8 +93,7 @@ To fix this issue, we "normalize" all the wheel speeds to make sure that all req
 
 ## Optimize Wheel Position
 
-We minimize the change in heading the desired swerve wheel direction would require\
-by potentially reversing the direction the wheel spins.
+We minimize the change in heading the desired swerve wheel direction would require by potentially reversing the direction the wheel spins.
 
 When optimized, the furthest a wheel will ever rotate is 90 degrees.
 
@@ -112,13 +110,10 @@ If the difference between your desired and current azimuth is greater than 90°,
 
 ## Field Oriented Driving
 
-In Teleoperation, we normally provide driver joystick (velocity) inputs\
-relative to the field frame of reference.
+In Teleoperation, we normally provide driver joystick (velocity) inputs relative to the field frame of reference.
 
-We rotate the requested field-oriented robot velocity vector by an amount equal\
-to the gyro angle, θ, to get the desired robot-oriented velocity vector.
+We rotate the requested field-oriented robot velocity vector by an amount equal to the gyro angle, θ, to get the desired robot-oriented velocity vector.
 
 ![optimize azimuth](img/swerve-math/field-oriented.svg)\
 
-In this example, pushing the **v**~x~ (F/R) joystick in the postive x direction\
-will move the robot directly down the field, no matter the direction the robot is facing (θ).
+In this example, pushing the **v**~x~ (F/R) joystick in the postive x direction will move the robot directly down the field, no matter the direction the robot is facing (θ).

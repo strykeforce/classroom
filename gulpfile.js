@@ -53,6 +53,9 @@ const copyRevealJSPlugins = () =>
 
 const copyClassroomIndex = () => src("src/index.html").pipe(dest("build/"));
 
+const copyClassroomCss = () =>
+  src("src/theme/classroom.css").pipe(dest("build/static/css"));
+
 const createDestDir = async (slug) => {
   const destDir = `build/${slug}`;
   log(`creating ${destDir} directory`);
@@ -70,6 +73,7 @@ const buildSlides = async (slug, files) => {
     "--to=revealjs",
     "--standalone",
     "--variable=revealjs-url:../static/reveal.js",
+    "--css=../static/css/classroom.css",
     `--slide-level=${LEVEL}`,
     `--variable=theme:${THEME}`,
     `--highlight-style=${HIGHLIGHT}`,
@@ -98,6 +102,7 @@ const revealJS = parallel(copyRevealJSDist, copyRevealJSPlugins);
 exports.buildAll = parallel(
   revealJS,
   copyClassroomIndex,
+  copyClassroomCss,
   SLIDES.map(({ slug, files }) =>
     series(
       () => createDestDir(slug),
