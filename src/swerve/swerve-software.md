@@ -33,11 +33,11 @@ Positive values mean the robot is moving to the left.
 Positive is CCW rotation (yaw) of the robot.
 
 ```java
-var xSpeed = leftJoystick.x * kMaxMetersPerSec;
-var ySpeed = leftJoystick.y * kMaxMetersPerSec;
-var rotSpeed = rightJoystick.x * kMaxRadiansPerSec;
+double xSpeed = leftJoystick.x * kMaxMetersPerSec;
+double ySpeed = leftJoystick.y * kMaxMetersPerSec;
+double rotSpeed = rightJoystick.x * kMaxRadiansPerSec;
 
-var speeds = new ChassisSpeeds(xSpeed, ySpeed, rotSpeed);
+ChassisSpeeds speeds = new ChassisSpeeds(xSpeed, ySpeed, rotSpeed);
 ```
 
 ---
@@ -47,11 +47,11 @@ We also use the `ChassisSpeeds` to convert field-relative speeds into robot-rela
 The angle of the robot is measured by a gyroscope. The robot's angle is considered to be zero when it is facing directly away from our alliance station wall.
 
 ```java
-var xSpeed = leftJoystick.x * kMaxMetersPerSec;
-var ySpeed = leftJoystick.y * kMaxMetersPerSec;
-var rotSpeed = rightJoystick.x * kMaxRadiansPerSec;
+double xSpeed = leftJoystick.x * kMaxMetersPerSec;
+double ySpeed = leftJoystick.y * kMaxMetersPerSec;
+double rotSpeed = rightJoystick.x * kMaxRadiansPerSec;
 
-var speeds = ChassisSpeeds.fromFieldRelativeSpeeds(xSpeed, ySpeed, rotSpeed, gyro.getRotation2d())
+ChassisSpeeds speeds = ChassisSpeeds.fromFieldRelativeSpeeds(xSpeed, ySpeed, rotSpeed, gyro.getRotation2d())
 ```
 
 ## The `SwerveDriveKinematics` Class
@@ -106,6 +106,16 @@ SwerveModuleState[] states = kinematics.toSwerveModuleStates(speeds, center);
 
 ---
 
+Sometimes after calculating wheel velocity vectors, the requested speed may be above the maximum attainable speed for the swerve module drive motor.
+
+To fix this issue, `SwerveDriveKinematics` has a `normalizeWheelSpeeds​` static method.
+
+```java
+SwerveModuleState[] states = kinematics.toSwerveModuleStates(speeds, center);
+SwerveDriveKinematics.normalizeWheelSpeeds(states, kMaxMetersPerSec);
+// all state speeds are now less than or equal to kMaxMetersPerSec...
+```
+
 We can also use this `kinematics` instance to perform _foward kinematics_ to return the instantaneous chassis velocity from module states.
 
 Typically we would query the hardware encoders to get actual module states, as in this example.
@@ -132,6 +142,7 @@ We would typically pass it to our own `SwerveModule` class that knows about our 
 
 ```java
 SwerveModuleState[] states = kinematics.toSwerveModuleStates(speeds, center);
+ SwerveDriveKinematics.normalizeWheelSpeeds(states, kMaxMetersPerSec);
 frontLeftModule.setDesiredState(states[0]);
 // rest of modules...
 ```
