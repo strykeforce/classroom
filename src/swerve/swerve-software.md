@@ -17,7 +17,7 @@ Odometry
 
 ## the `ChassisSpeeds` Class
 
-The `ChassisSpeeds` object represents the speeds of a robot chassis.
+The `ChassisSpeeds` class represents the speeds of a robot chassis.
 
 Speeds are given in meters per second.
 
@@ -40,9 +40,110 @@ var rotSpeed = rightJoystick.x * kMaxRadiansPerSec;
 var speeds = new ChassisSpeeds(xSpeed, ySpeed, rotSpeed);
 ```
 
+---
+
+We also use the `ChassisSpeeds` to convert field-relative speeds into robot-relative speeds.
+
+The angle of the robot is measured by a gyroscope. The robot's angle is considered to be zero when it is facing directly away from our alliance station wall.
+
+```java
+var xSpeed = leftJoystick.x * kMaxMetersPerSec;
+var ySpeed = leftJoystick.y * kMaxMetersPerSec;
+var rotSpeed = rightJoystick.x * kMaxRadiansPerSec;
+
+var speeds = ChassisSpeeds.fromFieldRelativeSpeeds(xSpeed, ySpeed, rotSpeed, gyro.getRotation2d())
+```
+
 ## The `SwerveDriveKinematics` Class
 
+The `SwerveDriveKinematics` class is a helper class that converts a chassis velocity (**v**~x~, **v**~y~, and **ω** components) into individual module states (speed and angle).
+
+We initialize an instance of this class by passing in four wheel locations, in meters, relative to the center of the robot.
+
+::: {.columns}
+::: {.column width="75%"}
+
+```java
+var frontLeft = new Translation2d(0.3, 0.3);
+var frontRight = new Translation2d(0.3, -0.3);
+var rearLeft = new Translation2d(-0.3, 0.3);
+var rearRight = new Translation2d(-0.3, -0.3);
+
+var kinematics = new SwerveDriveKinematics(frontLeft, frontRight, rearLeft, rearRight);
+```
+
+:::
+
+::: {.column width="25%"}
+
+![wheel locations](img/swerve-software/wheel-locations.svg){ width=65% }\
+
+:::
+:::
+
+---
+
+We then use this `kinematics` instance to perform _inverse kinematics_ to return the module states from a desired chassis velocity.
+
+```java
+var speeds = new ChassisSpeeds(xSpeed, ySpeed, rotSpeed);
+SwerveModuleState[] states = kinematics.toSwerveModuleStates(speeds);
+```
+
+The returned module states are an array of four `SwerveModuleState` objects, each containing the speed and angle of one of the wheels. They are passed back in the same wheel order that we initialized the `SwerveDriveKinematics` in.
+
+\
+
+If you want to specify a variable center of rotation for the robot, you can pass in a optional `Translation2d` object that is the desired center.
+
+For example, you want to yaw the robot underneath the shooter that is 10 cm left of the centerline of the robot.
+
+```java
+var speeds = new ChassisSpeeds(0, 0, rotSpeed);
+var center = new Translation2d(0, 0.1);
+SwerveModuleState[] states = kinematics.toSwerveModuleStates(speeds, center);
+```
+
+---
+
+We can also use this `kinematics` instance to perform _foward kinematics_ to return the instantaneous chassis velocity from module states.
+
+Typically we would query the hardware encoders to get actual module states, as in this example.
+
+```java
+// driveSubsystem has code to read swerve module hardware encoders and converts to module states
+SwerveModuleState[] states = driveSubsystem.getModuleStates();
+
+ChassisSpeeds speeds = kinematics.toChassisSpeeds(states);
+
+System.out.printf(
+    "robot vxMetersPerSecond = %f, vyMetersPerSecond = %f, omegaRadiansPerSecond = %f %n",
+    speeds.vxMetersPerSecond,
+    speeds.vyMetersPerSecond,
+    speeds.omegaRadiansPerSecond
+);
+```
+
 ## The `SwerveModuleState` Class
+
+The `SwerveModuleState` is a simple data class that represents the speed and direction of a swerve module.
+
+We would typically pass it to our own `SwerveModule` class that knows about our specific hardware.
+
+```java
+SwerveModuleState[] states = kinematics.toSwerveModuleStates(speeds, center);
+frontLeftModule.setDesiredState(states[0]);
+// rest of modules...
+```
+
+It also performs the optimization of wheel positioning by minimizing the change in heading the desired swerve wheel direction would require by potentially reversing the direction the wheel spins. For example, our `SwerveModule` class could use it in its `setDesiredState` method.
+
+```java
+public void setDesiredState(SwerveModuleState desiredState) {
+    SwerveModuleState state = SwerveModuleState.optimize(desiredState, new Rotation2d(azimuth.getEncoderValue()));
+    // use optimized state to set module speed and angle...
+}
+```
 
 ## Swerve Kinematics Examples
 
