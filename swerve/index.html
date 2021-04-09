@@ -275,7 +275,6 @@ desired velocities to swerve module speed and angle.</p>
 <section id="the-chassisspeeds-class" class="slide level2">
 <h2>the <code>ChassisSpeeds</code> Class</h2>
 <p>The <code>ChassisSpeeds</code> class represents the speeds of a robot chassis.</p>
-<p>Speeds are given in meters per second.</p>
 <dl>
 <dt><code>vx</code></dt>
 <dd>The velocity of the robot in the <strong>x</strong> (forward) direction.
@@ -294,16 +293,17 @@ Positive is CCW rotation (yaw) of the robot.
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="dt">double</span> rotSpeed <span class="op">=</span> rightJoystick<span class="op">.</span><span class="fu">x</span> <span class="op">*</span> kMaxRadiansPerSec<span class="op">;</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>ChassisSpeeds speeds <span class="op">=</span> <span class="kw">new</span> <span class="fu">ChassisSpeeds</span><span class="op">(</span>xSpeed<span class="op">,</span> ySpeed<span class="op">,</span> rotSpeed<span class="op">);</span></span></code></pre></div>
+<p>Speeds are aligned to a <a href="#/coordinate-frames">coordinate system</a> and are given in meters per second.</p>
 </section>
 <section class="slide level2">
 
-<p>We also use the <code>ChassisSpeeds</code> to convert field-relative speeds into robot-relative speeds.</p>
-<p>The angle of the robot is measured by a gyroscope. The robot’s angle is considered to be zero when it is facing directly away from our alliance station wall.</p>
+<p>We also use the <code>ChassisSpeeds</code> to <a href="#/field-oriented-driving">convert field-relative</a> speeds into robot-relative speeds.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode java"><code class="sourceCode java"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dt">double</span> xSpeed <span class="op">=</span> leftJoystick<span class="op">.</span><span class="fu">x</span> <span class="op">*</span> kMaxMetersPerSec<span class="op">;</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="dt">double</span> ySpeed <span class="op">=</span> leftJoystick<span class="op">.</span><span class="fu">y</span> <span class="op">*</span> kMaxMetersPerSec<span class="op">;</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="dt">double</span> rotSpeed <span class="op">=</span> rightJoystick<span class="op">.</span><span class="fu">x</span> <span class="op">*</span> kMaxRadiansPerSec<span class="op">;</span></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>ChassisSpeeds speeds <span class="op">=</span> ChassisSpeeds<span class="op">.</span><span class="fu">fromFieldRelativeSpeeds</span><span class="op">(</span>xSpeed<span class="op">,</span> ySpeed<span class="op">,</span> rotSpeed<span class="op">,</span> gyro<span class="op">.</span><span class="fu">getRotation2d</span><span class="op">())</span></span></code></pre></div>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>ChassisSpeeds speeds <span class="op">=</span> ChassisSpeeds<span class="op">.</span><span class="fu">fromFieldRelativeSpeeds</span><span class="op">(</span>xSpeed<span class="op">,</span> ySpeed<span class="op">,</span> rotSpeed<span class="op">,</span> gyro<span class="op">.</span><span class="fu">getRotation2d</span><span class="op">());</span></span></code></pre></div>
+<p>The angle of the robot is measured by a gyroscope. The robot’s angle is considered to be zero when it is facing directly away from our alliance station wall.</p>
 </section>
 <section id="the-swervedrivekinematics-class" class="slide level2">
 <h2>The <code>SwerveDriveKinematics</code> Class</h2>
@@ -331,7 +331,7 @@ Positive is CCW rotation (yaw) of the robot.
 <p>The returned module states are an array of four <code>SwerveModuleState</code> objects, each containing the speed and angle of one of the wheels. They are passed back in the same wheel order that we initialized the <code>SwerveDriveKinematics</code> in.</p>
 <p><br />
 </p>
-<p>If you want to specify a variable center of rotation for the robot, you can pass in a optional <code>Translation2d</code> object that is the desired center.</p>
+<p>If you want to specify a <a href="#/swerve-yaw-component">variable center of rotation</a> for the robot, you can pass in a optional <code>Translation2d</code> object that is the desired center.</p>
 <p>For example, you want to yaw the robot underneath the shooter that is 10 cm left of the centerline of the robot.</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode java"><code class="sourceCode java"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>var speeds <span class="op">=</span> <span class="kw">new</span> <span class="fu">ChassisSpeeds</span><span class="op">(</span><span class="dv">0</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> rotSpeed<span class="op">);</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>var center <span class="op">=</span> <span class="kw">new</span> <span class="fu">Translation2d</span><span class="op">(</span><span class="dv">0</span><span class="op">,</span> <span class="fl">0.1</span><span class="op">);</span></span>
@@ -339,7 +339,7 @@ Positive is CCW rotation (yaw) of the robot.
 </section>
 <section class="slide level2">
 
-<p>Sometimes after calculating wheel velocity vectors, the requested speed may be above the maximum attainable speed for the swerve module drive motor.</p>
+<p>Sometimes after calculating wheel velocity vectors, the requested speed may be above the maximum attainable speed for the swerve module drive motor and need to be <a href="#/normalize-wheel-speeds">normalized</a>.</p>
 <p>To fix this issue, <code>SwerveDriveKinematics</code> has a <code>normalizeWheelSpeeds​</code> static method.</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode java"><code class="sourceCode java"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>SwerveModuleState<span class="op">[]</span> states <span class="op">=</span> kinematics<span class="op">.</span><span class="fu">toSwerveModuleStates</span><span class="op">(</span>speeds<span class="op">,</span> center<span class="op">);</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>SwerveDriveKinematics<span class="op">.</span><span class="fu">normalizeWheelSpeeds</span><span class="op">(</span>states<span class="op">,</span> kMaxMetersPerSec<span class="op">);</span></span>
@@ -366,7 +366,7 @@ Positive is CCW rotation (yaw) of the robot.
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a> SwerveDriveKinematics<span class="op">.</span><span class="fu">normalizeWheelSpeeds</span><span class="op">(</span>states<span class="op">,</span> kMaxMetersPerSec<span class="op">);</span></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>frontLeftModule<span class="op">.</span><span class="fu">setDesiredState</span><span class="op">(</span>states<span class="op">[</span><span class="dv">0</span><span class="op">]);</span></span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co">// rest of modules...</span></span></code></pre></div>
-<p>It also performs the optimization of wheel positioning by minimizing the change in heading the desired swerve wheel direction would require by potentially reversing the direction the wheel spins. For example, our <code>SwerveModule</code> class could use it in its <code>setDesiredState</code> method.</p>
+<p>It also performs the <a href="#/optimize-wheel-position">optimization of wheel positioning</a> by minimizing the change in heading the desired swerve wheel direction would require by potentially reversing the direction the wheel spins. For example, our <code>SwerveModule</code> class could use it in its <code>setDesiredState</code> method.</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode java"><code class="sourceCode java"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="dt">void</span> <span class="fu">setDesiredState</span><span class="op">(</span>SwerveModuleState desiredState<span class="op">)</span> <span class="op">{</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    SwerveModuleState state <span class="op">=</span> SwerveModuleState<span class="op">.</span><span class="fu">optimize</span><span class="op">(</span>desiredState<span class="op">,</span> <span class="kw">new</span> <span class="fu">Rotation2d</span><span class="op">(</span>azimuth<span class="op">.</span><span class="fu">getEncoderValue</span><span class="op">()));</span></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">// use optimized state to set module speed and angle...</span></span>
