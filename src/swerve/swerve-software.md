@@ -15,6 +15,10 @@ Odometry
 
 : The odometry classes utilize the kinematics classes along with periodic inputs about speeds and angles to create an estimate of the robot’s location on the field.
 
+Pose
+
+: A robot's pose is the combination of it's X, Y, and angle (θ) with respect to the field.
+
 ## the `ChassisSpeeds` Class
 
 The `ChassisSpeeds` class represents the speeds of a robot chassis.
@@ -42,7 +46,7 @@ Speeds are aligned to a [coordinate system](#coordinate-frames) and are given in
 
 ---
 
-We also use the `ChassisSpeeds` to [convert field-relative](#field-oriented-driving) speeds into robot-relative speeds.
+We also use the `ChassisSpeeds` to convert [field-relative](#field-oriented-driving) speeds into robot-relative speeds.
 
 ```java
 double xSpeed = leftJoystick.x * kMaxMetersPerSec;
@@ -155,6 +159,57 @@ public void setDesiredState(SwerveModuleState desiredState) {
     // use optimized state to set module speed and angle...
 }
 ```
+
+## The `SwerveDriveOdometry` Class
+
+Odometry allows us to track our robot's position on the field over a course of a match using readings from swerve drive encoders and swerve azimuth encoders.
+
+We initialize an instance of this class by passing in our initialized `SwerveDriveKinimatics` object, the robot's gyro angle, and optionally a starting robot pose.
+
+```java
+var kinematics = new SwerveDriveKinematics(frontLeft, frontRight, rearLeft, rearRight);
+var theta = gyro.getRotation2d();
+
+var odometry = new SwerveDriveOdometry(kinematics, theta);
+```
+
+Periodically (for example, in `Subsystem.periodic()`), we update the odometry with the current gyro angle and swerve module states.
+
+```java
+void periodic() {
+    var theta = gyro.getRotation2d();
+    SwerveModuleState[] states = getModuleStates();
+    odometry.update(theta, states);
+}
+```
+
+---
+
+We can perform a "hard" reset of the odometry position if we are in possession of a known robot position. For example, perhaps we have just driven the robot into some sort of game feature like a docking port.
+
+```java
+Pose2d pose = Constants.DOCKING_POSE;
+var gyroAngle = gyro.getRotation2d();
+odometry.resetPosition(pose, gyroAngle);
+```
+
+By passing in the gyro angle, odometry will compensate for any gyro drift that has occurred up to this point.
+
+\
+
+Finally, we can ask odometry for the robot's calculated field position and angle. This returns the pose of the robot as of the last call to `update()`.
+
+```java
+Pose2d pose = odometry.getPoseMeters();
+System.out.printf(
+    "robot x = %f meters, y = %f meters, theta = %f degrees %n",
+    pose.getX(),
+    pose.getY(),
+    pose.getRotation().getDegrees()
+);
+```
+
+We can use odometry during the autonomous period for complex tasks like path following. Furthermore, odometry can be used for latency compensation when using computer-vision systems.
 
 ## Swerve Kinematics Examples
 
