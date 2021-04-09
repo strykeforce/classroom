@@ -1,20 +1,20 @@
-## Intro to Swerve
-### Types of Drivetrains
-#### Pros and Cons (why swerve)
-### Terminology
-### Swerve Mechanics
-#### Degrees of Freedom
-#### Module Alignment
-#### Motor Controler Basics
-#### Encoder Basics
-#### Closed Loop/PID
-### Joystick Inputs
-#### Arrangement of Sticks
-#### Scaling Inputs
-### Swerve Math
-
-
-## Pathfinding
-### Terminology
-### Coordinate System
-### Sensors
+- [ ] Intro to Robot Drivetrains
+  - [ ] Types of Drivetrains
+  - [ ] Pros and Cons (why swerve)
+  - [ ] Terminology
+  - [ ] Swerve Joystick Inputs, Arrangement of Sticks, Scaling Inputs
+- [ ] Swerve Operation
+  - [ ] Module Alignment
+  - [ ] Distance Calibration
+  - [ ] Closed Loop/PID
+- [ ] Swerve Construction
+  - [x] Degrees of Freedom
+  - [ ] Motor Controller Basics
+  - [ ] Encoder Basics
+  - [ ] Sensors
+- [x] Swerve Motion
+- [x] Swerve Math
+  - [x] Coordinate System
+- [x] Swerve Software
+  - [ ] Terminology
+- [ ] Pathfinding
