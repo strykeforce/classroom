@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns:xl="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" xmlns:dc="http://purl.org/dc/elements/1.1/" viewBox="-136 897 3072 960" width="3072" height="960">
+  <defs>
+    <clipPath id="artboard_clip_path">
+      <path d="M -136 897 L 2936 897 L 2936 1857 L -136 1857 Z"/>
+    </clipPath>
+    <font-face font-family="Helvetica Neue" font-size="16" panose-1="2 0 8 3 0 0 0 9 0 4" units-per-em="1000" underline-position="-100" underline-thickness="50" slope="0" x-height="517" cap-height="714" ascent="975.0061" descent="-216.99524" font-weight="700">
+      <font-face-src>
+        <font-face-name name="HelveticaNeue-Bold"/>
+      </font-face-src>
+    </font-face>
+    <marker orient="auto" overflow="visible" markerUnits="strokeWidth" id="FilledArrow_Marker" stroke-linejoin="miter" stroke-miterlimit="10" viewBox="-1 -2 5 4" markerWidth="5" markerHeight="4" color="#65448e">
+      <g>
+        <path d="M 2.1333333 0 L 0 -.8 L 0 .8 Z" fill="currentColor" stroke="currentColor" stroke-width="1"/>
+      </g>
+    </marker>
+    <font-face font-family="Helvetica Neue" font-size="64" panose-1="2 0 5 3 0 0 0 2 0 4" units-per-em="1000" underline-position="-100" underline-thickness="50" slope="0" x-height="517" cap-height="714" ascent="951.9958" descent="-212.99744" font-weight="400">
+      <font-face-src>
+        <font-face-name name="HelveticaNeue"/>
+      </font-face-src>
+    </font-face>
+  </defs>
+  <metadata> Produced by OmniGraffle 7.18.5\n2021-04-12 01:03:40 +0000</metadata>
+  <g id="why-trajectory" fill="none" stroke-opacity="1" fill-opacity="1" stroke="none" stroke-dasharray="none">
+    <title>why-trajectory</title>
+    <g id="why-trajectory_Layer_3" clip-path="url(#artboard_clip_path)">
+      <title>Layer 3</title>
+      <g id="Group_367">
+        <g id="Group_354">
+          <title>Course</title>
+          <g id="Group_329">
+            <title>Field</title>
+            <g id="Graphic_323">
+              <title>Field</title>
+              <rect x="215" y="970" width="1009" height="757" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+            </g>
+            <g id="Graphic_325">
+              <rect x="558" y="1199" width="45" height="528" fill="#ccc"/>
+              <rect x="558" y="1199" width="45" height="528" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+            </g>
+            <g id="Graphic_328">
+              <rect x="835" y="970" width="45" height="528" fill="#ccc"/>
+              <rect x="835" y="970" width="45" height="528" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+            </g>
+          </g>
+          <g id="Group_332">
+            <title>End Points</title>
+            <g id="Graphic_330">
+              <path d="M 347.5 1333 L 352.10254 1347.1652 L 366.99666 1347.1652 L 354.94706 1355.9197 L 359.5496 1370.0848 L 347.5 1361.3303 L 335.4504 1370.0848 L 340.05294 1355.9197 L 328.00334 1347.1652 L 342.89746 1347.1652 Z" fill="red"/>
+              <path d="M 347.5 1333 L 352.10254 1347.1652 L 366.99666 1347.1652 L 354.94706 1355.9197 L 359.5496 1370.0848 L 347.5 1361.3303 L 335.4504 1370.0848 L 340.05294 1355.9197 L 328.00334 1347.1652 L 342.89746 1347.1652 Z" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+            </g>
+            <g id="Graphic_331">
+              <path d="M 1117.5 1328 L 1122.1025 1342.1652 L 1136.9967 1342.1652 L 1124.947 1350.9197 L 1129.5496 1365.0848 L 1117.5 1356.3303 L 1105.4504 1365.0848 L 1110.053 1350.9197 L 1098.0033 1342.1652 L 1112.8975 1342.1652 Z" fill="red"/>
+              <path d="M 1117.5 1328 L 1122.1025 1342.1652 L 1136.9967 1342.1652 L 1124.947 1350.9197 L 1129.5496 1365.0848 L 1117.5 1356.3303 L 1105.4504 1365.0848 L 1110.053 1350.9197 L 1098.0033 1342.1652 L 1112.8975 1342.1652 Z" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+            </g>
+          </g>
+        </g>
+        <g id="Group_353">
+          <title>Drive-Turn</title>
+          <g id="Graphic_351">
+            <path d="M 569.3 980 L 593.7 980 L 612 998.3 L 612 1022.7 L 593.7 1041 L 569.3 1041 L 551 1022.7 L 551 998.3 Z" fill="red"/>
+            <text transform="translate(556 1000.768)" fill="white">
+              <tspan font-family="Helvetica Neue" font-size="16" font-weight="700" fill="white" x="2.98" y="16">TURN</tspan>
+            </text>
+          </g>
+          <g id="Graphic_352">
+            <path d="M 844.3 1653 L 868.7 1653 L 887 1671.3 L 887 1695.7 L 868.7 1714 L 844.3 1714 L 826 1695.7 L 826 1671.3 Z" fill="red"/>
+            <text transform="translate(831 1673.768)" fill="white">
+              <tspan font-family="Helvetica Neue" font-size="16" font-weight="700" fill="white" x="2.98" y="16">TURN</tspan>
+            </text>
+          </g>
+          <g id="Line_346">
+            <path d="M 351.17317 1350.2137 L 581.6091 1054.624 L 854.6667 1637.8205 L 1078.2837 1391.6683" marker-end="url(#FilledArrow_Marker)" stroke="#65448e" stroke-linecap="round" stroke-linejoin="round" stroke-width="12"/>
+          </g>
+        </g>
+      </g>
+    </g>
+    <g id="why-trajectory_Layer_4" clip-path="url(#artboard_clip_path)">
+      <title>Layer 4</title>
+      <g id="Group_368">
+        <g id="Group_355">
+          <title>Course</title>
+          <g id="Group_359">
+            <title>Field</title>
+            <g id="Graphic_362">
+              <title>Field</title>
+              <rect x="1576" y="970" width="1009" height="757" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+            </g>
+            <g id="Graphic_361">
+              <rect x="1919" y="1199" width="45" height="528" fill="#ccc"/>
+              <rect x="1919" y="1199" width="45" height="528" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+            </g>
+            <g id="Graphic_360">
+              <rect x="2196" y="970" width="45" height="528" fill="#ccc"/>
+              <rect x="2196" y="970" width="45" height="528" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+            </g>
+          </g>
+          <g id="Group_356">
+            <title>End Points</title>
+            <g id="Graphic_358">
+              <path d="M 1708.5 1333 L 1713.1025 1347.1652 L 1727.9967 1347.1652 L 1715.947 1355.9197 L 1720.5496 1370.0848 L 1708.5 1361.3303 L 1696.4504 1370.0848 L 1701.053 1355.9197 L 1689.0033 1347.1652 L 1703.8975 1347.1652 Z" fill="red"/>
+              <path d="M 1708.5 1333 L 1713.1025 1347.1652 L 1727.9967 1347.1652 L 1715.947 1355.9197 L 1720.5496 1370.0848 L 1708.5 1361.3303 L 1696.4504 1370.0848 L 1701.053 1355.9197 L 1689.0033 1347.1652 L 1703.8975 1347.1652 Z" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+            </g>
+            <g id="Graphic_357">
+              <path d="M 2478.5 1328 L 2483.1025 1342.1652 L 2497.9967 1342.1652 L 2485.947 1350.9197 L 2490.5496 1365.0848 L 2478.5 1356.3303 L 2466.4504 1365.0848 L 2471.053 1350.9197 L 2459.0033 1342.1652 L 2473.8975 1342.1652 Z" fill="red"/>
+              <path d="M 2478.5 1328 L 2483.1025 1342.1652 L 2497.9967 1342.1652 L 2485.947 1350.9197 L 2490.5496 1365.0848 L 2478.5 1356.3303 L 2466.4504 1365.0848 L 2471.053 1350.9197 L 2459.0033 1342.1652 L 2473.8975 1342.1652 Z" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+            </g>
+          </g>
+        </g>
+        <g id="Line_364">
+          <title>Trajectory</title>
+          <path d="M 1724.506 1349.7012 C 1830.9895 1314.3252 1868.7173 1094.0909 1941.5455 1094.0909 C 2017.909 1094.0909 2150.1818 1608.1818 2222 1606.3636 C 2285.5355 1604.7551 2305.67 1402.505 2426.0097 1357.3554" marker-end="url(#FilledArrow_Marker)" stroke="#65448e" stroke-linecap="round" stroke-linejoin="round" stroke-width="12"/>
+        </g>
+      </g>
+    </g>
+    <g id="why-trajectory_Labels" clip-path="url(#artboard_clip_path)">
+      <title>Labels</title>
+      <g id="Graphic_370">
+        <text transform="translate(485.42 1760)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="64" font-weight="400" fill="black" x="0" y="61">Drive-Turn-Drive</tspan>
+        </text>
+      </g>
+      <g id="Graphic_371">
+        <text transform="translate(1940.66 1760)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="64" font-weight="400" fill="black" x="11368684e-20" y="61">Trajectory</tspan>
+        </text>
+      </g>
+    </g>
+  </g>
+</svg>
