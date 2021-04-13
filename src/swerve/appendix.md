@@ -112,7 +112,7 @@ The `TrajectoryParameterizer` class calculates the final trajectory points.
 
 \
 
-1. The distance between a point B and the previous point A is calculated.
+1. The distance between trajectory point B and the previous point A is calculated.
 2. The velocity at B is calculated from the velocity at A, the maximum acceleration, and the distance travelled. $v_B = \sqrt{v_A^2 +2ad}$
 
    Clamp this to the maximum velocity if neccessary.
@@ -123,6 +123,15 @@ The `TrajectoryParameterizer` class calculates the final trajectory points.
 5. If actual acceleration exceeds the constrained acceleration for B, assign B's constrained acceleration to A and loop back to start again.
 6. If actual acceleration is less than constrained acceleration for B, we are done! Go to next point and repeat.
 7. When finished in the forward direction, go through this same entire process backwards through the list of points to make sure we don't exceed maximum decceleration.
+
+::: notes
+
+- We may need to iterate to find the maximum end velocity and common acceleration, since acceleration limits may be a function of velocity.
+- Enforce global max velocity and max reachable velocity by global acceleration limit.
+- If the actual acceleration for this state is higher than the max acceleration that we applied, then we need to reduce the max acceleration of the predecessor and try again.
+- If the actual acceleration is less than the predecessor's min acceleration, it will be repaired in the backward pass.
+
+:::
 
 ## Curvature
 
