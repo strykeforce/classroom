@@ -478,7 +478,7 @@ Positive is CCW rotation (yaw) of the robot.
 <section>
 <section id="pathweaver-deep-dive" class="title-slide slide level1" data-background-color="rgb(241, 186, 27)">
 <h1 data-background-color="rgb(241, 186, 27)">PathWeaver Deep Dive</h1>
-<p>A survey of how PathWeaver interfaces with WPILIB Trajectory classes.</p>
+<p>An exploration of how PathWeaver interfaces with WPILIB Trajectory classes.</p>
 </section>
 <section id="pathweaver-path" class="slide level2">
 <h2>PathWeaver Path</h2>
@@ -587,7 +587,7 @@ Positive is CCW rotation (yaw) of the robot.
 </section>
 <section id="spline-parameterization" class="slide level2">
 <h2>Spline Parameterization</h2>
-<p>The <a href="https://first.wpi.edu/wpilib/allwpilib/docs/release/java/edu/wpi/first/wpilibj/spline/SplineParameterizer.html"><code>SplineParameterizer</code></a> (<a href="https://github.com/wpilibsuite/allwpilib/blob/948625de9d40068133adf9b39310055e6521b9c0/wpimath/src/main/java/edu/wpi/first/wpilibj/spline/SplineParameterizer.java">source</a>) class breaks up the spline into various arcs until their dx, dy, and dtheta are within specific tolerances.</p>
+<p>The <a href="https://first.wpi.edu/wpilib/allwpilib/docs/release/java/edu/wpi/first/wpilibj/spline/SplineParameterizer.html"><code>SplineParameterizer</code></a> (<a href="https://github.com/wpilibsuite/allwpilib/blob/948625de9d40068133adf9b39310055e6521b9c0/wpimath/src/main/java/edu/wpi/first/wpilibj/spline/SplineParameterizer.java">source</a>) class breaks up the spline into various arcs until their dx, dy, and dθ are within specific tolerances.</p>
 <p>Each dot on the right plot is a <a href="https://first.wpi.edu/wpilib/allwpilib/docs/release/java/edu/wpi/first/wpilibj/spline/PoseWithCurvature.html"><code>PoseWithCurvature</code></a>.</p>
 <p><img data-src="img/pathweaver/spline-parameterized.svg" style="width:100.0%" alt="parameterized spline" /><br />
 </p>
