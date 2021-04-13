@@ -607,13 +607,14 @@ Positive is CCW rotation (yaw) of the robot.
 <h2>Trajectory Parameterization</h2>
 <p>After spline parameterization has broken up our trajectory into manageable segments, we next need to calculate the velocity profile.</p>
 <p>The velocity profile is, for each trajectory point, the <strong>time</strong> that point is reached, and the <strong>velocity</strong> and <strong>acceleration</strong> at that point. This calculation is called trajectory parameterization.</p>
+<p>This is calculated by the <a href="https://first.wpi.edu/wpilib/allwpilib/docs/release/java/edu/wpi/first/wpilibj/trajectory/TrajectoryParameterizer.html"><code>TrajectoryParameterizer</code></a> class.</p>
 <p><br />
 </p>
 <p>When you combine this with the <strong>position</strong> and <strong>travel direction</strong> of each trajectory point given by spline parameterization, we have all the information we need for the robot to drive the trajectory. (Spline parameterization also give us <strong>curvature</strong> at each trajectory point.)</p>
 </section>
 <section class="slide level2">
 
-<p>This is done with the <a href="https://first.wpi.edu/wpilib/allwpilib/docs/release/java/edu/wpi/first/wpilibj/trajectory/TrajectoryParameterizer.html"><code>TrajectoryParameterizer</code></a> class.</p>
+<p>The <code>TrajectoryParameterizer</code> class calculates the final trajectory points.</p>
 <p><br />
 </p>
 <ol type="1">
@@ -624,7 +625,7 @@ Positive is CCW rotation (yaw) of the robot.
 <li><p>Calculate the actual acceleration from the velocity at A, the constrained velocity at B, and the distance travelled. <span class="math inline">\(a = \frac{v_B^2 - v_A^2}{2d}\)</span></p></li>
 <li><p>If actual acceleration exceeds the constrained acceleration for B, assign B’s constrained acceleration to A and loop back to start again.</p></li>
 <li><p>If actual acceleration is less than constrained acceleration for B, we are done! Go to next point and repeat.</p></li>
-<li><p>Go through this same entire process backwards through the list of points to make sure we don’t exceed maximum decceleration.</p></li>
+<li><p>When finished in the forward direction, go through this same entire process backwards through the list of points to make sure we don’t exceed maximum decceleration.</p></li>
 </ol>
 </section>
 <section id="curvature" class="slide level2">
