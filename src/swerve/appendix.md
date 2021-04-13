@@ -2,7 +2,7 @@
 
 # PathWeaver Deep Dive{data-background-color="rgb(241, 186, 27)"}
 
-A survey of how PathWeaver interfaces with WPILIB Trajectory classes.
+An exploration of how PathWeaver interfaces with WPILIB Trajectory classes.
 
 ## PathWeaver Path
 
@@ -74,7 +74,7 @@ N waypoints will product N-1 splines.
 
 ## Spline Parameterization
 
-The [`SplineParameterizer`](https://first.wpi.edu/wpilib/allwpilib/docs/release/java/edu/wpi/first/wpilibj/spline/SplineParameterizer.html) ([source](https://github.com/wpilibsuite/allwpilib/blob/948625de9d40068133adf9b39310055e6521b9c0/wpimath/src/main/java/edu/wpi/first/wpilibj/spline/SplineParameterizer.java)) class breaks up the spline into various arcs until their dx, dy, and dtheta are within specific tolerances.
+The [`SplineParameterizer`](https://first.wpi.edu/wpilib/allwpilib/docs/release/java/edu/wpi/first/wpilibj/spline/SplineParameterizer.html) ([source](https://github.com/wpilibsuite/allwpilib/blob/948625de9d40068133adf9b39310055e6521b9c0/wpimath/src/main/java/edu/wpi/first/wpilibj/spline/SplineParameterizer.java)) class breaks up the spline into various arcs until their dx, dy, and dθ are within specific tolerances.
 
 Each dot on the right plot is a [`PoseWithCurvature`](https://first.wpi.edu/wpilib/allwpilib/docs/release/java/edu/wpi/first/wpilibj/spline/PoseWithCurvature.html).
 
