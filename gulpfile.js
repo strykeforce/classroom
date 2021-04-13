@@ -23,6 +23,7 @@ const SLIDES = [
       "swerve-math.md",
       "swerve-software.md",
       "paths.md",
+      "appendix.md",
     ],
   },
 ];

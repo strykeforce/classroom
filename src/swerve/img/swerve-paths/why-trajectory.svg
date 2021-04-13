@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg version="1.1" xmlns:xl="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" xmlns:dc="http://purl.org/dc/elements/1.1/" viewBox="-136 897 3072 960" width="3072" height="960">
+<svg xmlns:xl="http://www.w3.org/1999/xlink" version="1.1" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns="http://www.w3.org/2000/svg" viewBox="-136 897 3072 960" width="3072" height="960">
   <defs>
     <clipPath id="artboard_clip_path">
       <path d="M -136 897 L 2936 897 L 2936 1857 L -136 1857 Z"/>
@@ -21,8 +21,8 @@
       </font-face-src>
     </font-face>
   </defs>
-  <metadata> Produced by OmniGraffle 7.18.5\n2021-04-12 01:03:40 +0000</metadata>
-  <g id="why-trajectory" fill="none" stroke-opacity="1" fill-opacity="1" stroke="none" stroke-dasharray="none">
+  <metadata> Produced by OmniGraffle 7.18.5\n2021-04-12 21:26:54 +0000</metadata>
+  <g id="why-trajectory" stroke-dasharray="none" stroke="none" stroke-opacity="1" fill="none" fill-opacity="1">
     <title>why-trajectory</title>
     <g id="why-trajectory_Layer_3" clip-path="url(#artboard_clip_path)">
       <title>Layer 3</title>

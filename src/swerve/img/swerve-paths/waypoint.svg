@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xl="http://www.w3.org/1999/xlink" version="1.1" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns="http://www.w3.org/2000/svg" viewBox="-136 417 3072 1440" width="3072" height="1440">
+  <defs>
+    <clipPath id="artboard_clip_path">
+      <path d="M -136 417 L 2936 417 L 2936 1857 L -136 1857 Z"/>
+    </clipPath>
+    <marker orient="auto" overflow="visible" markerUnits="strokeWidth" id="FilledArrow_Marker" stroke-linejoin="miter" stroke-miterlimit="10" viewBox="-1 -3 6 6" markerWidth="6" markerHeight="6" color="black">
+      <g>
+        <path d="M 3.7333333 0 L 0 -1.4 L 0 1.4 Z" fill="currentColor" stroke="currentColor" stroke-width="1"/>
+      </g>
+    </marker>
+    <font-face font-family="Helvetica Neue" font-size="64" panose-1="2 0 5 3 0 0 0 2 0 4" units-per-em="1000" underline-position="-100" underline-thickness="50" slope="0" x-height="517" cap-height="714" ascent="951.9958" descent="-212.99744" font-weight="400">
+      <font-face-src>
+        <font-face-name name="HelveticaNeue"/>
+      </font-face-src>
+    </font-face>
+    <font-face font-family="Helvetica Neue" font-size="43" panose-1="2 0 5 3 0 0 0 2 0 4" units-per-em="1000" underline-position="-100" underline-thickness="50" slope="0" x-height="517" cap-height="714" ascent="951.9958" descent="-212.99744" font-weight="400">
+      <font-face-src>
+        <font-face-name name="HelveticaNeue"/>
+      </font-face-src>
+    </font-face>
+    <marker orient="auto" overflow="visible" markerUnits="strokeWidth" id="FilledArrow_Marker_2" stroke-linejoin="miter" stroke-miterlimit="10" viewBox="-1 -2 5 4" markerWidth="5" markerHeight="4" color="#fe2700">
+      <g>
+        <path d="M 2.4 0 L 0 -.9 L 0 .9 Z" fill="currentColor" stroke="currentColor" stroke-width="1"/>
+      </g>
+    </marker>
+  </defs>
+  <metadata> Produced by OmniGraffle 7.18.5\n2021-04-12 21:26:54 +0000</metadata>
+  <g id="waypoint" stroke-dasharray="none" stroke="none" stroke-opacity="1" fill="none" fill-opacity="1">
+    <title>waypoint</title>
+    <g id="waypoint_Waypoint" clip-path="url(#artboard_clip_path)">
+      <title>Waypoint</title>
+      <g id="Line_6">
+        <path d="M 1365.2926 622.9259 C 1600.3662 621.07495 1203.0938 990.162 1349.4737 1057.8947 C 1495.8536 1125.6275 1431.579 1212.0124 1413.6842 1247.8018 C 1395.7895 1283.5913 1280.1479 1487.3301 1311.0271 1518.9584" stroke="#65448e" stroke-linecap="round" stroke-linejoin="round" stroke-width="8"/>
+      </g>
+      <g id="Line_16">
+        <line x1="1828.2394" y1="1297.9016" x2="1387.5043" y2="1297.9016" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="12.0,12.0" stroke-width="3"/>
+      </g>
+      <g id="Line_15">
+        <line x1="1829.8868" y1="1292.978" x2="1830.3797" y2="1070.9386" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="12.0,12.0" stroke-width="3"/>
+      </g>
+      <g id="Line_10">
+        <line x1="1014.1446" y1="514.66253" x2="1014.1446" y2="1725.2528" marker-end="url(#FilledArrow_Marker)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+      </g>
+      <g id="Line_11">
+        <line x1="1014.1446" y1="514.66253" x2="2230.5975" y2="514.66253" marker-end="url(#FilledArrow_Marker)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+      </g>
+      <g id="Line_12">
+        <line x1="1377.8203" y1="1084.2634" x2="1377.9942" y2="1565.1127" marker-end="url(#FilledArrow_Marker)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+      </g>
+      <g id="Line_13">
+        <line x1="1391.1403" y1="1070.9386" x2="1948.6238" y2="1070.9386" marker-end="url(#FilledArrow_Marker)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+      </g>
+      <g id="Graphic_18">
+        <text transform="translate(958.8398 425.30607)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="64" font-weight="400" fill="black" x="0" y="61">0</tspan>
+        </text>
+      </g>
+      <g id="Graphic_19">
+        <text transform="translate(2281.0065 476.9482)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="64" font-weight="400" fill="black" x="0" y="61">x</tspan>
+        </text>
+      </g>
+      <g id="Graphic_20">
+        <text transform="translate(974.1588 1743.902)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="64" font-weight="400" fill="black" x="31974423e-20" y="61">-y</tspan>
+        </text>
+      </g>
+      <g id="Graphic_21">
+        <text transform="translate(1551.5772 1317.295)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="43" font-weight="400" fill="black" x="8526513e-19" y="41">x</tspan>
+          <tspan font-family="Helvetica Neue" font-size="43" font-weight="400" fill="black" y="61">tangent</tspan>
+        </text>
+      </g>
+      <g id="Graphic_22">
+        <text transform="translate(1875.5882 1158.9258)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="43" font-weight="400" fill="black" x="22737368e-20" y="41">y</tspan>
+          <tspan font-family="Helvetica Neue" font-size="43" font-weight="400" fill="black" y="61">tangent</tspan>
+        </text>
+      </g>
+      <g id="Graphic_8">
+        <circle cx="1377.8155" cy="1070.9386" r="15.8212776184186" fill="#f1ba00"/>
+        <circle cx="1377.8155" cy="1070.9386" r="15.8212776184186" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="5"/>
+      </g>
+      <g id="Line_9">
+        <line x1="1389.7724" y1="1076.8113" x2="1802.1516" y2="1279.3556" marker-end="url(#FilledArrow_Marker_2)" stroke="#fe2700" stroke-linecap="round" stroke-linejoin="round" stroke-width="8"/>
+      </g>
+      <g id="Line_25">
+        <line x1="1377.8175" y1="1057.6137" x2="1377.898" y2="514.66253" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="12.0,12.0" stroke-width="3"/>
+      </g>
+      <g id="Line_26">
+        <line x1="1364.4906" y1="1070.9386" x2="1022.4138" y2="1070.9386" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="12.0,12.0" stroke-width="3"/>
+      </g>
+      <g id="Graphic_28">
+        <text transform="translate(1288.601 429.48375) rotate(-.8043231)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="43" font-weight="400" fill="black" x="0" y="41">x</tspan>
+          <tspan font-family="Helvetica Neue" font-size="43" font-weight="400" fill="black" y="61">waypoint</tspan>
+        </text>
+      </g>
+      <g id="Graphic_29">
+        <text transform="translate(792.5568 1029.6768) rotate(-.8043231)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="43" font-weight="400" fill="black" x="7958079e-19" y="41">y</tspan>
+          <tspan font-family="Helvetica Neue" font-size="43" font-weight="400" fill="black" y="61">waypoint</tspan>
+        </text>
+      </g>
+    </g>
+  </g>
+</svg>
