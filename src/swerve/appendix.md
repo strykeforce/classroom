@@ -100,13 +100,15 @@ After spline parameterization has broken up our trajectory into manageable segme
 
 The velocity profile is, for each trajectory point, the **time** that point is reached, and the **velocity** and **acceleration** at that point. This calculation is called trajectory parameterization.
 
+This is calculated by the [`TrajectoryParameterizer`](https://first.wpi.edu/wpilib/allwpilib/docs/release/java/edu/wpi/first/wpilibj/trajectory/TrajectoryParameterizer.html) class.
+
 \
 
 When you combine this with the **position** and **travel direction** of each trajectory point given by spline parameterization, we have all the information we need for the robot to drive the trajectory. (Spline parameterization also give us **curvature** at each trajectory point.)
 
 ---
 
-This is done with the [`TrajectoryParameterizer`](https://first.wpi.edu/wpilib/allwpilib/docs/release/java/edu/wpi/first/wpilibj/trajectory/TrajectoryParameterizer.html) class.
+The `TrajectoryParameterizer` class calculates the final trajectory points.
 
 \
 
@@ -120,7 +122,7 @@ This is done with the [`TrajectoryParameterizer`](https://first.wpi.edu/wpilib/a
 
 5. If actual acceleration exceeds the constrained acceleration for B, assign B's constrained acceleration to A and loop back to start again.
 6. If actual acceleration is less than constrained acceleration for B, we are done! Go to next point and repeat.
-7. Go through this same entire process backwards through the list of points to make sure we don't exceed maximum decceleration.
+7. When finished in the forward direction, go through this same entire process backwards through the list of points to make sure we don't exceed maximum decceleration.
 
 ## Curvature
 
