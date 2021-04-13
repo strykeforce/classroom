@@ -471,6 +471,116 @@ Positive is CCW rotation (yaw) of the robot.
 <section id="wpilib" class="slide level2">
 <h2>WPILIB</h2>
 </section></section>
+<section id="appendix" class="title-slide slide level1" data-background-color="rgb(241, 186, 27)">
+<h1 data-background-color="rgb(241, 186, 27)">Appendix</h1>
+
+</section>
+
+<section>
+<section id="pathweaver-deep-dive" class="title-slide slide level1" data-background-color="rgb(241, 186, 27)">
+<h1 data-background-color="rgb(241, 186, 27)">Pathweaver Deep Dive</h1>
+<p>A survey of how Pathweaver interfaces with WPILIB Trajectory classes.</p>
+</section>
+<section id="pathweaver-path" class="slide level2">
+<h2>Pathweaver Path</h2>
+<p>We can use Pathweaver to create a trajectory for the robot to drive.</p>
+<p><br />
+</p>
+<p><img data-src="img/pathweaver/pathweaver_screenshot.png" alt="pathweaver screenshot" /><br />
+</p>
+</section>
+<section id="pathweaver-path-1" class="slide level2">
+<h2>Pathweaver Path</h2>
+<p>Pathweaver internally represents this path as a list of <strong>waypoints</strong>.</p>
+<p><br />
+</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: right;">X</th>
+<th style="text-align: right;">Y</th>
+<th style="text-align: right;">Tangent X</th>
+<th style="text-align: right;">Tangent Y</th>
+<th style="text-align: center;">Fixed Theta</th>
+<th style="text-align: center;">Reversed</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">-2</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: center;">true</td>
+<td style="text-align: center;">false</td>
+<td style="text-align: left;">start</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">-1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: center;">false</td>
+<td style="text-align: center;">false</td>
+<td style="text-align: left;">top internal</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">-3</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: center;">false</td>
+<td style="text-align: center;">false</td>
+<td style="text-align: left;">bottom internal</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">-2</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: center;">true</td>
+<td style="text-align: center;">false</td>
+<td style="text-align: left;">end</td>
+</tr>
+</tbody>
+</table>
+<p><br />
+</p>
+<p>They are saved as CSV-formatted data in <code>*.path</code> files in a Pathfinder project.</p>
+</section>
+<section id="pathfinder-waypoints" class="slide level2">
+<h2>Pathfinder Waypoints</h2>
+<p>The important parts of a waypoint are its coordinates and the length and direction of its <strong>tangent vector</strong>. We denote the tangent vector with its tail at the waypoint coordinates and its head at tangent x, y.</p>
+<p><img data-src="img/swerve-paths/waypoint.svg" alt="waypoint" /><br />
+</p>
+</section>
+<section id="trajectories-are-splines" class="slide level2">
+<h2>Trajectories are Splines</h2>
+<p>A trajectory is made up of one or more connected <strong>splines</strong>, each defined by end points and the slope at the end points. The end points of each spline are given by two consecutive waypoints from Pathfinder.</p>
+<p><img data-src="img/pathweaver/splines_1.svg" style="width:100.0%" alt="splines" /><br />
+</p>
+</section>
+<section class="slide level2">
+
+<p>Here we show the three splines generated from Pathfinder waypoints in our first example.</p>
+<p><img data-src="img/pathweaver/splines_2.svg" style="width:100.0%" alt="splines" /><br />
+</p>
+</section>
+<section id="waypoint-to-trajectory-conversion" class="slide level2">
+<h2>Waypoint to Trajectory Conversion</h2>
+<p>This code excerpt from Pathfinder illustrates how it converts a list of waypoints to a list of spline control vectors and uses these splines to generate a trajectory.</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode java"><code class="sourceCode java"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="kw">private</span> <span class="dt">static</span> Trajectory <span class="fu">trajectoryFromWaypoints</span><span class="op">(</span><span class="bu">Iterable</span><span class="op">&lt;</span>Waypoint<span class="op">&gt;</span> waypoints<span class="op">,</span> TrajectoryConfig config<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>    var list <span class="op">=</span> <span class="kw">new</span> TrajectoryGenerator<span class="op">.</span><span class="fu">ControlVectorList</span><span class="op">();</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span><span class="op">(</span>Waypoint wp<span class="op">:</span> waypoints<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>        list<span class="op">.</span><span class="fu">add</span><span class="op">(</span><span class="kw">new</span> Spline<span class="op">.</span><span class="fu">ControlVector</span><span class="op">(</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>                <span class="kw">new</span> <span class="dt">double</span><span class="op">[]</span> <span class="op">{</span>wp<span class="op">.</span><span class="fu">getX</span><span class="op">(),</span> wp<span class="op">.</span><span class="fu">getTangentX</span><span class="op">(),</span> <span class="dv">0</span><span class="op">},</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>                <span class="kw">new</span> <span class="dt">double</span><span class="op">[]</span> <span class="op">{</span>wp<span class="op">.</span><span class="fu">getY</span><span class="op">(),</span> wp<span class="op">.</span><span class="fu">getTangentY</span><span class="op">(),</span> <span class="dv">0</span><span class="op">}));</span></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> TrajectoryGenerator<span class="op">.</span><span class="fu">generateTrajectory</span><span class="op">(</span>list<span class="op">,</span> config<span class="op">);</span></span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+</section></section>
     </div>
   </div>
 
