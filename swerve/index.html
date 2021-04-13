@@ -79,7 +79,6 @@
     code span.va { } /* Variable */
     code span.vs { color: #cc9393; } /* VerbatimString */
     code span.wa { color: #7f9f7f; font-weight: bold; } /* Warning */
-    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="../static/reveal.js/dist/theme/white.css" id="theme">
   <link rel="stylesheet" href="../static/css/classroom.css"/>
@@ -555,21 +554,9 @@ Positive is CCW rotation (yaw) of the robot.
 <p><img data-src="img/swerve-paths/waypoint.svg" alt="waypoint" /><br />
 </p>
 </section>
-<section id="trajectories-are-splines" class="slide level2">
-<h2>Trajectories are Splines</h2>
-<p>A trajectory is made up of one or more connected <strong>splines</strong>, each defined by end points and the slope at the end points. The end points of each spline are given by two consecutive waypoints from PathWeaver.</p>
-<p><img data-src="img/pathweaver/splines_1.svg" style="width:100.0%" alt="splines" /><br />
-</p>
-</section>
-<section class="slide level2">
-
-<p>Here we show the three splines generated from PathWeaver waypoints in our first example.</p>
-<p><img data-src="img/pathweaver/splines_2.svg" style="width:100.0%" alt="splines" /><br />
-</p>
-</section>
 <section id="waypoint-to-trajectory-conversion" class="slide level2">
 <h2>Waypoint to Trajectory Conversion</h2>
-<p>This <a href="https://github.com/wpilibsuite/PathWeaver/blob/5e8ea0cafca829eeb10aa55ba70542022b6102da/src/main/java/edu/wpi/first/pathweaver/spline/wpilib/WpilibSpline.java#L172">code excerpt</a> from PathWeaver illustrates how it converts a list of waypoints to a list of spline control vectors and uses these splines to generate a trajectory.</p>
+<p>This <a href="https://github.com/wpilibsuite/PathWeaver/blob/5e8ea0cafca829eeb10aa55ba70542022b6102da/src/main/java/edu/wpi/first/pathweaver/spline/wpilib/WpilibSpline.java#L172">code excerpt</a> from PathWeaver illustrates how it converts a list of waypoints to a trajectory.</p>
 <div class="sourceCode" id="cb18"><pre class="sourceCode java"><code class="sourceCode java"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="kw">private</span> <span class="dt">static</span> Trajectory <span class="fu">trajectoryFromWaypoints</span><span class="op">(</span><span class="bu">Iterable</span><span class="op">&lt;</span>Waypoint<span class="op">&gt;</span> waypoints<span class="op">,</span> TrajectoryConfig config<span class="op">)</span> <span class="op">{</span></span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>    var list <span class="op">=</span> <span class="kw">new</span> TrajectoryGenerator<span class="op">.</span><span class="fu">ControlVectorList</span><span class="op">();</span></span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span><span class="op">(</span>Waypoint wp<span class="op">:</span> waypoints<span class="op">)</span> <span class="op">{</span></span>
@@ -580,6 +567,75 @@ Positive is CCW rotation (yaw) of the robot.
 <span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> TrajectoryGenerator<span class="op">.</span><span class="fu">generateTrajectory</span><span class="op">(</span>list<span class="op">,</span> config<span class="op">);</span></span>
 <span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<h3 id="but-whats-really-happening">But what’s really happening?</h3>
+</section>
+<section id="trajectories-are-connected-splines" class="slide level2">
+<h2>Trajectories are Connected Splines</h2>
+<p>A trajectory is made up of one or more connected <strong>splines</strong>, each defined by end points and the slope at the end points. The end points of each spline are given by two consecutive waypoints from PathWeaver.</p>
+<p><img data-src="img/pathweaver/splines_1.svg" style="width:100.0%" alt="splines" /><br />
+</p>
+</section>
+<section class="slide level2">
+
+<p>You can connect together as many splines as you need to complete a trajectory.</p>
+<p>Here we show the three splines generated from the four PathWeaver waypoints in our earlier example.</p>
+<p><img data-src="img/pathweaver/splines_2.svg" style="width:100.0%" alt="splines" /><br />
+</p>
+<aside class="notes">
+<p>N waypoints will product N-1 splines.</p>
+</aside>
+</section>
+<section id="spline-parameterization" class="slide level2">
+<h2>Spline Parameterization</h2>
+<p>The <a href="https://first.wpi.edu/wpilib/allwpilib/docs/release/java/edu/wpi/first/wpilibj/spline/SplineParameterizer.html"><code>SplineParameterizer</code></a> (<a href="https://github.com/wpilibsuite/allwpilib/blob/948625de9d40068133adf9b39310055e6521b9c0/wpimath/src/main/java/edu/wpi/first/wpilibj/spline/SplineParameterizer.java">source</a>) class breaks up the spline into various arcs until their dx, dy, and dtheta are within specific tolerances.</p>
+<p>Each dot on the right plot is a <a href="https://first.wpi.edu/wpilib/allwpilib/docs/release/java/edu/wpi/first/wpilibj/spline/PoseWithCurvature.html"><code>PoseWithCurvature</code></a>.</p>
+<p><img data-src="img/pathweaver/spline-parameterized.svg" style="width:100.0%" alt="parameterized spline" /><br />
+</p>
+<aside class="notes">
+<p>This works by checking the whole spline dx, dy and dθ, and then “recursively” splitting spline in half, rechecking each until limits are met.</p>
+<p>velocities are planned for these points and constant acceleration/deceleration is assumed between them.</p>
+</aside>
+</section>
+<section class="slide level2">
+
+<p>We calculate the points for each spline and then append them together to produce the <code>PoseWithCurvature</code> points for the entire trajectory.</p>
+<p><img data-src="img/pathweaver/splines-parameterized.svg" style="width:100.0%" alt="parameterized splines" /><br />
+</p>
+<p>At this point, spline parameterization has given us the <strong>x, y</strong> coordinates and the <strong>direction</strong> of travel (<a href="https://first.wpi.edu/wpilib/allwpilib/docs/release/java/edu/wpi/first/wpilibj/geometry/Pose2d.html"><code>Pose2d</code></a>) for each trajectory point.</p>
+</section>
+<section id="trajectory-parameterization" class="slide level2">
+<h2>Trajectory Parameterization</h2>
+<p>After spline parameterization has broken up our trajectory into manageable segments, we next need to calculate the velocity profile.</p>
+<p>The velocity profile is, for each trajectory point, the <strong>time</strong> that point is reached, and the <strong>velocity</strong> and <strong>acceleration</strong> at that point. This calculation is called trajectory parameterization.</p>
+<p><br />
+</p>
+<p>When you combine this with the <strong>position</strong> and <strong>travel direction</strong> of each trajectory point given by spline parameterization, we have all the information we need for the robot to drive the trajectory. (Spline parameterization also give us <strong>curvature</strong> at each trajectory point.)</p>
+</section>
+<section class="slide level2">
+
+<p>This is done with the <a href="https://first.wpi.edu/wpilib/allwpilib/docs/release/java/edu/wpi/first/wpilibj/trajectory/TrajectoryParameterizer.html"><code>TrajectoryParameterizer</code></a> class.</p>
+<p><br />
+</p>
+<ol type="1">
+<li><p>The distance between a point B and the previous point A is calculated.</p></li>
+<li><p>The velocity at B is calculated from the velocity at A, the maximum acceleration, and the distance travelled. <span class="math inline">\(v_B = \sqrt{v_A^2 +2ad}\)</span></p>
+<p>Clamp this to the maximum velocity if neccessary.</p></li>
+<li><p>Apply trajectory constraints to maximum acceleration and velocity at point B.</p></li>
+<li><p>Calculate the actual acceleration from the velocity at A, the constrained velocity at B, and the distance travelled. <span class="math inline">\(a = \frac{v_B^2 - v_A^2}{2d}\)</span></p></li>
+<li><p>If actual acceleration exceeds the constrained acceleration for B, assign B’s constrained acceleration to A and loop back to start again.</p></li>
+<li><p>If actual acceleration is less than constrained acceleration for B, we are done! Go to next point and repeat.</p></li>
+<li><p>Go through this same entire process backwards through the list of points to make sure we don’t exceed maximum decceleration.</p></li>
+</ol>
+</section>
+<section id="curvature" class="slide level2">
+<h2>Curvature</h2>
+<p>A quick detour into terminology — what is curvature?</p>
+<p><img data-src="img/swerve-paths/curvature.svg" style="width:70.0%" alt="curvature" /><br />
+</p>
+<p>Curvature is primarily uses to <strong>constrain</strong> our trajectory velocity and acceleration profile as needed, for example to prevent the robot from tipping in a tight turn.</p>
+<aside class="notes">
+<p>Intuitively, the curvature describes for any part of a curve how much the curve direction changes over a small distance travelled, so it is a measure of the instantaneous rate of change of direction of a point that moves on the curve: the larger the curvature, the larger this rate of change. <a href="https://en.wikipedia.org/wiki/Curvature">Wikipedia</a></p>
+</aside>
 </section></section>
     </div>
   </div>
@@ -590,6 +646,7 @@ Positive is CCW rotation (yaw) of the robot.
   <script src="../static/reveal.js/plugin/notes/notes.js"></script>
   <script src="../static/reveal.js/plugin/search/search.js"></script>
   <script src="../static/reveal.js/plugin/zoom/zoom.js"></script>
+  <script src="../static/reveal.js/plugin/math/math.js"></script>
 
   <script>
 
@@ -606,9 +663,26 @@ Positive is CCW rotation (yaw) of the robot.
         height: 1152,
         // Factor of the display size that should remain empty around the content
         margin: 0.08,
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
 
         // reveal.js plugins
         plugins: [
+          RevealMath,
           RevealNotes,
           RevealSearch,
           RevealZoom

@@ -79,7 +79,6 @@
     code span.va { } /* Variable */
     code span.vs { color: #cc9393; } /* VerbatimString */
     code span.wa { color: #7f9f7f; font-weight: bold; } /* Warning */
-    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="../static/reveal.js/dist/theme/white.css" id="theme">
   <link rel="stylesheet" href="../static/css/classroom.css"/>
@@ -239,6 +238,7 @@
   <script src="../static/reveal.js/plugin/notes/notes.js"></script>
   <script src="../static/reveal.js/plugin/search/search.js"></script>
   <script src="../static/reveal.js/plugin/zoom/zoom.js"></script>
+  <script src="../static/reveal.js/plugin/math/math.js"></script>
 
   <script>
 
@@ -255,9 +255,26 @@
         height: 1152,
         // Factor of the display size that should remain empty around the content
         margin: 0.08,
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
 
         // reveal.js plugins
         plugins: [
+          RevealMath,
           RevealNotes,
           RevealSearch,
           RevealZoom
