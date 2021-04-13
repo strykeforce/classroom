@@ -47,7 +47,6 @@ const copyRevealJSPlugins = () =>
       `${REVEALJS_SRC}/plugin/**`,
       `!${REVEALJS_SRC}/plugin/highlight/**`,
       `!${REVEALJS_SRC}/plugin/markdown/**`,
-      `!${REVEALJS_SRC}/plugin/math/**`,
     ],
     { since: lastRun(copyRevealJSDist) }
   ).pipe(dest(`${REVEALJS_DEST}/plugin`));
@@ -75,6 +74,7 @@ const buildSlides = async (slug, files) => {
     "--standalone",
     "--variable=revealjs-url:../static/reveal.js",
     "--css=../static/css/classroom.css",
+    "--mathjax",
     `--slide-level=${LEVEL}`,
     `--variable=theme:${THEME}`,
     `--highlight-style=${HIGHLIGHT}`,
