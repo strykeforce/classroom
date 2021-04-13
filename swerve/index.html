@@ -618,7 +618,7 @@ Positive is CCW rotation (yaw) of the robot.
 <p><br />
 </p>
 <ol type="1">
-<li><p>The distance between a point B and the previous point A is calculated.</p></li>
+<li><p>The distance between trajectory point B and the previous point A is calculated.</p></li>
 <li><p>The velocity at B is calculated from the velocity at A, the maximum acceleration, and the distance travelled. <span class="math inline">\(v_B = \sqrt{v_A^2 +2ad}\)</span></p>
 <p>Clamp this to the maximum velocity if neccessary.</p></li>
 <li><p>Apply trajectory constraints to maximum acceleration and velocity at point B.</p></li>
@@ -627,6 +627,14 @@ Positive is CCW rotation (yaw) of the robot.
 <li><p>If actual acceleration is less than constrained acceleration for B, we are done! Go to next point and repeat.</p></li>
 <li><p>When finished in the forward direction, go through this same entire process backwards through the list of points to make sure we don’t exceed maximum decceleration.</p></li>
 </ol>
+<aside class="notes">
+<ul>
+<li>We may need to iterate to find the maximum end velocity and common acceleration, since acceleration limits may be a function of velocity.</li>
+<li>Enforce global max velocity and max reachable velocity by global acceleration limit.</li>
+<li>If the actual acceleration for this state is higher than the max acceleration that we applied, then we need to reduce the max acceleration of the predecessor and try again.</li>
+<li>If the actual acceleration is less than the predecessor’s min acceleration, it will be repaired in the backward pass.</li>
+</ul>
+</aside>
 </section>
 <section id="curvature" class="slide level2">
 <h2>Curvature</h2>
