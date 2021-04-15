@@ -173,8 +173,8 @@
 </p>
 <p>Here we show how to add two vectors together, later we will show rotating a vector by a given angle.</p>
 </section>
-<section id="coordinate-frames" class="slide level2">
-<h2>Coordinate Frames</h2>
+<section id="coordinate-system" class="slide level2">
+<h2>Coordinate System</h2>
 <p>We work in two coordinate frames, one local to the robot and one global for the field.</p>
 <p>Going forward, we’ll also refer to swerve drive motion components (forward, strafe, yaw) as chassis speed (<strong>v<sub>x</sub></strong>, <strong>v<sub>y</sub></strong>, and <strong>ω</strong>), with respect to the robot frame of reference.</p>
 <p><img data-src="img/swerve-math/coordinate-frames.svg" alt="coordinate frames" /><br />
@@ -295,7 +295,7 @@ Positive is CCW rotation (yaw) of the robot.
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="dt">double</span> rotSpeed <span class="op">=</span> rightJoystick<span class="op">.</span><span class="fu">x</span> <span class="op">*</span> kMaxRadiansPerSec<span class="op">;</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>ChassisSpeeds speeds <span class="op">=</span> <span class="kw">new</span> <span class="fu">ChassisSpeeds</span><span class="op">(</span>xSpeed<span class="op">,</span> ySpeed<span class="op">,</span> rotSpeed<span class="op">);</span></span></code></pre></div>
-<p>Speeds are aligned to a <a href="#/coordinate-frames">coordinate system</a> and are given in meters per second.</p>
+<p>Speeds are aligned to a <a href="#/coordinate-system">coordinate system</a> and are given in meters per second.</p>
 </section>
 <section class="slide level2">
 
@@ -458,18 +458,126 @@ Positive is CCW rotation (yaw) of the robot.
 <section>
 <section id="trajectory-following" class="title-slide slide level1" data-background-color="rgb(241, 186, 27)">
 <h1 data-background-color="rgb(241, 186, 27)">Trajectory Following</h1>
-<p>Move from a known starting location to a known scoring location.</p>
+<p>Getting the robot from point A to point B autonomously.</p>
 </section>
 <section id="why-trajectory-following" class="slide level2">
 <h2>Why Trajectory Following?</h2>
 <p>FRC® games often feature autonomous tasks that require a robot to effectively and accurately move from a known starting location to a known scoring location.</p>
+<p>During the 2018 season, Stryke Force changed from the “drive-turn-drive” method to trajectory following.</p>
 <p><img data-src="img/swerve-paths/why-trajectory.svg" alt="why trajectory" /><br />
 </p>
 <p>While more technically challenging, trajectories can be driven much faster since we don’t have to stop to change direction.</p>
 </section>
+<section id="terminology-1" class="slide level2">
+<h2>Terminology</h2>
+<dl>
+<dt>JSON</dt>
+<dd><p>Used for PathWeaver <a href="#/pathweaver-trajectory-json">trajectory export</a>, JavaScript Object Notation, is an open standard file format, and data interchange format, that uses human-readable text to store and transmit data objects.</p>
+</dd>
+<dt>Pose</dt>
+<dd><p>A robot’s pose is the combination of it’s X, Y, and angle (θ) with respect to the field. See the <a href="https://first.wpi.edu/wpilib/allwpilib/docs/release/java/edu/wpi/first/wpilibj/geometry/Pose2d.html"><code>Pose2d</code></a> class.</p>
+</dd>
+<dt>Trajectory</dt>
+<dd><p>A trajectory contains of a collection of <a href="https://first.wpi.edu/wpilib/allwpilib/docs/release/java/edu/wpi/first/wpilibj/trajectory/Trajectory.State.html"><code>State</code></a> points that represent the pose, curvature, time elapsed, velocity, and acceleration at that point. See the <a href="https://first.wpi.edu/wpilib/allwpilib/docs/release/java/edu/wpi/first/wpilibj/trajectory/Trajectory.html"><code>Trajectory</code></a> class.</p>
+</dd>
+<dt>Waypoint</dt>
+<dd><p>Waypoints consists of a X, Y position on the field as well as a robot heading described by a tangent line.</p>
+</dd>
+</dl>
+<aside class="notes">
+<ul>
+<li>Difference between pose and waypoint angle? Pose is robot yaw, waypoint is direction of travel.</li>
+</ul>
+</aside>
+</section>
+<section id="starting-a-pathweaver-project" class="slide level2">
+<h2>Starting a PathWeaver Project</h2>
+<p>When starting a new PathWeaver project, we need to provide season-specific information.</p>
+<p><img data-src="img/pathweaver/pathweaver_project.png" style="width:60.0%" alt="PathWeaver" /><br />
+</p>
+<p>Team up with a mentor to set this up for the first time in a season.</p>
+</section>
+<section id="creating-a-trajectory" class="slide level2">
+<h2>Creating a Trajectory</h2>
+<p>The preferred way to create and visualize a path is with the PathWeaver tool.</p>
+<p><img data-src="img/pathweaver/pathweaver_ui.png" alt="PathWeaver" /><br />
+</p>
+</section>
+<section id="pathweaver-tips-and-tricks" class="slide level2">
+<h2>PathWeaver Tips and Tricks</h2>
+<ul>
+<li>Adding additional waypoints and changing their tangent vectors can affect the path that is followed. Additional waypoints can be added by dragging in the middle of the path.</li>
+<li>Fewer is usually better when it comes to waypoints.</li>
+<li>It’s sometimes hard to precisely set where the waypoints should be placed. In this case, setting the waypoint locations can be done by entering the X and Y value after selecting the waypoint.</li>
+<li>Path Groups are a way of visualizing where one path ends and the next one starts. By adding all the paths to a single path group and selecting the group, all paths in that group will be shown. Each path can be edited while viewing all the paths.</li>
+</ul>
+</section>
+<section id="deploy-pathweaver-json-to-robot" class="slide level2">
+<h2>Deploy PathWeaver JSON to Robot</h2>
+<p>Build all paths in the project by clicking the <strong>Build Paths</strong> button.</p>
+<p>Configure PathWeaver to output JSON files in <strong><code>src/main/deploy/paths</code></strong>. Deploying robot code automatically places JSON files on the roboRIO file system in <strong><code>/home/lvuser/deploy/paths/output</code></strong>.</p>
+<p>The PathWeaver JSON can be accessed using <code>getDeployDirectory</code>.</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode java"><code class="sourceCode java"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> trajectoryJson <span class="op">=</span> <span class="st">&quot;paths/output/YourPath.wpilib.json&quot;</span><span class="op">;</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>Path trajectoryPath <span class="op">=</span> Filesystem<span class="op">.</span><span class="fu">getDeployDirectory</span><span class="op">().</span><span class="fu">toPath</span><span class="op">().</span><span class="fu">resolve</span><span class="op">(</span>trajectoryJson<span class="op">);</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>Trajectory trajectory <span class="op">=</span> TrajectoryUtil<span class="op">.</span><span class="fu">fromPathweaverJson</span><span class="op">(</span>trajectoryPath<span class="op">);</span></span></code></pre></div>
+<p><br />
+</p>
+<p><strong>Note:</strong> Currently PathWeaver displays the <a href="#/coordinate-system">coordinate system</a> origin at the top left of the field. When building paths, PathWeaver sets the origin at the bottom left in order to be compatible with the <a href="https://first.wpi.edu/wpilib/allwpilib/docs/release/java/edu/wpi/first/wpilibj/smartdashboard/Field2d.html"><code>Field2d</code></a> view in the simulator GUI.</p>
+<aside class="notes">
+<p>Editing the initial waypoint of a path to have X=0.0 and Y=-8.21055 (~27 ft) will build the path with the initial state translation at X=0.0 and Y=0.0.</p>
+</aside>
+</section>
+<section id="robot-checklist" class="slide level2">
+<h2>Robot Checklist</h2>
+<p>There are a few things the robot needs before we can actually drive a trajectory.</p>
+<p><br />
+</p>
+<ol type="1">
+<li>Swerve modules and motor controllers configured.
+<ul>
+<li>Motor controllers settings.</li>
+<li>Azimuth motor closed-loop tuning.</li>
+<li>Determine the maximum attainable speed for the robot.</li>
+<li>Measure drive encoder “distance per pulse”.</li>
+</ul></li>
+<li>Driver joystick inputs configured.</li>
+<li>Finish setting up the swerve drive and verify teleop driving. See <a href="#/the-swervedrivekinematics-class"><code>SwerveDriveKinematics</code></a>.</li>
+<li>Determine swerve module drive closed-loop velocity tuning.</li>
+<li>Configure <a href="#/the-swervedriveodometry-class"><code>SwerveDriveOdometry</code></a>.</li>
+<li>Configure the <code>HolonomicDriveController</code>. We’ll see this in a later slide.</li>
+</ol>
+<aside class="notes">
+<p>Note that for the WPILib Encoder class, “pulse” refers to a full encoder cycle (i.e. four edges)</p>
+</aside>
+</section>
+<section id="the-holonomicdrivecontroller-class" class="slide level2">
+<h2>The HolonomicDriveController Class</h2>
+<p>The <a href="https://first.wpi.edu/wpilib/allwpilib/docs/release/java/edu/wpi/first/wpilibj/controller/HolonomicDriveController.html"><code>HolonomicDriveController</code></a> is used to follow trajectories using a <em>holonomic</em> drive train, such as a swerve or mecanum drive.</p>
+<p>The holonomic drive controller takes in one PID controller for each direction, forward and strafe, and one profiled PID controller for the yaw.</p>
+<p>Because the yaw dynamics are decoupled from translations, we can can specify a custom yaw heading that the robot should point toward. This heading reference is profiled for smoothness to accomodate yaw setpoint changes.</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode java"><code class="sourceCode java"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>var xController <span class="op">=</span> <span class="kw">new</span> <span class="fu">PIDController</span><span class="op">(</span>kPx<span class="op">,</span> kIx<span class="op">,</span> kDx<span class="op">);</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>var yController <span class="op">=</span> <span class="kw">new</span> <span class="fu">PIDController</span><span class="op">(</span>kPy<span class="op">,</span> kIy<span class="op">,</span> kDy<span class="op">);</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>var thetaController <span class="op">=</span> <span class="kw">new</span> <span class="fu">ProfiledPIDController</span><span class="op">(</span>kPt<span class="op">,</span> kIt<span class="op">,</span> kDt<span class="op">,</span> constraints<span class="op">);</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>var holonomicDriveController <span class="op">=</span> <span class="kw">new</span> HolonomicDriveController​<span class="op">(</span>xController yController<span class="op">,</span> thetaController<span class="op">);</span></span></code></pre></div>
+</section>
+<section id="using-constraints" class="slide level2">
+<h2>Using Constraints</h2>
+<ul>
+<li>optional</li>
+</ul>
+</section>
 <section id="wpilib" class="slide level2">
 <h2>WPILIB</h2>
 </section></section>
+<section id="the-end" class="title-slide slide level1" data-background-color="rgb(241, 186, 27)">
+<h1 data-background-color="rgb(241, 186, 27)">The End</h1>
+<p><img data-src="img/kings.jpg" style="width: 50%; margin-top:50px; box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.4);" alt="Eat like Kings" /><br />
+</p>
+<aside class="notes">
+<p>Trivia: Mark quoted from this cartoon after seeing the first trajectory following demo in 2018.</p>
+</aside>
+</section>
+
 <section id="appendix" class="title-slide slide level1" data-background-color="rgb(241, 186, 27)">
 <h1 data-background-color="rgb(241, 186, 27)">Appendix</h1>
 
@@ -557,16 +665,16 @@ Positive is CCW rotation (yaw) of the robot.
 <section id="waypoint-to-trajectory-conversion" class="slide level2">
 <h2>Waypoint to Trajectory Conversion</h2>
 <p>This <a href="https://github.com/wpilibsuite/PathWeaver/blob/5e8ea0cafca829eeb10aa55ba70542022b6102da/src/main/java/edu/wpi/first/pathweaver/spline/wpilib/WpilibSpline.java#L172">code excerpt</a> from PathWeaver illustrates how it converts a list of waypoints to a trajectory.</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode java"><code class="sourceCode java"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="kw">private</span> <span class="dt">static</span> Trajectory <span class="fu">trajectoryFromWaypoints</span><span class="op">(</span><span class="bu">Iterable</span><span class="op">&lt;</span>Waypoint<span class="op">&gt;</span> waypoints<span class="op">,</span> TrajectoryConfig config<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>    var list <span class="op">=</span> <span class="kw">new</span> TrajectoryGenerator<span class="op">.</span><span class="fu">ControlVectorList</span><span class="op">();</span></span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span><span class="op">(</span>Waypoint wp<span class="op">:</span> waypoints<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>        list<span class="op">.</span><span class="fu">add</span><span class="op">(</span><span class="kw">new</span> Spline<span class="op">.</span><span class="fu">ControlVector</span><span class="op">(</span></span>
-<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>                <span class="kw">new</span> <span class="dt">double</span><span class="op">[]</span> <span class="op">{</span>wp<span class="op">.</span><span class="fu">getX</span><span class="op">(),</span> wp<span class="op">.</span><span class="fu">getTangentX</span><span class="op">(),</span> <span class="dv">0</span><span class="op">},</span></span>
-<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>                <span class="kw">new</span> <span class="dt">double</span><span class="op">[]</span> <span class="op">{</span>wp<span class="op">.</span><span class="fu">getY</span><span class="op">(),</span> wp<span class="op">.</span><span class="fu">getTangentY</span><span class="op">(),</span> <span class="dv">0</span><span class="op">}));</span></span>
-<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> TrajectoryGenerator<span class="op">.</span><span class="fu">generateTrajectory</span><span class="op">(</span>list<span class="op">,</span> config<span class="op">);</span></span>
-<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode java"><code class="sourceCode java"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="kw">private</span> <span class="dt">static</span> Trajectory <span class="fu">trajectoryFromWaypoints</span><span class="op">(</span><span class="bu">Iterable</span><span class="op">&lt;</span>Waypoint<span class="op">&gt;</span> waypoints<span class="op">,</span> TrajectoryConfig config<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>    var list <span class="op">=</span> <span class="kw">new</span> TrajectoryGenerator<span class="op">.</span><span class="fu">ControlVectorList</span><span class="op">();</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span><span class="op">(</span>Waypoint wp<span class="op">:</span> waypoints<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>        list<span class="op">.</span><span class="fu">add</span><span class="op">(</span><span class="kw">new</span> Spline<span class="op">.</span><span class="fu">ControlVector</span><span class="op">(</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>                <span class="kw">new</span> <span class="dt">double</span><span class="op">[]</span> <span class="op">{</span>wp<span class="op">.</span><span class="fu">getX</span><span class="op">(),</span> wp<span class="op">.</span><span class="fu">getTangentX</span><span class="op">(),</span> <span class="dv">0</span><span class="op">},</span></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>                <span class="kw">new</span> <span class="dt">double</span><span class="op">[]</span> <span class="op">{</span>wp<span class="op">.</span><span class="fu">getY</span><span class="op">(),</span> wp<span class="op">.</span><span class="fu">getTangentY</span><span class="op">(),</span> <span class="dv">0</span><span class="op">}));</span></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> TrajectoryGenerator<span class="op">.</span><span class="fu">generateTrajectory</span><span class="op">(</span>list<span class="op">,</span> config<span class="op">);</span></span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <h3 id="but-whats-really-happening">But what’s really happening?</h3>
 </section>
 <section id="trajectories-are-connected-splines" class="slide level2">
@@ -636,6 +744,18 @@ Positive is CCW rotation (yaw) of the robot.
 </ul>
 </aside>
 </section>
+<section id="parameterized-trajectory-with-centripetal-constraint" class="slide level2">
+<h2>Parameterized Trajectory with Centripetal Constraint</h2>
+<figure>
+<img data-src="img/pathweaver/3d-centripetal.svg" style="width:100.0%" alt="Centripetal constraint limits velocity where there is high curvature." /><figcaption aria-hidden="true">Centripetal constraint limits velocity where there is high curvature.</figcaption>
+</figure>
+<aside class="notes">
+<ul>
+<li>we start accelerating at our max acceleration until centripetal acceleration constraints apply.</li>
+<li>trajectory is the same going forward as backwards.</li>
+</ul>
+</aside>
+</section>
 <section id="curvature" class="slide level2">
 <h2>Curvature</h2>
 <p>A quick detour into terminology — what is curvature?</p>
@@ -646,6 +766,33 @@ Positive is CCW rotation (yaw) of the robot.
 <p>Intuitively, the curvature describes for any part of a curve how much the curve direction changes over a small distance travelled, so it is a measure of the instantaneous rate of change of direction of a point that moves on the curve: the larger the curvature, the larger this rate of change. <a href="https://en.wikipedia.org/wiki/Curvature">Wikipedia</a></p>
 </aside>
 </section></section>
+<section id="pathweaver-trajectory-json" class="title-slide slide level1">
+<h1>PathWeaver Trajectory JSON</h1>
+<p>PathWeaver exports built trajectories in this JSON format. These JSON files are deployed to the robot and loaded into a <code>Trajectory</code> at <code>robotInit()</code>.</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="ot">[</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">{</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;time&quot;</span><span class="fu">:</span> <span class="fl">0.0</span><span class="fu">,</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;velocity&quot;</span><span class="fu">:</span> <span class="fl">0.0</span><span class="fu">,</span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;acceleration&quot;</span><span class="fu">:</span> <span class="fl">2.0</span><span class="fu">,</span></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;pose&quot;</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&quot;translation&quot;</span><span class="fu">:</span> <span class="fu">{</span> <span class="dt">&quot;x&quot;</span><span class="fu">:</span> <span class="fl">1.0</span><span class="fu">,</span> <span class="dt">&quot;y&quot;</span><span class="fu">:</span> <span class="fl">6.21055</span> <span class="fu">},</span></span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&quot;rotation&quot;</span><span class="fu">:</span> <span class="fu">{</span> <span class="dt">&quot;radians&quot;</span><span class="fu">:</span> <span class="fl">0.0</span> <span class="fu">}</span></span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">},</span></span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;curvature&quot;</span><span class="fu">:</span> <span class="fl">0.0</span></span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">}</span><span class="ot">,</span></span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">{</span></span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;time&quot;</span><span class="fu">:</span> <span class="fl">0.1759540554030928</span><span class="fu">,</span></span>
+<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;velocity&quot;</span><span class="fu">:</span> <span class="fl">0.3519081108061856</span><span class="fu">,</span></span>
+<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;acceleration&quot;</span><span class="fu">:</span> <span class="fl">1.9999999999999987</span><span class="fu">,</span></span>
+<span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;pose&quot;</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb21-17"><a href="#cb21-17" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&quot;translation&quot;</span><span class="fu">:</span> <span class="fu">{</span> <span class="dt">&quot;x&quot;</span><span class="fu">:</span> <span class="fl">1.0309589505195618</span><span class="fu">,</span> <span class="dt">&quot;y&quot;</span><span class="fu">:</span> <span class="fl">6.2103166925191875</span> <span class="fu">},</span></span>
+<span id="cb21-18"><a href="#cb21-18" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&quot;rotation&quot;</span><span class="fu">:</span> <span class="fu">{</span> <span class="dt">&quot;radians&quot;</span><span class="fu">:</span> <span class="fl">-0.02267479979731116</span> <span class="fu">}</span></span>
+<span id="cb21-19"><a href="#cb21-19" aria-hidden="true" tabindex="-1"></a>    <span class="fu">},</span></span>
+<span id="cb21-20"><a href="#cb21-20" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;curvature&quot;</span><span class="fu">:</span> <span class="fl">-1.4861117623228608</span></span>
+<span id="cb21-21"><a href="#cb21-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">}</span></span>
+<span id="cb21-22"><a href="#cb21-22" aria-hidden="true" tabindex="-1"></a><span class="ot">]</span></span></code></pre></div>
+<p>Each of the JSON objects represents a <code>Trajectory.State</code> object.</p>
+</section>
     </div>
   </div>
 
