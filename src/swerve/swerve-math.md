@@ -54,7 +54,7 @@ We use **vectors** to represent velocity, which is speed and direction.
 
 Here we show how to add two vectors together, later we will show rotating a vector by a given angle.
 
-## Coordinate Frames
+## Coordinate System
 
 We work in two coordinate frames, one local to the robot and one global for the field.
 

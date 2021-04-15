@@ -16,5 +16,5 @@
 - [x] Swerve Math
   - [x] Coordinate System
 - [x] Swerve Software
-  - [ ] Terminology
+  - [x] Terminology
 - [ ] Pathfinding

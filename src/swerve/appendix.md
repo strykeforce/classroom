@@ -1,3 +1,13 @@
+# The End {data-background-color="rgb(241, 186, 27)"}
+
+![Eat like Kings](img/kings.jpg){style="width: 50%; margin-top:50px; box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.4);"}\
+
+::: notes
+
+Trivia: Mark quoted from this cartoon after seeing the first trajectory following demo in 2018.
+
+:::
+
 # Appendix{data-background-color="rgb(241, 186, 27)"}
 
 # PathWeaver Deep Dive{data-background-color="rgb(241, 186, 27)"}
@@ -133,6 +143,17 @@ The `TrajectoryParameterizer` class calculates the final trajectory points.
 
 :::
 
+## Parameterized Trajectory with Centripetal Constraint
+
+![Centripetal constraint limits velocity where there is high curvature.](img/pathweaver/3d-centripetal.svg){width=100%}
+
+::: notes
+
+- we start accelerating at our max acceleration until centripetal acceleration constraints apply.
+- trajectory is the same going forward as backwards.
+
+:::
+
 ## Curvature
 
 A quick detour into terminology — what is curvature?
@@ -147,3 +168,34 @@ Intuitively, the curvature describes for any part of a curve how much the curve 
 [Wikipedia](https://en.wikipedia.org/wiki/Curvature)
 
 :::
+
+# PathWeaver Trajectory JSON
+
+PathWeaver exports built trajectories in this JSON format. These JSON files are deployed to the robot and loaded into a `Trajectory` at `robotInit()`.
+
+```json
+[
+  {
+    "time": 0.0,
+    "velocity": 0.0,
+    "acceleration": 2.0,
+    "pose": {
+      "translation": { "x": 1.0, "y": 6.21055 },
+      "rotation": { "radians": 0.0 }
+    },
+    "curvature": 0.0
+  },
+  {
+    "time": 0.1759540554030928,
+    "velocity": 0.3519081108061856,
+    "acceleration": 1.9999999999999987,
+    "pose": {
+      "translation": { "x": 1.0309589505195618, "y": 6.2103166925191875 },
+      "rotation": { "radians": -0.02267479979731116 }
+    },
+    "curvature": -1.4861117623228608
+  }
+]
+```
+
+Each of the JSON objects represents a `Trajectory.State` object.

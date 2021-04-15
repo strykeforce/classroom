@@ -42,7 +42,7 @@ double rotSpeed = rightJoystick.x * kMaxRadiansPerSec;
 ChassisSpeeds speeds = new ChassisSpeeds(xSpeed, ySpeed, rotSpeed);
 ```
 
-Speeds are aligned to a [coordinate system](#coordinate-frames) and are given in meters per second.
+Speeds are aligned to a [coordinate system](#coordinate-system) and are given in meters per second.
 
 ---
 
