@@ -130,7 +130,7 @@ At its most basic, the job of the controller is to convert trajectory states to 
 
 ---
 
-In a perfect world, the robot would exactly follow the desired trajectory. In the real world, physical effects such as intertia and friction create some error.
+In a perfect world, the robot would exactly follow the desired trajectory. In the real world, physical effects such inertia and friction create some error.
 
 ![Test run of the 2018 Jif robot](img/pathweaver/motion_profile.svg){width=80%}
 
