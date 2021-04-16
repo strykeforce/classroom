@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg xmlns:xl="http://www.w3.org/1999/xlink" version="1.1" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns="http://www.w3.org/2000/svg" viewBox="-136 417 3072 1440" width="3072" height="1440">
+<svg xmlns:xl="http://www.w3.org/1999/xlink" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:dc="http://purl.org/dc/elements/1.1/" viewBox="-136 417 3072 1440" width="3072" height="1440">
   <defs>
     <clipPath id="artboard_clip_path">
       <path d="M -136 417 L 2936 417 L 2936 1857 L -136 1857 Z"/>
@@ -26,8 +26,8 @@
       </g>
     </marker>
   </defs>
-  <metadata> Produced by OmniGraffle 7.18.5\n2021-04-13 11:34:16 +0000</metadata>
-  <g id="waypoint" stroke-dasharray="none" stroke="none" stroke-opacity="1" fill="none" fill-opacity="1">
+  <metadata> Produced by OmniGraffle 7.18.5\n2021-04-16 15:52:20 +0000</metadata>
+  <g id="waypoint" fill-opacity="1" stroke="none" stroke-opacity="1" stroke-dasharray="none" fill="none">
     <title>waypoint</title>
     <g id="waypoint_Waypoint" clip-path="url(#artboard_clip_path)">
       <title>Waypoint</title>

@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xl="http://www.w3.org/1999/xlink" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:dc="http://purl.org/dc/elements/1.1/" viewBox="-136 897 1497 960" width="1497" height="960">
+  <defs>
+    <clipPath id="artboard_clip_path">
+      <path d="M -136 897 L 1361 897 L 1361 1857 L -136 1857 Z"/>
+    </clipPath>
+    <marker orient="auto" overflow="visible" markerUnits="strokeWidth" id="FilledArrow_Marker" stroke-linejoin="miter" stroke-miterlimit="10" viewBox="-1 -2 5 4" markerWidth="5" markerHeight="4" color="#666">
+      <g>
+        <path d="M 2.4 0 L 0 -.9 L 0 .9 Z" fill="currentColor" stroke="currentColor" stroke-width="1"/>
+      </g>
+    </marker>
+    <marker orient="auto" overflow="visible" markerUnits="strokeWidth" id="FilledBall_Marker" stroke-linejoin="miter" stroke-miterlimit="10" viewBox="-3 -2 4 4" markerWidth="4" markerHeight="4" color="#666">
+      <g>
+        <circle cx="-.8999996" cy="0" r="0.899999204604996" fill="currentColor" stroke="currentColor" stroke-width="1"/>
+      </g>
+    </marker>
+    <marker orient="auto" overflow="visible" markerUnits="strokeWidth" id="DimensionArrow_Marker" stroke-linejoin="miter" stroke-miterlimit="10" viewBox="-1 -4 7 8" markerWidth="7" markerHeight="8" color="black">
+      <g>
+        <path d="M 0 0 L 4.8 0 M 4.8 3 L 4.8 -3 M 0 1.2 L 4.2 0 L 0 -1.2" fill="none" stroke="currentColor" stroke-width="1"/>
+      </g>
+    </marker>
+    <marker orient="auto" overflow="visible" markerUnits="strokeWidth" id="DimensionArrow_Marker_2" stroke-linejoin="miter" stroke-miterlimit="10" viewBox="-6 -4 7 8" markerWidth="7" markerHeight="8" color="black">
+      <g>
+        <path d="M 0 0 L -4.8 0 M -4.8 -3 L -4.8 3 M 0 -1.2 L -4.2 0 L 0 1.2" fill="none" stroke="currentColor" stroke-width="1"/>
+      </g>
+    </marker>
+    <font-face font-family="Helvetica Neue" font-size="24" panose-1="2 0 5 3 0 0 0 2 0 4" units-per-em="1000" underline-position="-100" underline-thickness="50" slope="0" x-height="517" cap-height="714" ascent="951.9958" descent="-212.99744" font-weight="400">
+      <font-face-src>
+        <font-face-name name="HelveticaNeue"/>
+      </font-face-src>
+    </font-face>
+    <font-face font-family="Helvetica Neue" font-size="16" panose-1="2 0 5 3 0 0 0 2 0 4" units-per-em="1000" underline-position="-100" underline-thickness="50" slope="0" x-height="517" cap-height="714" ascent="951.9958" descent="-212.99744" font-weight="400">
+      <font-face-src>
+        <font-face-name name="HelveticaNeue"/>
+      </font-face-src>
+    </font-face>
+    <marker orient="auto" overflow="visible" markerUnits="strokeWidth" id="FilledArrow_Marker_2" stroke-linejoin="miter" stroke-miterlimit="10" viewBox="-1 -2 5 4" markerWidth="5" markerHeight="4" color="#fe2700">
+      <g>
+        <path d="M 2.4 0 L 0 -.9 L 0 .9 Z" fill="currentColor" stroke="currentColor" stroke-width="1"/>
+      </g>
+    </marker>
+    <marker orient="auto" overflow="visible" markerUnits="strokeWidth" id="FilledBall_Marker_2" stroke-linejoin="miter" stroke-miterlimit="10" viewBox="-3 -2 4 4" markerWidth="4" markerHeight="4" color="#fe2700">
+      <g>
+        <circle cx="-.8999996" cy="0" r="0.899999204604996" fill="currentColor" stroke="currentColor" stroke-width="1"/>
+      </g>
+    </marker>
+    <font-face font-family="Helvetica Neue" font-size="36" panose-1="2 0 5 3 0 0 0 2 0 4" units-per-em="1000" underline-position="-100" underline-thickness="50" slope="0" x-height="517" cap-height="714" ascent="951.9958" descent="-212.99744" font-weight="400">
+      <font-face-src>
+        <font-face-name name="HelveticaNeue"/>
+      </font-face-src>
+    </font-face>
+  </defs>
+  <metadata> Produced by OmniGraffle 7.18.5\n2021-04-16 15:52:20 +0000</metadata>
+  <g id="error-correction" fill-opacity="1" stroke="none" stroke-opacity="1" stroke-dasharray="none" fill="none">
+    <title>error-correction</title>
+    <g id="error-correction_Layer_1" clip-path="url(#artboard_clip_path)">
+      <title>Layer 1</title>
+      <g id="Group_37">
+        <g id="Graphic_5">
+          <circle cx="138.5" cy="1223.5" r="24.5000391485965" fill="#65448e"/>
+        </g>
+        <g id="Graphic_6">
+          <circle cx="32" cy="1342" r="24.5000391485965" fill="#fe2700"/>
+        </g>
+        <g id="Group_22">
+          <g id="Line_7">
+            <title>Velocity Vector</title>
+            <line x1="144.01076" y1="1218.5553" x2="215.21642" y2="1147.3496" marker-end="url(#FilledArrow_Marker)" marker-start="url(#FilledBall_Marker)" stroke="#666" stroke-linecap="round" stroke-linejoin="round" stroke-width="8"/>
+          </g>
+          <g id="Line_8">
+            <line x1="148.6" y1="1110" x2="227.46602" y2="1110" marker-end="url(#DimensionArrow_Marker)" marker-start="url(#DimensionArrow_Marker_2)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+          </g>
+          <g id="Graphic_10">
+            <text transform="translate(146.812 1061.5)" fill="black">
+              <tspan font-family="Helvetica Neue" font-size="24" font-weight="400" fill="black" x="14210855e-20" y="23">vx</tspan>
+              <tspan font-family="Helvetica Neue" font-size="16" font-weight="400" fill="black" y="30">trajectory</tspan>
+            </text>
+          </g>
+          <g id="Line_12">
+            <line x1="253.304" y1="1135.1" x2="253.304" y2="1213.966" marker-end="url(#DimensionArrow_Marker)" marker-start="url(#DimensionArrow_Marker_2)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+          </g>
+          <g id="Graphic_13">
+            <text transform="translate(269.54198 1157.809)" fill="black">
+              <tspan font-family="Helvetica Neue" font-size="24" font-weight="400" fill="black" x="0" y="23">vy</tspan>
+              <tspan font-family="Helvetica Neue" font-size="16" font-weight="400" fill="black" y="30">trajectory</tspan>
+            </text>
+          </g>
+        </g>
+        <g id="Line_14">
+          <line x1="-20.5" y1="1233.166" x2="-20.5" y2="1332.4" marker-end="url(#DimensionArrow_Marker)" marker-start="url(#DimensionArrow_Marker_2)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        </g>
+        <g id="Graphic_15">
+          <text transform="translate(-78 1266.059)" fill="black">
+            <tspan font-family="Helvetica Neue" font-size="24" font-weight="400" fill="black" x="781597e-18" y="23">y</tspan>
+            <tspan font-family="Helvetica Neue" font-size="16" font-weight="400" fill="black" y="30">error</tspan>
+          </text>
+        </g>
+        <g id="Line_16">
+          <line x1="42.1" y1="1383" x2="129.4" y2="1383" marker-end="url(#DimensionArrow_Marker)" marker-start="url(#DimensionArrow_Marker_2)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        </g>
+        <g id="Graphic_17">
+          <text transform="translate(62.798 1392.5)" fill="black">
+            <tspan font-family="Helvetica Neue" font-size="24" font-weight="400" fill="black" x="0" y="23">x</tspan>
+            <tspan font-family="Helvetica Neue" font-size="16" font-weight="400" fill="black" y="30">error</tspan>
+          </text>
+        </g>
+      </g>
+      <g id="Group_36">
+        <g id="Graphic_19">
+          <text transform="translate(483.4475 1188.888)" fill="black">
+            <tspan font-family="Helvetica Neue" font-size="24" font-weight="400" fill="black" x="881073e-18" y="23">vx</tspan>
+            <tspan font-family="Helvetica Neue" font-size="16" font-weight="400" fill="black" y="30">feedback</tspan>
+            <tspan font-family="Helvetica Neue" font-size="24" font-weight="400" fill="black" y="34"> </tspan>
+            <tspan font-family="Helvetica Neue" font-size="24" font-weight="400" fill="black" y="23">= PID</tspan>
+            <tspan font-family="Helvetica Neue" font-size="16" font-weight="400" fill="black" y="30">x</tspan>
+            <tspan font-family="Helvetica Neue" font-size="24" font-weight="400" fill="black" y="23">(x</tspan>
+            <tspan font-family="Helvetica Neue" font-size="16" font-weight="400" fill="black" y="30">error</tspan>
+            <tspan font-family="Helvetica Neue" font-size="24" font-weight="400" fill="black" y="23">)</tspan>
+          </text>
+        </g>
+        <g id="Graphic_20">
+          <text transform="translate(484.0235 1258.888)" fill="black">
+            <tspan font-family="Helvetica Neue" font-size="24" font-weight="400" fill="black" x="0" y="23">vy</tspan>
+            <tspan font-family="Helvetica Neue" font-size="16" font-weight="400" fill="black" y="30">feedback</tspan>
+            <tspan font-family="Helvetica Neue" font-size="24" font-weight="400" fill="black" y="34"> </tspan>
+            <tspan font-family="Helvetica Neue" font-size="24" font-weight="400" fill="black" y="23">= PID</tspan>
+            <tspan font-family="Helvetica Neue" font-size="16" font-weight="400" fill="black" y="30">y</tspan>
+            <tspan font-family="Helvetica Neue" font-size="24" font-weight="400" fill="black" y="23">(y</tspan>
+            <tspan font-family="Helvetica Neue" font-size="16" font-weight="400" fill="black" y="30">error</tspan>
+            <tspan font-family="Helvetica Neue" font-size="24" font-weight="400" fill="black" y="23">)</tspan>
+          </text>
+        </g>
+      </g>
+      <g id="Group_35">
+        <g id="Graphic_18">
+          <circle cx="946.1" cy="1364.0207" r="24.5000391485965" fill="#fe2700"/>
+          <text transform="translate(931.5 1337.0207)" fill="black"/>
+        </g>
+        <g id="Line_28">
+          <title>Velocity Vector</title>
+          <line x1="951.1108" y1="1359.6415" x2="1022.3164" y2="1288.4359" marker-end="url(#FilledArrow_Marker)" marker-start="url(#FilledBall_Marker)" stroke="#666" stroke-linecap="round" stroke-linejoin="round" stroke-width="8"/>
+        </g>
+        <g id="Line_27">
+          <line x1="955.7" y1="1251.0863" x2="1034.566" y2="1251.0863" marker-end="url(#DimensionArrow_Marker)" marker-start="url(#DimensionArrow_Marker_2)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        </g>
+        <g id="Graphic_26">
+          <text transform="translate(953.912 1202.5863)" fill="black">
+            <tspan font-family="Helvetica Neue" font-size="24" font-weight="400" fill="black" x="14210855e-20" y="23">vx</tspan>
+            <tspan font-family="Helvetica Neue" font-size="16" font-weight="400" fill="black" y="30">trajectory</tspan>
+          </text>
+        </g>
+        <g id="Line_25">
+          <line x1="1060.404" y1="1276.1863" x2="1060.404" y2="1355.0523" marker-end="url(#DimensionArrow_Marker)" marker-start="url(#DimensionArrow_Marker_2)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        </g>
+        <g id="Graphic_24">
+          <text transform="translate(1076.642 1298.8953)" fill="black">
+            <tspan font-family="Helvetica Neue" font-size="24" font-weight="400" fill="black" x="0" y="23">vy</tspan>
+            <tspan font-family="Helvetica Neue" font-size="16" font-weight="400" fill="black" y="30">trajectory</tspan>
+          </text>
+        </g>
+        <g id="Line_29">
+          <title>Velocity Vector</title>
+          <line x1="1073.4148" y1="1239.0755" x2="1106.7123" y2="1205.778" marker-end="url(#FilledArrow_Marker_2)" marker-start="url(#FilledBall_Marker_2)" stroke="#fe2700" stroke-linecap="round" stroke-linejoin="round" stroke-width="8"/>
+        </g>
+        <g id="Line_30">
+          <line x1="1070.004" y1="1162.6518" x2="1118.9619" y2="1162.6518" marker-end="url(#DimensionArrow_Marker)" marker-start="url(#DimensionArrow_Marker_2)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        </g>
+        <g id="Line_32">
+          <line x1="1154.1" y1="1194.8313" x2="1154.1" y2="1243.7892" marker-end="url(#DimensionArrow_Marker)" marker-start="url(#DimensionArrow_Marker_2)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        </g>
+        <g id="Graphic_33">
+          <text transform="translate(1049.075 1103.9273)" fill="black">
+            <tspan font-family="Helvetica Neue" font-size="24" font-weight="400" fill="black" x="0" y="23">vx</tspan>
+            <tspan font-family="Helvetica Neue" font-size="16" font-weight="400" fill="black" y="30">feedback</tspan>
+          </text>
+        </g>
+        <g id="Graphic_34">
+          <text transform="translate(1171.316 1202.5863)" fill="black">
+            <tspan font-family="Helvetica Neue" font-size="24" font-weight="400" fill="black" x="0" y="23">vy</tspan>
+            <tspan font-family="Helvetica Neue" font-size="16" font-weight="400" fill="black" y="30">feedback</tspan>
+          </text>
+        </g>
+      </g>
+      <g id="Graphic_38">
+        <text transform="translate(5.0449975 1520)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="36" font-weight="400" fill="black" x="36948222e-20" y="34">1. Get pose error</tspan>
+        </text>
+      </g>
+      <g id="Graphic_39">
+        <text transform="translate(435.6935 1516)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="36" font-weight="400" fill="black" x="0" y="34">2. Calculate error</tspan>
+          <tspan font-family="Helvetica Neue" font-size="36" font-weight="400" fill="black" x="0" y="77.008">feedback velocities </tspan>
+        </text>
+      </g>
+      <g id="Graphic_40">
+        <text transform="translate(912.998 1512)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="36" font-weight="400" fill="black" x="0" y="34">3. Desired velocity is</tspan>
+          <tspan font-family="Helvetica Neue" font-size="36" font-weight="400" fill="black" x="0" y="77.008">trajectory + feedback  </tspan>
+        </text>
+      </g>
+    </g>
+  </g>
+</svg>
