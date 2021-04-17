@@ -12,10 +12,6 @@ const MARGIN = 0.08;
 
 const SLIDES = [
   {
-    slug: "slides",
-    files: ["index.md", "appendix.md"],
-  },
-  {
     slug: "swerve",
     files: [
       "index.md",
