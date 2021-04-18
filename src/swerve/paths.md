@@ -216,4 +216,49 @@ The holonomic drive controller uses a [`ProfiledPIDController`](https://first.wp
 
 ## Using Constraints
 
-Coming soon.
+Constraints can limit velocity and acceleration at points in the trajectory based on the current pose, curvature or velocity. The library includes constraints for:
+
+[`CentripetalAccelerationConstraint`](https://first.wpi.edu/wpilib/allwpilib/docs/release/java/edu/wpi/first/wpilibj/trajectory/constraint/CentripetalAccelerationConstraint.html)
+
+: A constraint on the maximum absolute centripetal acceleration allowed when traversing a trajectory. Limiting the maximum centripetal acceleration will cause the robot to slow down around tight turns.
+
+[`EllipticalRegionConstraint`](https://first.wpi.edu/wpilib/allwpilib/docs/release/java/edu/wpi/first/wpilibj/trajectory/constraint/EllipticalRegionConstraint.html)
+
+: Enforces a particular constraint only within an elliptical region.
+
+[`RectangularRegionConstraint`](https://first.wpi.edu/wpilib/allwpilib/docs/release/java/edu/wpi/first/wpilibj/trajectory/constraint/RectangularRegionConstraint.html)
+
+: Enforces a particular constraint only within a rectangular region.
+
+[`SwerveDriveKinematicsConstraint`](https://first.wpi.edu/wpilib/allwpilib/docs/release/java/edu/wpi/first/wpilibj/trajectory/constraint/SwerveDriveKinematicsConstraint.html)
+
+: Enforces constraints on the swerve drive kinematics. This can be used to ensure that the trajectory is constructed so that the commanded velocities for all 4 wheels of the drive train stay below a certain limit.
+
+---
+
+We apply a trajectory constraint when configuring the `TrajectoryConfig`.
+
+```java
+var kMaxCentripetalAccelerationMetersPerSecondSq = 2;
+var centripetalConstraint = new CentripetalAccelerationConstraint(kMaxCentripetalAccelerationMetersPerSecondSq);
+
+var kMaxVelocityMetersPerSecond = 1;
+var kMaxAccelerationMetersPerSecondSq = 2;
+var trajectoryConfig = new TrajectoryConfig(kMaxVelocityMetersPerSecond, kMaxAccelerationMetersPerSecondSq);
+trajectoryConfig.addConstraint​(centripetalConstraint);
+```
+
+![centripetal constraint](img/pathweaver/trajectory_2.svg){width=80%}\
+
+---
+
+A different visualization of the same trajectory.
+
+![Centripetal constraint limits velocity where there is high curvature.](img/pathweaver/3d-centripetal.svg){width=100%}
+
+::: notes
+
+- we start accelerating at our max acceleration until centripetal acceleration constraints apply.
+- trajectory is the same going forward as backwards.
+
+:::
