@@ -98,7 +98,7 @@ We minimize the change in heading the desired swerve wheel direction would requi
 When optimized, the furthest a wheel will ever rotate is 90 degrees.
 
 ::: {.columns}
-::: {.column width="50%" style="display:inline-flex; flex-direction: column; justify-content: center; height: 766px"}
+::: {.column style="width:50%;display:inline-flex; flex-direction: column; justify-content: center; height: 766px"}
 
 If the difference between your desired and current azimuth is greater than 90°, rotate the desired azimuth by 180° and reverse the drive motor.
 
