@@ -11,15 +11,17 @@ const HEIGHT = 1920 * 0.6;
 const MARGIN = 0.08;
 
 const SLIDES = [
+  { slug: "common", files: [] },
   {
     slug: "swerve",
     files: [
-      "index.md",
-      "swerve.md",
-      "swerve-math.md",
-      "swerve-software.md",
-      "paths.md",
-      "appendix.md",
+      "swerve/index.md",
+      "swerve/swerve.md",
+      "swerve/swerve-math.md",
+      "swerve/swerve-software.md",
+      "swerve/paths.md",
+      "swerve/appendix.md",
+      "common/colophon.md",
     ],
   },
 ];
@@ -59,10 +61,12 @@ const createDestDir = async (slug) => {
 };
 
 const buildSlides = async (slug, files) => {
-  const srcDir = `src/${slug}`;
+  if (files.length === 0) return;
+
+  const srcDir = "src";
   const destDir = `build/${slug}`;
 
-  log(`building slides in ${srcDir}`);
+  log(`building slides in ${srcDir}/${slug}`);
 
   const args = [
     "--from=markdown",
