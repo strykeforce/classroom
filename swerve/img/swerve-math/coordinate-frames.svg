@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xl="http://www.w3.org/1999/xlink" viewBox="-136 417 3072 1440" width="3072" height="1440">
+<svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns="http://www.w3.org/2000/svg" xmlns:xl="http://www.w3.org/1999/xlink" version="1.1" viewBox="-136 417 3072 1440" width="3072" height="1440">
   <defs>
     <clipPath id="artboard_clip_path">
       <path d="M -136 417 L 2936 417 L 2936 1857 L -136 1857 Z"/>
@@ -45,9 +45,14 @@
         <font-face-name name="HelveticaNeue"/>
       </font-face-src>
     </font-face>
+    <marker orient="auto" overflow="visible" markerUnits="strokeWidth" id="FilledArrow_Marker_3" stroke-linejoin="miter" stroke-miterlimit="10" viewBox="-1 -3 6 6" markerWidth="6" markerHeight="6" color="black">
+      <g>
+        <path d="M 3.2 0 L 0 -1.2 L 0 1.2 Z" fill="currentColor" stroke="currentColor" stroke-width="1"/>
+      </g>
+    </marker>
   </defs>
-  <metadata> Produced by OmniGraffle 7.18.5\n2021-04-06 13:44:35 +0000</metadata>
-  <g id="coordinate-frames" stroke-dasharray="none" stroke="none" fill-opacity="1" fill="none" stroke-opacity="1">
+  <metadata> Produced by OmniGraffle 7.18.5\n2021-04-20 12:23:32 +0000</metadata>
+  <g id="coordinate-frames" fill-opacity="1" stroke-opacity="1" stroke-dasharray="none" fill="none" stroke="none">
     <title>coordinate-frames</title>
     <rect fill="white" x="-136" y="417" width="3072" height="1440"/>
     <g id="coordinate-frames_Field" clip-path="url(#artboard_clip_path)">
@@ -185,17 +190,14 @@
           <path d="M 1246.5111 961.685 L 972.8324 1153.3169 L 974.9215 1153.6852 L 783.2896 880.0065 C 782.8145 879.3279 781.8792 879.163 781.20055 879.6382 C 780.5219 880.1133 780.357 881.0486 780.8322 881.7273 L 972.4641 1155.406 C 972.9392 1156.0846 973.8746 1156.2495 974.5532 1155.7743 L 1248.2319 964.1424 C 1248.9105 963.6673 1249.0754 962.7319 1248.6002 962.0533 C 1248.125 961.3747 1247.1897 961.2098 1246.5111 961.685 Z M 774.4081 872.5527 L 780.8322 881.7273 L 783.2896 880.0065 L 776.8656 870.832 Z M 786.34975 877.2208 L 776.4853 870.4554 L 774.7885 872.9294 L 784.65295 879.6949 Z M 1255.6856 955.2609 L 1246.5111 961.685 L 1248.2319 964.1424 L 1257.4064 957.7184 Z M 1251.0175 967.2025 L 1257.783 957.338 L 1255.309 955.6412 L 1248.5435 965.5057 Z" fill="black"/>
         </g>
       </g>
+      <g id="Graphic_73">
+        <text transform="translate(685 1510)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="48" font-weight="400" fill="black" x="34816594e-20" y="46">+θ</tspan>
+        </text>
+      </g>
     </g>
     <g id="coordinate-frames_Layer_5" clip-path="url(#artboard_clip_path)">
       <title>Layer 5</title>
-      <g id="Line_58">
-        <line x1="487.23404" y1="1155" x2="1111.5385" y2="1155" stroke="#666" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="16.0,16.0" stroke-width="4"/>
-      </g>
-      <g id="Graphic_59">
-        <text transform="translate(1059 1098)" fill="black">
-          <tspan font-family="Helvetica Neue" font-size="48" font-weight="400" fill="black" x="7123191e-19" y="46">θ</tspan>
-        </text>
-      </g>
       <g id="Graphic_61">
         <text transform="translate(1742.728 985)" fill="black">
           <tspan font-family="Helvetica Neue" font-size="48" font-weight="400" fill="black" x="2842171e-19" y="47">Forward = </tspan>
@@ -226,13 +228,27 @@
           <tspan font-family="Helvetica Neue" font-size="48" font-weight="400" fill="black" x="7673862e-19" y="46">Chassis Speeds</tspan>
         </text>
       </g>
-      <g id="Line_65">
-        <line x1="976" y1="1156" x2="976" y2="1706.383" stroke="#666" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="16.0,16.0" stroke-width="4"/>
-      </g>
       <g id="Graphic_66">
         <text transform="translate(2362 539)" fill="#666">
           <tspan font-family="Helvetica Neue" font-size="128" font-weight="400" fill="#666" x="0" y="122">Field</tspan>
         </text>
+      </g>
+    </g>
+    <g id="coordinate-frames_coords" clip-path="url(#artboard_clip_path)">
+      <title>coords</title>
+      <g id="Line_58">
+        <line x1="487.23404" y1="1155" x2="1111.5385" y2="1155" stroke="#666" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="16.0,16.0" stroke-width="4"/>
+      </g>
+      <g id="Graphic_59">
+        <text transform="translate(1059 1098)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="48" font-weight="400" fill="black" x="7123191e-19" y="46">θ</tspan>
+        </text>
+      </g>
+      <g id="Line_65">
+        <line x1="976" y1="1156" x2="976" y2="1706.383" stroke="#666" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="16.0,16.0" stroke-width="4"/>
+      </g>
+      <g id="Line_72">
+        <path d="M 715 1706.0606 C 710.1633 1562.3328 607.0027 1482.8054 505.05836 1472.1795" marker-end="url(#FilledArrow_Marker_3)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"/>
       </g>
     </g>
   </g>

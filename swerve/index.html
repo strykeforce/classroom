@@ -883,31 +883,118 @@ Positive is CCW rotation (yaw) of the robot.
 <p>Intuitively, the curvature describes for any part of a curve how much the curve direction changes over a small distance travelled, so it is a measure of the instantaneous rate of change of direction of a point that moves on the curve: the larger the curvature, the larger this rate of change. <a href="https://en.wikipedia.org/wiki/Curvature">Wikipedia</a></p>
 </aside>
 </section></section>
+<section>
+<section id="geometry" class="title-slide slide level1" data-background-color="rgb(241, 186, 27)">
+<h1 data-background-color="rgb(241, 186, 27)">Geometry</h1>
+<p>This section covers the geometry classes of WPILib.</p>
+</section>
+<section id="field-coordinate-system" class="slide level2">
+<h2>Field Coordinate System</h2>
+<p>The field coordinate system (or global coordinate system) is an absolute coordinate system where a point on the field is designated as the origin. Positive θ (theta) is in the counter-clockwise direction, and the positive x-axis points away from your alliance’s driver station wall, and the positive y-axis is perpendicular and to the left of the positive x-axis.</p>
+<p><img data-src="img/geometry/field-system.svg" style="width:75.0%" alt="field coordinate system" /><br />
+</p>
+<p><strong>Note:</strong> The axes are shown at the middle of the field for visibility. The origins of the coordinate system for each alliance are shown next.</p>
+</section>
+<section id="field-coordinate-system-origin" class="slide level2">
+<h2>Field Coordinate System Origin</h2>
+<p>Below is an example of a field coordinate system overlayed on the 2020 FRC field. The red axes shown are for the red alliance, and the blue axes shown are for the blue alliance.</p>
+<p><img data-src="img/geometry/infinite-recharge.jpg" alt="infinite recharge" /><br />
+</p>
+</section>
+<section id="robot-coordinate-system" class="slide level2">
+<h2>Robot Coordinate System</h2>
+<p>The robot coordinate system (or local coordinate system) is a relative coordinate system where the robot is the origin. The direction the robot is facing is the positive x axis, and the positive y axis is perpendicular, to the left of the robot. Positive θ is counter-clockwise.</p>
+<p><img data-src="img/geometry/robot-system.svg" style="width:75.0%" alt="robot coordinate system" /><br />
+</p>
+<p><strong>Note:</strong> WPILib’s <code>Gyro</code> class is clockwise-positive, so you have to invert the reading in order to get the rotation with either coordinate system.</p>
+</section>
+<section id="translation" class="slide level2">
+<h2>Translation</h2>
+<p>Translation in 2 dimensions is represented by WPILib’s <a href="https://first.wpi.edu/wpilib/allwpilib/docs/release/java/edu/wpi/first/wpilibj/geometry/Translation2d.html"><code>Translation2d</code></a> class. This class has an x and y component, representing the point (x, y).</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode java"><code class="sourceCode java"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>var pointA <span class="op">=</span> <span class="fu">Translation2d</span><span class="op">(</span><span class="dv">1</span><span class="op">,</span> <span class="dv">1</span><span class="op">);</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>var pointB <span class="op">=</span> <span class="fu">Translation2d</span><span class="op">(</span><span class="dv">3</span><span class="op">,</span> <span class="dv">1</span><span class="op">);</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>pointA<span class="op">.</span><span class="fu">getDistance</span><span class="op">(</span>pointB<span class="op">));</span> <span class="co">// 2.0</span></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a><span class="co">// vector math</span></span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>pointB<span class="op">.</span><span class="fu">times</span><span class="op">(</span><span class="dv">2</span><span class="op">))</span> <span class="co">// Translation2d(X: 6.00, Y: 2.00)</span></span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>pointA<span class="op">.</span><span class="fu">div</span><span class="op">(</span><span class="dv">2</span><span class="op">))</span> <span class="co">// Translation2d(X: 0.50, Y: 0.50)</span></span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>pointB<span class="op">.</span><span class="fu">unaryMinus</span><span class="op">())</span> <span class="co">// Translation2d(X: -3.00, Y: -1.00)</span></span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>pointA<span class="op">.</span><span class="fu">plus</span><span class="op">(</span>pointB<span class="op">));</span> <span class="co">// Translation2d(X: 4.00, Y: 2.00)</span></span>
+<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>pointB<span class="op">.</span><span class="fu">minus</span><span class="op">(</span>pointA<span class="op">));</span> <span class="co">// Translation2d(X: 2.00, Y: 0.00)</span></span>
+<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-14"><a href="#cb25-14" aria-hidden="true" tabindex="-1"></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>pointA<span class="op">.</span><span class="fu">rotateBy</span><span class="op">(</span>Rotation2d<span class="op">.</span><span class="fu">fromDegrees</span><span class="op">(-</span><span class="dv">45</span><span class="op">)))</span> <span class="co">// Translation2d(X: 1.41, Y: 0.00)</span></span></code></pre></div>
+</section>
+<section id="rotation" class="slide level2">
+<h2>Rotation</h2>
+<p>Rotation in 2 dimensions is representated by WPILib’s <a href="https://first.wpi.edu/wpilib/allwpilib/docs/release/java/edu/wpi/first/wpilibj/geometry/Rotation2d.html"><code>Rotation2d</code></a> class. This class has an angle component, which represents the robot’s rotation relative to an axis on a 2-dimensional coordinate system. Positive rotations are counterclockwise.</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode java"><code class="sourceCode java"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>Rotation2d angleA <span class="op">=</span> Rotation2d<span class="op">.</span><span class="fu">fromDegrees</span><span class="op">(</span><span class="dv">45</span><span class="op">);</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>Rotation2d angleB <span class="op">=</span> Rotation2d<span class="op">.</span><span class="fu">fromDegrees</span><span class="op">(</span><span class="dv">10</span><span class="op">);</span></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>angleA<span class="op">.</span><span class="fu">plus</span><span class="op">(</span>angleB<span class="op">));</span> <span class="co">// Rotation2d(Rads: 0.96, Deg: 55.00)</span></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>angleA<span class="op">.</span><span class="fu">rotateBy</span><span class="op">(</span>angleB<span class="op">));</span> <span class="co">// Rotation2d(Rads: 0.96, Deg: 55.00)</span></span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>angleA<span class="op">.</span><span class="fu">minus</span><span class="op">(</span>angleB<span class="op">));</span> <span class="co">// Rotation2d(Rads: 0.61, Deg: 35.00)</span></span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>angleA<span class="op">.</span><span class="fu">rotateBy</span><span class="op">(</span>angleB<span class="op">.</span><span class="fu">unaryMinus</span><span class="op">()));</span> <span class="co">// Rotation2d(Rads: 0.61, Deg: 35.00)</span></span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>angleA<span class="op">.</span><span class="fu">unaryMinus</span><span class="op">());</span> <span class="co">// Rotation2d(Rads: -0.79, Deg: -45.00)</span></span>
+<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>angleB<span class="op">.</span><span class="fu">times</span><span class="op">(</span><span class="dv">2</span><span class="op">));</span> <span class="co">// Rotation2d(Rads: 0.35, Deg: 20.00)</span></span></code></pre></div>
+</section>
+<section id="pose" class="slide level2">
+<h2>Pose</h2>
+<p>Pose is a combination of both translation and rotation and is represented by the <a href="https://first.wpi.edu/wpilib/allwpilib/docs/release/java/edu/wpi/first/wpilibj/geometry/Pose2d.html"><code>Pose2d</code></a> class. It can be used to describe the pose of your robot in the field coordinate system, or the pose of objects, such as vision targets, relative to your robot in the robot coordinate system.</p>
+<div class="columns">
+<div class="column" style="width:35%;">
+<p><br />
+</p>
+<p><br />
+</p>
+<pre><code>  A = Pose2d(
+    Translation2d(X: 0.50, Y: 2.00),
+    Rotation2d(Rads: 0.00, Deg: 0.00)
+  )
+
+  transform = Transform2d(
+    Translation2d(X: 2.00, Y: 1.00),
+    Rotation2d(Rads: 0.79, Deg: 45.00)
+  )
+
+  B = Pose2d(
+    Translation2d(X: 2.50, Y: 3.00),
+    Rotation2d(Rads: 0.79, Deg: 45.00)
+  )</code></pre>
+</div><div class="column" style="width:65%;">
+<p><img data-src="img/geometry/pose.svg" style="width:100.0%" alt="pose" /><br />
+</p>
+</div>
+</div>
+</section></section>
 <section id="pathweaver-trajectory-json" class="title-slide slide level1">
 <h1>PathWeaver Trajectory JSON</h1>
 <p>PathWeaver exports built trajectories in this JSON format. These JSON files are deployed to the robot and loaded into a <code>Trajectory</code> at <code>robotInit()</code>.</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="ot">[</span></span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">{</span></span>
-<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;time&quot;</span><span class="fu">:</span> <span class="fl">0.0</span><span class="fu">,</span></span>
-<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;velocity&quot;</span><span class="fu">:</span> <span class="fl">0.0</span><span class="fu">,</span></span>
-<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;acceleration&quot;</span><span class="fu">:</span> <span class="fl">2.0</span><span class="fu">,</span></span>
-<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;pose&quot;</span><span class="fu">:</span> <span class="fu">{</span></span>
-<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&quot;translation&quot;</span><span class="fu">:</span> <span class="fu">{</span> <span class="dt">&quot;x&quot;</span><span class="fu">:</span> <span class="fl">1.0</span><span class="fu">,</span> <span class="dt">&quot;y&quot;</span><span class="fu">:</span> <span class="fl">6.21055</span> <span class="fu">},</span></span>
-<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&quot;rotation&quot;</span><span class="fu">:</span> <span class="fu">{</span> <span class="dt">&quot;radians&quot;</span><span class="fu">:</span> <span class="fl">0.0</span> <span class="fu">}</span></span>
-<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">},</span></span>
-<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;curvature&quot;</span><span class="fu">:</span> <span class="fl">0.0</span></span>
-<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">}</span><span class="ot">,</span></span>
-<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">{</span></span>
-<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;time&quot;</span><span class="fu">:</span> <span class="fl">0.1759540554030928</span><span class="fu">,</span></span>
-<span id="cb25-14"><a href="#cb25-14" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;velocity&quot;</span><span class="fu">:</span> <span class="fl">0.3519081108061856</span><span class="fu">,</span></span>
-<span id="cb25-15"><a href="#cb25-15" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;acceleration&quot;</span><span class="fu">:</span> <span class="fl">1.9999999999999987</span><span class="fu">,</span></span>
-<span id="cb25-16"><a href="#cb25-16" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;pose&quot;</span><span class="fu">:</span> <span class="fu">{</span></span>
-<span id="cb25-17"><a href="#cb25-17" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&quot;translation&quot;</span><span class="fu">:</span> <span class="fu">{</span> <span class="dt">&quot;x&quot;</span><span class="fu">:</span> <span class="fl">1.0309589505195618</span><span class="fu">,</span> <span class="dt">&quot;y&quot;</span><span class="fu">:</span> <span class="fl">6.2103166925191875</span> <span class="fu">},</span></span>
-<span id="cb25-18"><a href="#cb25-18" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&quot;rotation&quot;</span><span class="fu">:</span> <span class="fu">{</span> <span class="dt">&quot;radians&quot;</span><span class="fu">:</span> <span class="fl">-0.02267479979731116</span> <span class="fu">}</span></span>
-<span id="cb25-19"><a href="#cb25-19" aria-hidden="true" tabindex="-1"></a>    <span class="fu">},</span></span>
-<span id="cb25-20"><a href="#cb25-20" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;curvature&quot;</span><span class="fu">:</span> <span class="fl">-1.4861117623228608</span></span>
-<span id="cb25-21"><a href="#cb25-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">}</span></span>
-<span id="cb25-22"><a href="#cb25-22" aria-hidden="true" tabindex="-1"></a><span class="ot">]</span></span></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="ot">[</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">{</span></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;time&quot;</span><span class="fu">:</span> <span class="fl">0.0</span><span class="fu">,</span></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;velocity&quot;</span><span class="fu">:</span> <span class="fl">0.0</span><span class="fu">,</span></span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;acceleration&quot;</span><span class="fu">:</span> <span class="fl">2.0</span><span class="fu">,</span></span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;pose&quot;</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&quot;translation&quot;</span><span class="fu">:</span> <span class="fu">{</span> <span class="dt">&quot;x&quot;</span><span class="fu">:</span> <span class="fl">1.0</span><span class="fu">,</span> <span class="dt">&quot;y&quot;</span><span class="fu">:</span> <span class="fl">6.21055</span> <span class="fu">},</span></span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&quot;rotation&quot;</span><span class="fu">:</span> <span class="fu">{</span> <span class="dt">&quot;radians&quot;</span><span class="fu">:</span> <span class="fl">0.0</span> <span class="fu">}</span></span>
+<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">},</span></span>
+<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;curvature&quot;</span><span class="fu">:</span> <span class="fl">0.0</span></span>
+<span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">}</span><span class="ot">,</span></span>
+<span id="cb28-12"><a href="#cb28-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">{</span></span>
+<span id="cb28-13"><a href="#cb28-13" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;time&quot;</span><span class="fu">:</span> <span class="fl">0.1759540554030928</span><span class="fu">,</span></span>
+<span id="cb28-14"><a href="#cb28-14" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;velocity&quot;</span><span class="fu">:</span> <span class="fl">0.3519081108061856</span><span class="fu">,</span></span>
+<span id="cb28-15"><a href="#cb28-15" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;acceleration&quot;</span><span class="fu">:</span> <span class="fl">1.9999999999999987</span><span class="fu">,</span></span>
+<span id="cb28-16"><a href="#cb28-16" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;pose&quot;</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb28-17"><a href="#cb28-17" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&quot;translation&quot;</span><span class="fu">:</span> <span class="fu">{</span> <span class="dt">&quot;x&quot;</span><span class="fu">:</span> <span class="fl">1.0309589505195618</span><span class="fu">,</span> <span class="dt">&quot;y&quot;</span><span class="fu">:</span> <span class="fl">6.2103166925191875</span> <span class="fu">},</span></span>
+<span id="cb28-18"><a href="#cb28-18" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&quot;rotation&quot;</span><span class="fu">:</span> <span class="fu">{</span> <span class="dt">&quot;radians&quot;</span><span class="fu">:</span> <span class="fl">-0.02267479979731116</span> <span class="fu">}</span></span>
+<span id="cb28-19"><a href="#cb28-19" aria-hidden="true" tabindex="-1"></a>    <span class="fu">},</span></span>
+<span id="cb28-20"><a href="#cb28-20" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;curvature&quot;</span><span class="fu">:</span> <span class="fl">-1.4861117623228608</span></span>
+<span id="cb28-21"><a href="#cb28-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">}</span></span>
+<span id="cb28-22"><a href="#cb28-22" aria-hidden="true" tabindex="-1"></a><span class="ot">]</span></span></code></pre></div>
 <p>Each of the JSON objects represents a <code>Trajectory.State</code> object.</p>
 </section>
 
