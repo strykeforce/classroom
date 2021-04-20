@@ -169,6 +169,105 @@ Intuitively, the curvature describes for any part of a curve how much the curve 
 
 :::
 
+# Geometry{data-background-color="rgb(241, 186, 27)"}
+
+This section covers the geometry classes of WPILib.
+
+## Field Coordinate System
+
+The field coordinate system (or global coordinate system) is an absolute coordinate system where a point on the field is designated as the origin. Positive θ (theta) is in the counter-clockwise direction, and the positive x-axis points away from your alliance’s driver station wall, and the positive y-axis is perpendicular and to the left of the positive x-axis.
+
+![field coordinate system](img/geometry/field-system.svg){width=75%}\
+
+**Note:** The axes are shown at the middle of the field for visibility. The origins of the coordinate system for each alliance are shown next.
+
+## Field Coordinate System Origin
+
+Below is an example of a field coordinate system overlayed on the 2020 FRC field. The red axes shown are for the red alliance, and the blue axes shown are for the blue alliance.
+
+![infinite recharge](img/geometry/infinite-recharge.jpg)\
+
+## Robot Coordinate System
+
+The robot coordinate system (or local coordinate system) is a relative coordinate system where the robot is the origin. The direction the robot is facing is the positive x axis, and the positive y axis is perpendicular, to the left of the robot. Positive θ is counter-clockwise.
+
+![robot coordinate system](img/geometry/robot-system.svg){width=75%}\
+
+**Note:** WPILib’s `Gyro` class is clockwise-positive, so you have to invert the reading in order to get the rotation with either coordinate system.
+
+## Translation
+
+Translation in 2 dimensions is represented by WPILib’s [`Translation2d`](https://first.wpi.edu/wpilib/allwpilib/docs/release/java/edu/wpi/first/wpilibj/geometry/Translation2d.html) class. This class has an x and y component, representing the point (x, y).
+
+```java
+var pointA = Translation2d(1, 1);
+var pointB = Translation2d(3, 1);
+
+System.out.println(pointA.getDistance(pointB)); // 2.0
+
+// vector math
+System.out.println(pointB.times(2)) // Translation2d(X: 6.00, Y: 2.00)
+System.out.println(pointA.div(2)) // Translation2d(X: 0.50, Y: 0.50)
+System.out.println(pointB.unaryMinus()) // Translation2d(X: -3.00, Y: -1.00)
+
+System.out.println(pointA.plus(pointB)); // Translation2d(X: 4.00, Y: 2.00)
+System.out.println(pointB.minus(pointA)); // Translation2d(X: 2.00, Y: 0.00)
+
+System.out.println(pointA.rotateBy(Rotation2d.fromDegrees(-45))) // Translation2d(X: 1.41, Y: 0.00)
+```
+
+## Rotation
+
+Rotation in 2 dimensions is representated by WPILib’s [`Rotation2d`](https://first.wpi.edu/wpilib/allwpilib/docs/release/java/edu/wpi/first/wpilibj/geometry/Rotation2d.html) class. This class has an angle component, which represents the robot’s rotation relative to an axis on a 2-dimensional coordinate system. Positive rotations are counterclockwise.
+
+```java
+Rotation2d angleA = Rotation2d.fromDegrees(45);
+Rotation2d angleB = Rotation2d.fromDegrees(10);
+
+System.out.println(angleA.plus(angleB)); // Rotation2d(Rads: 0.96, Deg: 55.00)
+System.out.println(angleA.rotateBy(angleB)); // Rotation2d(Rads: 0.96, Deg: 55.00)
+
+System.out.println(angleA.minus(angleB)); // Rotation2d(Rads: 0.61, Deg: 35.00)
+System.out.println(angleA.rotateBy(angleB.unaryMinus())); // Rotation2d(Rads: 0.61, Deg: 35.00)
+
+System.out.println(angleA.unaryMinus()); // Rotation2d(Rads: -0.79, Deg: -45.00)
+System.out.println(angleB.times(2)); // Rotation2d(Rads: 0.35, Deg: 20.00)
+```
+
+## Pose
+
+Pose is a combination of both translation and rotation and is represented by the [`Pose2d`](https://first.wpi.edu/wpilib/allwpilib/docs/release/java/edu/wpi/first/wpilibj/geometry/Pose2d.html) class. It can be used to describe the pose of your robot in the field coordinate system, or the pose of objects, such as vision targets, relative to your robot in the robot coordinate system.
+
+::: {.columns}
+::: {.column width=35% }
+
+\
+
+\
+
+      A = Pose2d(
+        Translation2d(X: 0.50, Y: 2.00),
+        Rotation2d(Rads: 0.00, Deg: 0.00)
+      )
+
+      transform = Transform2d(
+        Translation2d(X: 2.00, Y: 1.00),
+        Rotation2d(Rads: 0.79, Deg: 45.00)
+      )
+
+      B = Pose2d(
+        Translation2d(X: 2.50, Y: 3.00),
+        Rotation2d(Rads: 0.79, Deg: 45.00)
+      )
+
+:::
+::: {.column width=65%}
+
+![pose](img/geometry/pose.svg){width=100%}\
+
+:::
+:::
+
 # PathWeaver Trajectory JSON
 
 PathWeaver exports built trajectories in this JSON format. These JSON files are deployed to the robot and loaded into a `Trajectory` at `robotInit()`.
