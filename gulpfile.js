@@ -24,6 +24,10 @@ const SLIDES = [
       "common/colophon.md",
     ],
   },
+  {
+    slug: "telemetry",
+    files: ["telemetry/index.md", "common/colophon.md"],
+  },
 ];
 
 const REVEALJS_SRC = "node_modules/reveal.js";
