@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Stryke Force">
+  <title>Third Coast Telemetry</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="../static/reveal.js/dist/reset.css">
+  <link rel="stylesheet" href="../static/reveal.js/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+      }
+    pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+    div.sourceCode
+      { color: #cccccc; background-color: #303030; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ffcfaf; } /* Alert */
+    code span.an { color: #7f9f7f; font-weight: bold; } /* Annotation */
+    code span.at { } /* Attribute */
+    code span.bn { color: #dca3a3; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #f0dfaf; } /* ControlFlow */
+    code span.ch { color: #dca3a3; } /* Char */
+    code span.cn { color: #dca3a3; font-weight: bold; } /* Constant */
+    code span.co { color: #7f9f7f; } /* Comment */
+    code span.cv { color: #7f9f7f; font-weight: bold; } /* CommentVar */
+    code span.do { color: #7f9f7f; } /* Documentation */
+    code span.dt { color: #dfdfbf; } /* DataType */
+    code span.dv { color: #dcdccc; } /* DecVal */
+    code span.er { color: #c3bf9f; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #c0bed1; } /* Float */
+    code span.fu { color: #efef8f; } /* Function */
+    code span.im { } /* Import */
+    code span.in { color: #7f9f7f; font-weight: bold; } /* Information */
+    code span.kw { color: #f0dfaf; } /* Keyword */
+    code span.op { color: #f0efd0; } /* Operator */
+    code span.ot { color: #efef8f; } /* Other */
+    code span.pp { color: #ffcfaf; font-weight: bold; } /* Preprocessor */
+    code span.sc { color: #dca3a3; } /* SpecialChar */
+    code span.ss { color: #cc9393; } /* SpecialString */
+    code span.st { color: #cc9393; } /* String */
+    code span.va { } /* Variable */
+    code span.vs { color: #cc9393; } /* VerbatimString */
+    code span.wa { color: #7f9f7f; font-weight: bold; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="../static/reveal.js/dist/theme/white.css" id="theme">
+  <link rel="stylesheet" href="../static/css/classroom.css"/>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" data-background-color="rgb(241, 186, 27)">
+  <h1 class="title">Third Coast Telemetry</h1>
+  <p class="author">Stryke Force</p>
+</section>
+
+<section>
+<section id="telemetry-checklist" class="title-slide slide level1">
+<h1>Telemetry Checklist</h1>
+<ol type="1">
+<li><a href="#/add-third-coast-library">Add Third Coast library</a> (<code>thirdcoast.json</code>) to robot project’s <code>vendordeps</code> library.</li>
+<li><a href="#/set-up-telemetry-service">Set up Telemetry Service</a> in the <code>RobotContainer</code> class.</li>
+<li><a href="#/register-measurable-devices">Register measurable devices</a> to be graphed.</li>
+<li><a href="#/register-measurable-subsystems">Register measurable subsystems</a> to be graphed.</li>
+<li>Fire up the Grapher and start measuring.</li>
+</ol>
+</section>
+<section id="add-third-coast-library" class="slide level2">
+<h2>Add Third Coast Library</h2>
+<p>If you haven’t already, add the most recent version of Third Coast Java library to the robot project.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">./gradlew</span> vendordep <span class="at">--url</span><span class="op">=</span>http://maven.strykeforce.org/thirdcoast.json</span></code></pre></div>
+</section>
+<section id="set-up-telemetry-service" class="slide level2">
+<h2>Set up Telemetry Service</h2>
+<p>The <code>RobotContainer</code> class constructor is the usual place for this.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode java"><code class="sourceCode java"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="fu">RobotContainer</span><span class="op">()</span> <span class="op">{</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">// configure buttons, etc...</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    telemetry<span class="op">.</span><span class="fu">register</span><span class="op">(</span>driveSubsystem<span class="op">);</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    telemetry<span class="op">.</span><span class="fu">start</span><span class="op">();</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+</section>
+<section id="register-measurable-devices" class="slide level2">
+<h2>Register Measurable Devices</h2>
+<p>Much of the hardware we commonly use have pre-configured measurements ready to go. For example, we can choose to register a subsystem’s Talon for graphing.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode java"><code class="sourceCode java"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="fu">ClawSubsystem</span><span class="op">(</span>TelemetryService telemetryService<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    servo <span class="op">=</span> <span class="kw">new</span> <span class="fu">Servo</span><span class="op">(</span><span class="dv">1</span><span class="op">);</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    telemetryService<span class="op">.</span><span class="fu">register</span><span class="op">(</span><span class="kw">new</span> <span class="fu">ServoMeasurable</span><span class="op">(</span>clawServo<span class="op">));</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>The Third Coast library’s <code>org.strykeforce.telemetry.measurable</code> package has pre-configured <code>Measurable</code> implementations set up for: Canifiers, digital inputs, digital outputs, Pigeon IMUs, power distribution panel, servos, TalonFX, TalonSRX, and ultrasonic rangefinders. Since Talons are so commonly used, we have a convenience method that takes a Talon object directly.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode java"><code class="sourceCode java"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>telemetryService<span class="op">.</span><span class="fu">register</span><span class="op">(</span>talon<span class="op">);</span></span></code></pre></div>
+</section>
+<section id="register-measurable-subsystems" class="slide level2">
+<h2>Register Measurable Subsystems</h2>
+<p>It is very common to want to graph the internal state of a subsystem. It’s easy to do using our <code>MeasurableSubsystem</code> as the base class for your subsystem. Just override and implement the <code>getMeasures()</code> method with your desired measurements.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode java"><code class="sourceCode java"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> DriveSubsystem <span class="kw">extends</span> MeasurableSubsystem <span class="op">{</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="co">// rest of subsystem...</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">@Override</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="kw">public</span> <span class="bu">Set</span><span class="op">&lt;</span>Measure<span class="op">&gt;</span> <span class="fu">getMeasures</span><span class="op">()</span> <span class="op">{</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>      <span class="cf">return</span> <span class="bu">Set</span><span class="op">.</span><span class="fu">of</span><span class="op">(</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>          <span class="kw">new</span> <span class="fu">Measure</span><span class="op">(</span><span class="st">&quot;Trajectory Distance&quot;</span><span class="op">,</span> <span class="kw">this</span><span class="op">::</span>getTrajectoryDistance<span class="op">),</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>          <span class="kw">new</span> <span class="fu">Measure</span><span class="op">(</span><span class="st">&quot;Actual Distance&quot;</span><span class="op">,</span> <span class="kw">this</span><span class="op">::</span>getActualDistance<span class="op">),</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>          <span class="kw">new</span> <span class="fu">Measure</span><span class="op">(</span><span class="st">&quot;Robot Yaw Angle&quot;</span><span class="op">,</span> <span class="op">()</span> <span class="op">-&gt;</span> <span class="fu">getRobotYawAngle</span><span class="op">().</span><span class="fu">getDegrees</span><span class="op">())</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>      <span class="op">);</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+</section></section>
+<section id="colophon" class="title-slide slide level1" data-background-color="rgb(0, 0, 0)">
+<h1 data-background-color="rgb(0, 0, 0)">Colophon</h1>
+<div class="columns">
+<div class="column" style="width:33%;">
+<p><img data-src="../common/img/logo/markdown.svg" style="width:50.0%" alt="Markdown" /><br />
+<a href="https://pandoc.org/index.html">Pandoc</a> converts Markdown to slide format</p>
+</div><div class="column" style="width:33%;">
+<p><img data-src="../common/img/logo/reveal.svg" style="width:80.0%" alt="Reveal" /><br />
+<a href="https://revealjs.com">Reveal.js</a> is the HTML presentation framework</p>
+</div><div class="column" style="width:33%;">
+<p><img data-src="../common/img/logo/gulp.svg" style="width:50.0%" alt="Reveal" /><br />
+<a href="https://gulpjs.com">Gulp</a> automates our workflow and build pipeline</p>
+</div>
+</div>
+</section>
+    </div>
+  </div>
+
+  <script src="../static/reveal.js/dist/reveal.js"></script>
+
+  <!-- reveal.js plugins -->
+  <script src="../static/reveal.js/plugin/notes/notes.js"></script>
+  <script src="../static/reveal.js/plugin/search/search.js"></script>
+  <script src="../static/reveal.js/plugin/zoom/zoom.js"></script>
+  <script src="../static/reveal.js/plugin/math/math.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+      
+        // Push each slide change to the browser history
+        history: true,
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1843.1999999999998,
+        height: 1152,
+        // Factor of the display size that should remain empty around the content
+        margin: 0.08,
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    </body>
+</html>
