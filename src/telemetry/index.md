@@ -52,7 +52,7 @@ telemetryService.register(talon);
 
 ## Register Measurable Subsystems
 
-It is very common to want to graph the internal state of a subsystem. It's easy to do using our `MeasurableSubsystem` as the base class for your subsystem. Just override and implement the `getMeasures()` method with your desired measurements.
+It's common to want to graph the internal state of a subsystem and is easy to do using our `MeasurableSubsystem` as the base class for your subsystem. Just override and implement the `getMeasures()` method with your desired measurements.
 
 ```java
 public class DriveSubsystem extends MeasurableSubsystem {
@@ -68,3 +68,11 @@ public class DriveSubsystem extends MeasurableSubsystem {
   }
 }
 ```
+
+---
+
+This results in the grapher configuration show below.
+
+\
+
+![grapher configuration](img/grapher_parameter_selection.png)\
