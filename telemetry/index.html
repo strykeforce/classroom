@@ -129,7 +129,7 @@
 </section>
 <section id="register-measurable-subsystems" class="slide level2">
 <h2>Register Measurable Subsystems</h2>
-<p>It is very common to want to graph the internal state of a subsystem. It’s easy to do using our <code>MeasurableSubsystem</code> as the base class for your subsystem. Just override and implement the <code>getMeasures()</code> method with your desired measurements.</p>
+<p>It’s common to want to graph the internal state of a subsystem and is easy to do using our <code>MeasurableSubsystem</code> as the base class for your subsystem. Just override and implement the <code>getMeasures()</code> method with your desired measurements.</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode java"><code class="sourceCode java"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> DriveSubsystem <span class="kw">extends</span> MeasurableSubsystem <span class="op">{</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="co">// rest of subsystem...</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -142,6 +142,14 @@
 <span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>      <span class="op">);</span></span>
 <span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
 <span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+</section>
+<section class="slide level2">
+
+<p>This results in the grapher configuration show below.</p>
+<p><br />
+</p>
+<p><img data-src="img/grapher_parameter_selection.png" alt="grapher configuration" /><br />
+</p>
 </section></section>
 <section id="colophon" class="title-slide slide level1" data-background-color="rgb(0, 0, 0)">
 <h1 data-background-color="rgb(0, 0, 0)">Colophon</h1>
