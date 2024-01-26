@@ -28,6 +28,10 @@ const SLIDES = [
     slug: "telemetry",
     files: ["telemetry/index.md", "common/colophon.md"],
   },
+  {
+    slug: "olympics",
+    files: ["olympics/index.md", "common/colophon.md"],
+  },
 ];
 
 const REVEALJS_SRC = "node_modules/reveal.js";
